@@ -1,0 +1,44 @@
+<webapp-structure>
+  <registeredFiles>
+    <entry>
+      <string>currentBuild</string>
+      <path-set>
+        <pathsSet class="linked-hash-set">
+          <string>css/estilos.css</string>
+          <string>css/fuente.css</string>
+          <string>css/pantalla.css</string>
+          <string>EncuestaRegistroDatos.html</string>
+          <string>EncuestaRegistroEleccion.html</string>
+          <string>EncuestaRegistroPregunta2.html</string>
+          <string>images/normal/btnAgregar.jpg</string>
+          <string>images/normal/btnCancelar.jpg</string>
+          <string>images/normal/btnEliminar.jpg</string>
+          <string>images/normal/btnGuardar.jpg</string>
+          <string>images/normal/btnIngresar.jpg</string>
+          <string>images/normal/btnModificar.jpg</string>
+          <string>images/normal/btnNuevo.jpg</string>
+          <string>images/normal/Thumbs.db</string>
+          <string>images/roll/btnAgregar.jpg</string>
+          <string>images/roll/btnCancelar.jpg</string>
+          <string>images/roll/btnEliminar.jpg</string>
+          <string>images/roll/btnGuardar.jpg</string>
+          <string>images/roll/btnIngresar.jpg</string>
+          <string>images/roll/btnModificar.jpg</string>
+          <string>images/roll/btnNuevo.jpg</string>
+          <string>images/roll/Thumbs.db</string>
+          <string>index.jsp</string>
+          <string>js/jquery.js</string>
+          <string>MantenimientoUsuarios.html</string>
+          <string>META-INF/context.xml</string>
+          <string>WEB-INF/untitled.html</string>
+          <string>WEB-INF/web.xml</string>
+          <string>WEB-INF/classes/pe/edu/upc/dew/proyectoencuestas/model/Cuestionario.class</string>
+          <string>WEB-INF/classes/pe/edu/upc/dew/proyectoencuestas/model/Encuesta.class</string>
+          <string>WEB-INF/classes/pe/edu/upc/dew/proyectoencuestas/model/Opcion.class</string>
+          <string>WEB-INF/classes/pe/edu/upc/dew/proyectoencuestas/model/Pregunta.class</string>
+          <string>WEB-INF/classes/pe/edu/upc/dew/proyectoencuestas/model/Respuesta.class</string>
+        </pathsSet>
+      </path-set>
+    </entry>
+  </registeredFiles>
+</webapp-structure>
