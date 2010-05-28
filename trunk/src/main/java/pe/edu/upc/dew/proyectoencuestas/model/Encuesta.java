@@ -11,10 +11,19 @@ package pe.edu.upc.dew.proyectoencuestas.model;
  */
 public class Encuesta {
 
+    private Integer idEncuesta;
     private String nombre;
     private String fechaInicio;
     private String fechaFin;
     private Integer muestra;
+
+    public void setIdEncuesta(Integer idEncuesta) {
+        this.idEncuesta = idEncuesta;
+    }
+
+    public Integer getIdEncuesta() {
+        return idEncuesta;
+    }
 
     public void setFechaFin(String fechaFin) {
         this.fechaFin = fechaFin;
