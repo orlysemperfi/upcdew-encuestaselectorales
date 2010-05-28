@@ -7,9 +7,34 @@
           <string>css/estilos.css</string>
           <string>css/fuente.css</string>
           <string>css/pantalla.css</string>
-          <string>EncuestaRegistroDatos.html</string>
           <string>EncuestaRegistroEleccion.html</string>
           <string>EncuestaRegistroPregunta2.html</string>
+          <string>EncuestaRegistroPregunta3.html</string>
+          <string>EncuestaRegistroPregunta4.html</string>
+          <string>images/iconos/address-book.gif</string>
+          <string>images/iconos/delete.gif</string>
+          <string>images/iconos/search.gif</string>
+          <string>images/images/iconos/address-book.gif</string>
+          <string>images/images/iconos/delete.gif</string>
+          <string>images/images/iconos/search.gif</string>
+          <string>images/images/normal/btnAgregar.jpg</string>
+          <string>images/images/normal/btnCancelar.jpg</string>
+          <string>images/images/normal/btnEliminar.jpg</string>
+          <string>images/images/normal/btnGuardar.jpg</string>
+          <string>images/images/normal/btnIngresar.jpg</string>
+          <string>images/images/normal/btnModificar.jpg</string>
+          <string>images/images/normal/btnNuevo.jpg</string>
+          <string>images/images/normal/Thumbs.db</string>
+          <string>images/images/reporte1.jpg</string>
+          <string>images/images/reporte2.jpg</string>
+          <string>images/images/roll/btnAgregar.jpg</string>
+          <string>images/images/roll/btnCancelar.jpg</string>
+          <string>images/images/roll/btnEliminar.jpg</string>
+          <string>images/images/roll/btnGuardar.jpg</string>
+          <string>images/images/roll/btnIngresar.jpg</string>
+          <string>images/images/roll/btnModificar.jpg</string>
+          <string>images/images/roll/btnNuevo.jpg</string>
+          <string>images/images/roll/Thumbs.db</string>
           <string>images/normal/btnAgregar.jpg</string>
           <string>images/normal/btnCancelar.jpg</string>
           <string>images/normal/btnEliminar.jpg</string>
@@ -18,6 +43,8 @@
           <string>images/normal/btnModificar.jpg</string>
           <string>images/normal/btnNuevo.jpg</string>
           <string>images/normal/Thumbs.db</string>
+          <string>images/reporte1.jpg</string>
+          <string>images/reporte2.jpg</string>
           <string>images/roll/btnAgregar.jpg</string>
           <string>images/roll/btnCancelar.jpg</string>
           <string>images/roll/btnEliminar.jpg</string>
@@ -28,8 +55,10 @@
           <string>images/roll/Thumbs.db</string>
           <string>index.jsp</string>
           <string>js/jquery.js</string>
+          <string>listadoencuestas.htm</string>
           <string>MantenimientoUsuarios.html</string>
           <string>META-INF/context.xml</string>
+          <string>reporte.htm</string>
           <string>WEB-INF/untitled.html</string>
           <string>WEB-INF/web.xml</string>
           <string>WEB-INF/classes/pe/edu/upc/dew/proyectoencuestas/model/Cuestionario.class</string>
@@ -37,6 +66,7 @@
           <string>WEB-INF/classes/pe/edu/upc/dew/proyectoencuestas/model/Opcion.class</string>
           <string>WEB-INF/classes/pe/edu/upc/dew/proyectoencuestas/model/Pregunta.class</string>
           <string>WEB-INF/classes/pe/edu/upc/dew/proyectoencuestas/model/Respuesta.class</string>
+          <string>WEB-INF/classes/pe/edu/upc/dew/proyectoencuestas/model/Usuario.class</string>
         </pathsSet>
       </path-set>
     </entry>
