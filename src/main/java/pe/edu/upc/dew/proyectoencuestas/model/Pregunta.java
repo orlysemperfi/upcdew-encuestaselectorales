@@ -13,7 +13,50 @@ import java.util.List;
  */
 public class Pregunta {
 
-    public String nombre;
+    public Integer idPregunta;
+    public String descripcion;
     public List<Opcion> opciones;
+    public String tipo;
+    public Integer orden;
+
+    public void setOrden(Integer orden) {
+        this.orden = orden;
+    }
+
+    public Integer getOrden() {
+        return orden;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public void setIdPregunta(Integer idPregunta) {
+        this.idPregunta = idPregunta;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setOpciones(List<Opcion> opciones) {
+        this.opciones = opciones;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public Integer getIdPregunta() {
+        return idPregunta;
+    }
+
+    public List<Opcion> getOpciones() {
+        return opciones;
+    }
 
 }
