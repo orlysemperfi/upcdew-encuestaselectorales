@@ -108,108 +108,7 @@ function http_request() {
 	}
 	return xmlhttp;
 }
-//---------------------------------------
-/*function f_inicio()
-{
- ajax=http_request();
-	var valores;	
-	valores= "hoja=1";  // parametros a enviar al servidor	 ;  // parametros a enviar al servidor	
-	
-	 url="principal.asp";  
-		
-	document.getElementById("detalles").innerHTML ='';
-	
-	ajax.open ('POST', url, true);
-    ajax.onreadystatechange = function() {
-         if (ajax.readyState==1) {
-                 document.getElementById("detalles").innerHTML ="<BR><BR><BR><CENTER><img src='images/cargando.gif'></img></CENTER>";
-         }
-         else if (ajax.readyState==4){
-            if(ajax.status==200){
-					document.getElementById("detalles").innerHTML =ajax.responseText;
-					VerAct2('12');
 
-            }
-            else if(ajax.status==404){
-                     document.getElementById("detalles").innerHTML = "La direccion buscada no existe o no esta disponible temporalmente";
-            }
-            else{
-
-                     document.getElementById("detalles").innerHTML = ajax.responseText;					 
-            }
-        }
-    }
-    ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-    ajax.send(valores);
-   return;	
-}*/
-
-/*function f_contac()
-{
- ajax=http_request();
-	var valores;	
-	valores= "hoja=1";  // parametros a enviar al servidor	 
-		
-	url="contactenos.asp";  
-		
-	document.getElementById("detalles").innerHTML ='';
-	
-	ajax.open ('POST', url, true);
-    ajax.onreadystatechange = function() {
-         if (ajax.readyState==1) {
-                 document.getElementById("detalles").innerHTML ="<BR><BR><BR><CENTER><img src='images/cargando.gif'></img></CENTER>";
-         }
-         else if (ajax.readyState==4){
-            if(ajax.status==200){
-					document.getElementById("detalles").innerHTML =ajax.responseText;
-            }
-            else if(ajax.status==404){
-                     document.getElementById("detalles").innerHTML = "La direccion buscada no existe o no esta disponible temporalmente";
-            }
-            else{
-
-                     document.getElementById("detalles").innerHTML = ajax.responseText;					 
-            }
-        }
-    }
-    ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-    ajax.send(valores);
-   return;	
-}
-
-
-function f_info()
-{
- ajax=http_request();
-	var valores;	
-	valores= "hoja=1";  // parametros a enviar al servidor	 
-		
-	url="informativo.asp";  
-		
-	document.getElementById("detalles").innerHTML ='';
-	
-	ajax.open ('POST', url, true);
-    ajax.onreadystatechange = function() {
-         if (ajax.readyState==1) {
-                 document.getElementById("detalles").innerHTML ="<BR><BR><BR><CENTER><img src='images/cargando.gif'></img></CENTER>";
-         }
-         else if (ajax.readyState==4){
-            if(ajax.status==200){
-					document.getElementById("detalles").innerHTML =ajax.responseText;
-            }
-            else if(ajax.status==404){
-                     document.getElementById("detalles").innerHTML = "La direccion buscada no existe o no esta disponible temporalmente";
-            }
-            else{
-
-                     document.getElementById("detalles").innerHTML = ajax.responseText;					 
-            }
-        }
-    }
-    ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-    ajax.send(valores);
-   return;	
-}*/
 //crear una fucnion por cada llamada
 function f_fotos3()
 {
@@ -377,6 +276,7 @@ function f_fotos44()
 }
 
 
+
 function f_fotos45()
 {
  ajax=http_request();
@@ -409,6 +309,7 @@ function f_fotos45()
     ajax.send(valores);
    return;	
 }
+
 
 
 function f_moni_1()
@@ -557,6 +458,12 @@ function f_moni_4()
 	win = window.open(pagina,'','toolbar=no,statusbar=no,titlebar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=360,top=250,left=250');
 	}
 	
+	function abrir3(){	 		
+	pagina = "EncuestaRegistroPreguntaFinal.html";
+	//win = window.open(pagina,'','Toolbar=no');		
+	win = window.open(pagina,'','toolbar=no,statusbar=no,titlebar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=500,height=200,top=250,left=250');
+	}
+	
 function f_fotos1()
 {
  ajax=http_request();
@@ -624,6 +531,138 @@ function f_fotos2()
 }
 
 
+function f_fotos21()
+{
+ ajax=http_request();
+	var valores;	
+	valores= "hoja=1";  // parametros a enviar al servidor	 
+		
+	url="EncuestaRegistroPregunta2.html";  
+		
+	document.getElementById("detalles").innerHTML ='';
+	
+	ajax.open ('POST', url, true);
+    ajax.onreadystatechange = function() {
+         if (ajax.readyState==1) {
+                 document.getElementById("detalles").innerHTML ="<BR><BR><BR><CENTER><img src='images/cargando.gif'></img></CENTER>";
+         }
+         else if (ajax.readyState==4){
+            if(ajax.status==200){
+					document.getElementById("detalles").innerHTML =ajax.responseText;
+            }
+            else if(ajax.status==404){
+                     document.getElementById("detalles").innerHTML = "La direccion buscada no existe o no esta disponible temporalmente";
+            }
+            else{
+
+                     document.getElementById("detalles").innerHTML = ajax.responseText;					 
+            }
+        }
+    }
+    ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    ajax.send(valores);
+   return;	
+}
+
+function f_fotos22()
+{
+ ajax=http_request();
+	var valores;	
+	valores= "hoja=1";  // parametros a enviar al servidor	 
+		
+	url="EncuestaRegistroPregunta3.html";  
+		
+	document.getElementById("detalles").innerHTML ='';
+	
+	ajax.open ('POST', url, true);
+    ajax.onreadystatechange = function() {
+         if (ajax.readyState==1) {
+                 document.getElementById("detalles").innerHTML ="<BR><BR><BR><CENTER><img src='images/cargando.gif'></img></CENTER>";
+         }
+         else if (ajax.readyState==4){
+            if(ajax.status==200){
+					document.getElementById("detalles").innerHTML =ajax.responseText;
+            }
+            else if(ajax.status==404){
+                     document.getElementById("detalles").innerHTML = "La direccion buscada no existe o no esta disponible temporalmente";
+            }
+            else{
+
+                     document.getElementById("detalles").innerHTML = ajax.responseText;					 
+            }
+        }
+    }
+    ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    ajax.send(valores);
+   return;	
+}
+
+function f_fotos23()
+{
+ ajax=http_request();
+	var valores;	
+	valores= "hoja=1";  // parametros a enviar al servidor	 
+		
+	url="EncuestaRegistroPregunta4.html";  
+		
+	document.getElementById("detalles").innerHTML ='';
+	
+	ajax.open ('POST', url, true);
+    ajax.onreadystatechange = function() {
+         if (ajax.readyState==1) {
+                 document.getElementById("detalles").innerHTML ="<BR><BR><BR><CENTER><img src='images/cargando.gif'></img></CENTER>";
+         }
+         else if (ajax.readyState==4){
+            if(ajax.status==200){
+					document.getElementById("detalles").innerHTML =ajax.responseText;
+            }
+            else if(ajax.status==404){
+                     document.getElementById("detalles").innerHTML = "La direccion buscada no existe o no esta disponible temporalmente";
+            }
+            else{
+
+                     document.getElementById("detalles").innerHTML = ajax.responseText;					 
+            }
+        }
+    }
+    ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    ajax.send(valores);
+   return;	
+}
+
+function f_fotos24()
+{
+ ajax=http_request();
+	var valores;	
+	valores= "hoja=1";  // parametros a enviar al servidor	 
+		
+	url="EncuestaRegistroPreguntaFinal.html";  
+		
+	document.getElementById("detalles").innerHTML ='';
+	
+	ajax.open ('POST', url, true);
+    ajax.onreadystatechange = function() {
+         if (ajax.readyState==1) {
+                 document.getElementById("detalles").innerHTML ="<BR><BR><BR><CENTER><img src='images/cargando.gif'></img></CENTER>";
+         }
+         else if (ajax.readyState==4){
+            if(ajax.status==200){
+					document.getElementById("detalles").innerHTML =ajax.responseText;
+            }
+            else if(ajax.status==404){
+                     document.getElementById("detalles").innerHTML = "La direccion buscada no existe o no esta disponible temporalmente";
+            }
+            else{
+
+                     document.getElementById("detalles").innerHTML = ajax.responseText;					 
+            }
+        }
+    }
+    ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    ajax.send(valores);
+   return;	
+}
+
 
 /*function f_limpiar()
 {
@@ -689,7 +728,12 @@ $(this).attr("src", "images/normal/"+nombre+".jpg");
         <td class="td5"><img src="images/OpEncuesta.jpg" width="200" height="19" /></td>
       </tr>
       <tr>
-        <td><img src="images/icono.jpg" width="13" height="15" /><a href="#" class="enlaces" onclick="f_fotos2();">Registo de Encuesta</a><br />
+        <td><img src="images/icono.jpg" width="13" height="15" /><a href="#" class="enlaces" onclick="f_fotos2();">Pregunta01</a><br />
+		
+		<img src="images/icono.jpg" width="13" height="15" /><a href="#" class="enlaces" onclick="f_fotos21();">Pregunta02</a><br />
+<img src="images/icono.jpg" width="13" height="15" /><a href="#" class="enlaces" onclick="f_fotos22();">Pregunta03</a><br />		
+
+<img src="images/icono.jpg" width="13" height="15" /><a href="#" class="enlaces" onclick="f_fotos23();">Pregunta04</a><br />		
          </td>
       </tr>
       <tr>
@@ -703,10 +747,11 @@ $(this).attr("src", "images/normal/"+nombre+".jpg");
         <td class="td5"><img src="images/OpReportes.jpg" width="200" height="19" /></td>
       </tr>
       <tr>
-        <td><img src="images/icono.jpg" width="13" height="15" /><a href="#" class="enlaces" onclick="f_fotos41();">Reporte 01</a><br />
-          <img src="images/icono.jpg" width="13" height="15" /><a href="" class="enlaces" onclick="f_fotos42();">Reporte 02</a><br />
-		  <img src="images/icono.jpg" width="13" height="15" /><a href="" class="enlaces" onclick="f_fotos43();">Reporte 03</a><br />
-		  <img src="images/icono.jpg" width="13" height="15" /><a href="" class="enlaces" onclick="f_fotos44();">Reporte 04</a><br />
+        <td><img src="images/icono.jpg" width="13" height="15" /><a href="#" class="enlaces" onclick="f_fotos41();">Encuestas</a><br />
+          <img src="images/icono.jpg" width="13" height="15" /><a href="#" class="enlaces" onclick="f_fotos42();">Reporte 01</a><br />
+		  <img src="images/icono.jpg" width="13" height="15" /><a href="#" class="enlaces" onclick="f_fotos43();">Reporte 02</a><br />
+		  <img src="images/icono.jpg" width="13" height="15" /><a href="#" class="enlaces" onclick="f_fotos44();">Reporte 03</a><br />
+		  <img src="images/icono.jpg" width="13" height="15" /><a href="#" class="enlaces" onclick="f_fotos45();">Reporte 04</a><br />
 		  </td>
       </tr>
     </table></td>
