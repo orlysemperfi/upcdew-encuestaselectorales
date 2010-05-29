@@ -13,25 +13,34 @@ import java.util.List;
  */
 public class Cuestionario {
 
-    private Integer cuestionarioId;
+    private Integer idCuestionario;
+    private Encuesta encuesta;
     private String titulo;
-    private List<Pregunta> preguntas;
 
-    public void setCuestionarioId(Integer cuestionarioId) {
-        this.cuestionarioId = cuestionarioId;
+    public Integer getIdCuestionario() {
+        return idCuestionario;
     }
 
+    public void setIdCuestionario(Integer idCuestionario) {
+        this.idCuestionario = idCuestionario;
+    }
+    private List<Pregunta> preguntas;
+
+    public void setEncuesta(Encuesta encuesta) {
+        this.encuesta = encuesta;
+    }
+
+    public Encuesta getEncuesta() {
+        return encuesta;
+    }
+   
     public void setPreguntas(List<Pregunta> preguntas) {
         this.preguntas = preguntas;
     }
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
-    }
-
-    public Integer getCuestionarioId() {
-        return cuestionarioId;
-    }
+    }  
 
     public List<Pregunta> getPreguntas() {
         return preguntas;
