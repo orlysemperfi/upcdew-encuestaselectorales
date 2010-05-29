@@ -13,11 +13,20 @@ import java.util.List;
  */
 public class Pregunta {
 
-    public Integer idPregunta;
-    public String descripcion;
-    public List<Opcion> opciones;
-    public String tipo;
-    public Integer orden;
+    private Integer idPregunta;
+    private String descripcion;
+    private List<Opcion> opciones;
+    private String tipo;
+    private String tipoGrafico;
+    private Integer orden;
+
+    public void setTipoGrafico(String tipoGrafico) {
+        this.tipoGrafico = tipoGrafico;
+    }
+
+    public String getTipoGrafico() {
+        return tipoGrafico;
+    }
 
     public void setOrden(Integer orden) {
         this.orden = orden;
