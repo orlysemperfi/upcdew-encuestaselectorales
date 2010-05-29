@@ -1,0 +1,535 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="js/jquery.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="css/estilos.css">
+<link rel="stylesheet" type="text/css" href="css/pantalla.css">
+<link rel="stylesheet" type="text/css" href="css/fuente.css">
+<title>Untitled Document</title>
+</head>
+
+<body>
+
+<script>
+//if (history.forward(1)){location.replace(history.forward(1))} 
+function VerAct(ident)
+{	
+   for (i = 1; i < 14; i++) {
+     var c = String("Act"+i);		
+	  if (ident == i){
+	   if (document.getElementById(c).style.display=='block' )
+	   {
+	     document.getElementById(c).style.display='none'		
+	   } else
+	   {		 
+		document.getElementById(c).style.display='block'
+	   }	
+	   } 
+	}			
+}
+function VerAct2(ident)
+{	
+  
+	  if (ident == '14'){
+	   if (document.getElementById("Act12").style.display=='block' )
+	   {
+	     document.getElementById("Act12").style.display='block'		
+	   } else
+	   {		 
+		document.getElementById("Act12").style.display='block'
+	   }	
+	   } 
+				
+}
+
+
+
+function http_request() {
+	try {
+		xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+	} catch (e) {
+		try {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		} catch (E) {
+			xmlhttp = false;
+		}
+	}
+	if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
+		xmlhttp = new XMLHttpRequest();
+	}
+	return xmlhttp;
+}
+//---------------------------------------
+/*function f_inicio()
+{
+ ajax=http_request();
+	var valores;	
+	valores= "hoja=1";  // parametros a enviar al servidor	 ;  // parametros a enviar al servidor	
+	
+	 url="principal.asp";  
+		
+	document.getElementById("detalles").innerHTML ='';
+	
+	ajax.open ('POST', url, true);
+    ajax.onreadystatechange = function() {
+         if (ajax.readyState==1) {
+                 document.getElementById("detalles").innerHTML ="<BR><BR><BR><CENTER><img src='images/cargando.gif'></img></CENTER>";
+         }
+         else if (ajax.readyState==4){
+            if(ajax.status==200){
+					document.getElementById("detalles").innerHTML =ajax.responseText;
+					VerAct2('12');
+
+            }
+            else if(ajax.status==404){
+                     document.getElementById("detalles").innerHTML = "La direccion buscada no existe o no esta disponible temporalmente";
+            }
+            else{
+
+                     document.getElementById("detalles").innerHTML = ajax.responseText;					 
+            }
+        }
+    }
+    ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    ajax.send(valores);
+   return;	
+}*/
+
+/*function f_contac()
+{
+ ajax=http_request();
+	var valores;	
+	valores= "hoja=1";  // parametros a enviar al servidor	 
+		
+	url="contactenos.asp";  
+		
+	document.getElementById("detalles").innerHTML ='';
+	
+	ajax.open ('POST', url, true);
+    ajax.onreadystatechange = function() {
+         if (ajax.readyState==1) {
+                 document.getElementById("detalles").innerHTML ="<BR><BR><BR><CENTER><img src='images/cargando.gif'></img></CENTER>";
+         }
+         else if (ajax.readyState==4){
+            if(ajax.status==200){
+					document.getElementById("detalles").innerHTML =ajax.responseText;
+            }
+            else if(ajax.status==404){
+                     document.getElementById("detalles").innerHTML = "La direccion buscada no existe o no esta disponible temporalmente";
+            }
+            else{
+
+                     document.getElementById("detalles").innerHTML = ajax.responseText;					 
+            }
+        }
+    }
+    ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    ajax.send(valores);
+   return;	
+}
+
+
+function f_info()
+{
+ ajax=http_request();
+	var valores;	
+	valores= "hoja=1";  // parametros a enviar al servidor	 
+		
+	url="informativo.asp";  
+		
+	document.getElementById("detalles").innerHTML ='';
+	
+	ajax.open ('POST', url, true);
+    ajax.onreadystatechange = function() {
+         if (ajax.readyState==1) {
+                 document.getElementById("detalles").innerHTML ="<BR><BR><BR><CENTER><img src='images/cargando.gif'></img></CENTER>";
+         }
+         else if (ajax.readyState==4){
+            if(ajax.status==200){
+					document.getElementById("detalles").innerHTML =ajax.responseText;
+            }
+            else if(ajax.status==404){
+                     document.getElementById("detalles").innerHTML = "La direccion buscada no existe o no esta disponible temporalmente";
+            }
+            else{
+
+                     document.getElementById("detalles").innerHTML = ajax.responseText;					 
+            }
+        }
+    }
+    ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    ajax.send(valores);
+   return;	
+}*/
+//crear una fucnion por cada llamada
+function f_fotos3()
+{
+ ajax=http_request();
+	var valores;	
+	valores= "hoja=1";  // parametros a enviar al servidor	 
+		
+	url="MonitoreoEncuestas.html";  
+		
+	document.getElementById("detalles").innerHTML ='';
+	
+	ajax.open ('POST', url, true);
+    ajax.onreadystatechange = function() {
+         if (ajax.readyState==1) {
+                 document.getElementById("detalles").innerHTML ="<BR><BR><BR><CENTER><img src='images/cargando.gif'></img></CENTER>";
+         }
+         else if (ajax.readyState==4){
+            if(ajax.status==200){
+					document.getElementById("detalles").innerHTML =ajax.responseText;
+            }
+            else if(ajax.status==404){
+                     document.getElementById("detalles").innerHTML = "La direccion buscada no existe o no esta disponible temporalmente";
+            }
+            else{
+
+                     document.getElementById("detalles").innerHTML = ajax.responseText;					 
+            }
+        }
+    }
+    ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    ajax.send(valores);
+   return;	
+}
+
+function f_RMoni1()
+{
+ ajax=http_request();
+	var valores;	
+	valores= "hoja=1";  // parametros a enviar al servidor	 
+		
+	url="MonitoreoReporte01Detalle.html";  
+		
+	document.getElementById("detalles").innerHTML ='';
+	
+	ajax.open ('POST', url, true);
+    ajax.onreadystatechange = function() {
+         if (ajax.readyState==1) {
+                 document.getElementById("detalles").innerHTML ="<BR><BR><BR><CENTER><img src='images/cargando.gif'></img></CENTER>";
+         }
+         else if (ajax.readyState==4){
+            if(ajax.status==200){
+					document.getElementById("detalles").innerHTML =ajax.responseText;
+            }
+            else if(ajax.status==404){
+                     document.getElementById("detalles").innerHTML = "La direccion buscada no existe o no esta disponible temporalmente";
+            }
+            else{
+
+                     document.getElementById("detalles").innerHTML = ajax.responseText;					 
+            }
+        }
+    }
+    ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    ajax.send(valores);
+   return;	
+}
+
+function f_Encuestapreg2()
+{
+ ajax=http_request();
+	var valores;	
+	valores= "hoja=1";  // parametros a enviar al servidor	 
+		
+	url="EncuestaRegistroPregunta2.html";  
+		
+	document.getElementById("detalles").innerHTML ='';
+	
+	ajax.open ('POST', url, true);
+    ajax.onreadystatechange = function() {
+         if (ajax.readyState==1) {
+                 document.getElementById("detalles").innerHTML ="<BR><BR><BR><CENTER><img src='images/cargando.gif'></img></CENTER>";
+         }
+         else if (ajax.readyState==4){
+            if(ajax.status==200){
+					document.getElementById("detalles").innerHTML =ajax.responseText;
+            }
+            else if(ajax.status==404){
+                     document.getElementById("detalles").innerHTML = "La direccion buscada no existe o no esta disponible temporalmente";
+            }
+            else{
+
+                     document.getElementById("detalles").innerHTML = ajax.responseText;					 
+            }
+        }
+    }
+    ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    ajax.send(valores);
+   return;	
+}
+
+
+function f_fotos1()
+{
+ ajax=http_request();
+	var valores;	
+	valores= "hoja=1";  // parametros a enviar al servidor	 
+		
+	url="ConfiguracionEncuesta.html";  
+		
+	document.getElementById("detalles").innerHTML ='';
+	
+	ajax.open ('POST', url, true);
+    ajax.onreadystatechange = function() {
+         if (ajax.readyState==1) {
+                 document.getElementById("detalles").innerHTML ="<BR><BR><BR><CENTER><img src='images/cargando.gif'></img></CENTER>";
+         }
+         else if (ajax.readyState==4){
+            if(ajax.status==200){
+					document.getElementById("detalles").innerHTML =ajax.responseText;
+            }
+            else if(ajax.status==404){
+                     document.getElementById("detalles").innerHTML = "La direccion buscada no existe o no esta disponible temporalmente";
+            }
+            else{
+
+                     document.getElementById("detalles").innerHTML = ajax.responseText;					 
+            }
+        }
+    }
+    ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    ajax.send(valores);
+   return;	
+}
+
+function f_fotos2()
+{
+ ajax=http_request();
+	var valores;	
+	valores= "hoja=1";  // parametros a enviar al servidor	 
+		
+	url="EncuestaRegistroPregunta1.html";  
+		
+	document.getElementById("detalles").innerHTML ='';
+	
+	ajax.open ('POST', url, true);
+    ajax.onreadystatechange = function() {
+         if (ajax.readyState==1) {
+                 document.getElementById("detalles").innerHTML ="<BR><BR><BR><CENTER><img src='images/cargando.gif'></img></CENTER>";
+         }
+         else if (ajax.readyState==4){
+            if(ajax.status==200){
+					document.getElementById("detalles").innerHTML =ajax.responseText;
+            }
+            else if(ajax.status==404){
+                     document.getElementById("detalles").innerHTML = "La direccion buscada no existe o no esta disponible temporalmente";
+            }
+            else{
+
+                     document.getElementById("detalles").innerHTML = ajax.responseText;					 
+            }
+        }
+    }
+    ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    ajax.send(valores);
+   return;	
+}
+
+/*function f_fotos2()
+{
+ ajax=http_request();
+	var valores;	
+	valores= "hoja=1";  // parametros a enviar al servidor	 
+		
+	url="difu_promo.asp";  
+		
+	document.getElementById("detalles").innerHTML ='';
+	
+	ajax.open ('POST', url, true);
+    ajax.onreadystatechange = function() {
+         if (ajax.readyState==1) {
+                 document.getElementById("detalles").innerHTML ="<BR><BR><BR><CENTER><img src='images/cargando.gif'></img></CENTER>";
+         }
+         else if (ajax.readyState==4){
+            if(ajax.status==200){
+					document.getElementById("detalles").innerHTML =ajax.responseText;
+            }
+            else if(ajax.status==404){
+                     document.getElementById("detalles").innerHTML = "La direccion buscada no existe o no esta disponible temporalmente";
+            }
+            else{
+
+                     document.getElementById("detalles").innerHTML = ajax.responseText;					 
+            }
+        }
+    }
+    ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    ajax.send(valores);
+   return;	
+}
+
+
+*/
+
+/*function f_limpiar()
+{
+document.getElementById("cronograma2").innerHTML ="";
+}
+
+function getTime() {
+ var d = new Date();
+ return d.getTime();
+}*/
+
+</script>
+
+
+<script>
+$(document).ready(function() {
+$('.boton').mouseover(function() {
+var nombre=$(this).attr("name");
+$(this).attr("src", "images/roll/"+nombre+".jpg");
+});
+$('.boton').mouseout(function() {
+var nombre=$(this).attr("name");
+$(this).attr("src", "images/normal/"+nombre+".jpg");
+});
+});
+
+</script>
+
+<script>
+$(document).ready(function() {
+$('.boton').mouseover(function() {
+var nombre=$(this).attr("name");
+$(this).attr("src", "images/roll/"+nombre+".jpg");
+});
+$('.boton').mouseout(function() {
+var nombre=$(this).attr("name");
+$(this).attr("src", "images/normal/"+nombre+".jpg");
+});
+});
+</script>
+
+<table width="539" border="0" align="center"   cellpadding="0" cellspacing="0" class="tabla1">
+  <tr>
+    <td width="10" scope="col">&nbsp;</td>
+    <td colspan="2" scope="col" class="letrast" >Encuesta electoral 1 </td>
+    <td width="16" scope="col">&nbsp;</td>
+  </tr>
+ 
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="2" class="subtitulosMayus">Si las elecciones fueran ma&ntilde;ana, &iquest;por qui&eacute;n votar&iacute;a usted para la alcald&iacute;a de Lima? </td>
+    <td>&nbsp;</td>
+  </tr>
+  
+  <tr>
+    <td>&nbsp;</td>
+    <td class="subtitulosOpc"><div align="center">
+        <input name="txtP36_1" type="radio" value="1" />
+    </div></td>
+    <td class="subtitulosOpc">Alexander Kouri</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+     <td width="34" class="subtitulosOpc"><div align="center">
+          <input name="txtP36_1" type="radio" value="1" />
+          </div></td>
+      <td class="subtitulosOpc">Lourdes Flores</td>
+	    <td>&nbsp;</td>
+  </tr>
+ 
+  <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="txtP36_1" type="radio" value="1" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Fernando Andrade  </td>
+    <td>&nbsp;</td>
+  </tr>
+   <tr>
+   <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="txtP36_1" type="radio" value="1" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Susana Villarán</td>
+    <td>&nbsp;</td>
+  </tr>
+   <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="txtP36_1" type="radio" value="1" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Un candidato fujimorista</td>
+    <td>&nbsp;</td>
+  </tr>
+  
+   <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="txtP36_1" type="radio" value="1" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Alberto Tejada</td>
+    <td>&nbsp;</td>
+  </tr>
+   <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="txtP36_1" type="radio" value="1" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Un candidato del Apra</td>
+    <td>&nbsp;</td>
+  </tr>
+   <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="txtP36_1" type="radio" value="1" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Jaime Salinas  </td>
+    <td>&nbsp;</td>
+  </tr>
+   <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="txtP36_1" type="radio" value="1" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Otro </td>
+    <td>&nbsp;</td>
+  </tr>
+   <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="txtP36_1" type="radio" value="1" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Blanco/Viciado </td>
+    <td>&nbsp;</td>
+  </tr>
+   <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="txtP36_1" type="radio" value="1" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">No precisa  </td>
+    <td>&nbsp;</td>
+  </tr>
+  
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="2" rowspan="3" align="center" valign="top">
+	<table width="400" height="33" border="0"  align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td align="center">
+                    <div align="center"><a href="EncuestaRegistroPregunta2.html" class="enlaces" onclick="f_fotos21();">Siguiente</a> </div>
+  
+				    <div align="center"></div></td>
+                </tr>
+              </table>	</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
