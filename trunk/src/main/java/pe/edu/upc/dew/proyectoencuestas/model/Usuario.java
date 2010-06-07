@@ -17,6 +17,15 @@ public class Usuario {
     private String apellido;
     private String sexo;
     private Integer rol;
+    private Ubigeo ubigeo;
+
+    public void setUbigeo(Ubigeo ubigeo) {
+        this.ubigeo = ubigeo;
+    }
+
+    public Ubigeo getUbigeo() {
+        return ubigeo;
+    }
 
     public void setApellido(String apellido) {
         this.apellido = apellido;

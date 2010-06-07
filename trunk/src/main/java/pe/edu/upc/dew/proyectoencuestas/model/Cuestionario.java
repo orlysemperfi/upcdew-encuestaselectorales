@@ -16,6 +16,7 @@ public class Cuestionario {
     private Integer idCuestionario;
     private Encuesta encuesta;
     private String titulo;
+    private List<Pregunta> preguntas;
 
     public Integer getIdCuestionario() {
         return idCuestionario;
@@ -23,8 +24,7 @@ public class Cuestionario {
 
     public void setIdCuestionario(Integer idCuestionario) {
         this.idCuestionario = idCuestionario;
-    }
-    private List<Pregunta> preguntas;
+    }   
 
     public void setEncuesta(Encuesta encuesta) {
         this.encuesta = encuesta;
