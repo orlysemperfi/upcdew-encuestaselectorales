@@ -16,6 +16,15 @@ public class Encuesta {
     private String fechaInicio;
     private String fechaFin;
     private Integer muestra;
+    private Ubigeo ubigeo;
+
+    public void setUbigeo(Ubigeo ubigeo) {
+        this.ubigeo = ubigeo;
+    }
+
+    public Ubigeo getUbigeo() {
+        return ubigeo;
+    }
 
     public void setIdEncuesta(Integer idEncuesta) {
         this.idEncuesta = idEncuesta;
