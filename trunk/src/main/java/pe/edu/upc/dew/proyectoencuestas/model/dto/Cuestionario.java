@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package pe.edu.upc.dew.proyectoencuestas.model;
+package pe.edu.upc.dew.proyectoencuestas.model.dto;
 
 import java.util.List;
 
