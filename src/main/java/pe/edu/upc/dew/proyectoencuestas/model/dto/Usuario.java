@@ -15,7 +15,6 @@ public class Usuario {
     private String dni;
     private String nombre;
     private String apellido;
-    private String sexo;
     private Integer rol;
     private Ubigeo ubigeo;
 
@@ -47,10 +46,6 @@ public class Usuario {
         this.rol = rol;
     }
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
     public String getApellido() {
         return apellido;
     }
@@ -71,8 +66,5 @@ public class Usuario {
         return rol;
     }
 
-    public String getSexo() {
-        return sexo;
-    }
 
 }
