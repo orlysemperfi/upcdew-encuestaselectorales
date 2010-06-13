@@ -6,7 +6,8 @@
 
 <%@ taglib uri="/tags/struts-html" prefix="html" %>
 <%@ taglib uri="/tags/struts-logic" prefix="logic" %>
-<%@ taglib uri="/tags/struts-bean" prefix="bean" %>
+<%@ taglib uri="/tags/struts-bean" prefix="bean" %> 
+
 
 <html>
     <head>
@@ -43,6 +44,19 @@
           <html:button property="cmdAceptar" styleClass="botonAceptar" onclick="javascript:jsAceptar('aceptar');">
             asdasdasd
 	 </html:button>
+
+        
+
+
+
+ <table border="1">
+              <tr>
+                <td>Username</td>
+                <td>Email</td>
+            </tr>
+ 
+
+        </table>
 
         </html:form>
 
