@@ -82,10 +82,22 @@
       />
       
     </action>
-    <action input="/" name="UsuarioForm" path="/Usuario" scope="request" type="pe.edu.upc.dew.proyectoencuestas.controller.action.UsuarioAction">
-      <forward name="exito" path="/mainPrincipal.jsp" redirect="false"/>
-      <forward name="userexito" path="/pregunta1.jsp" redirect="false"/>
-    <forward name="error" path="/index.jsp" redirect="false"/>
+    <action 
+        input="/" name="UsuarioForm"
+        path="/Usuario"
+        scope="request"
+        type="pe.edu.upc.dew.proyectoencuestas.controller.action.UsuarioAction">
+      <forward
+        name="exito"
+        path="/mainPrincipal.jsp"
+        redirect="false"/>
+      <forward
+        name="userexito"
+        path="/pregunta1.jsp"
+        redirect="false"/>
+      
+      <forward
+      name="error" path="/index.jsp" redirect="false"/>
         
     </action>
    <!-- Action Servlet Mapping without xdoclet-->

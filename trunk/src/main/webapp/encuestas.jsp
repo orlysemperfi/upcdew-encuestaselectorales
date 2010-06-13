@@ -8,6 +8,8 @@
 <%@ taglib uri="/tags/struts-logic" prefix="logic" %>
 <%@ taglib uri="/tags/struts-bean" prefix="bean" %> 
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 
 <html>
     <head>
@@ -49,14 +51,23 @@
 
 
 
- <table border="1">
+             <table border="1">
               <tr>
                 <td>Username</td>
                 <td>Email</td>
             </tr>
- 
+
+        <c:forEach items="${usuarios}" var="obj">
+
+            <tr>
+                <td>${obj.descripcion}</td>
+                <td>${obj.tipo}</td>
+            </tr>
+        </c:forEach >
+
 
         </table>
+
 
         </html:form>
 
