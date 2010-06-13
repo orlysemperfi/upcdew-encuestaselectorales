@@ -29,7 +29,8 @@ public class PreguntaDAO {
 		Connection conn = null;
 		PreparedStatement stm = null;
 		ResultSet rs = null;
-		ArrayList pregunta = new ArrayList();
+		ArrayList preguntas = new ArrayList();
+                 Pregunta pregunta =null;
 
 		// Preparar consulta
 		String sql = "select a.id_pre, a.des_pre,c.des_opc from tb_pregunta a , tb_opcxpre b, tb_opcion c "+
@@ -45,6 +46,12 @@ public class PreguntaDAO {
 			while(rs.next()){
                             System.out.print("Preguntasssss"+ rs.getString(3) +"\n");
 
+                            pregunta= new Pregunta();
+                            pregunta.setIdPregunta(Integer.parseInt(rs.getString(1)));
+                            pregunta.setDescripcion(rs.getString(2));
+                            preguntas.add(pregunta);
+
+
 			}
 		} finally {
 			rs.close();
@@ -52,7 +59,7 @@ public class PreguntaDAO {
                         conn.close();
 		}
 
-		return pregunta;
+		return preguntas;
 	}
 
 
