@@ -12,7 +12,7 @@
 
   <!-- ========== Form Bean Definitions =================================== -->
   <form-beans>
-    <form-bean name="encuestasForm" type="pe.edu.upc.dew.proyectoencuestas.form.encuestasForm"/>
+    <form-bean name="encuestasForm" type="pe.edu.upc.dew.proyectoencuestas.form.EncuestaForm"/>
      
   </form-beans>
 
@@ -32,7 +32,7 @@
     <action-mappings>
         <action
             path="/encuesta"
-            type="pe.edu.upc.dew.proyectoencuestas.controller.action.encuestaAction"
+            type="pe.edu.upc.dew.proyectoencuestas.controller.action.EncuestaManagerAction"
             name="encuestasForm"
             scope="request"
             input="/index.jsp"
@@ -56,7 +56,7 @@
 
         <action
             path="/encuestas"
-            type="pe.edu.upc.dew.proyectoencuestas.controller.action.encuestaAction"
+            type="pe.edu.upc.dew.proyectoencuestas.controller.action.EncuestaManagerAction"
             name="encuestasForm"
             scope="request"
             input="/index.jsp"
