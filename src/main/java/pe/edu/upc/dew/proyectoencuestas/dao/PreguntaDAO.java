@@ -7,10 +7,13 @@ package pe.edu.upc.dew.proyectoencuestas.dao;
 
 import java.sql.Statement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.naming.NamingException;
+import pe.edu.upc.dew.proyectoencuestas.model.dto.Pregunta;
 import pe.edu.upc.dew.proyectoencuestas.util.MySqlDBConn;
 
   
@@ -19,6 +22,39 @@ import pe.edu.upc.dew.proyectoencuestas.util.MySqlDBConn;
  * @author Owner
  */
 public class PreguntaDAO {
+
+
+    public  ArrayList<Pregunta>  ObtenerListadoPreguntas()
+	throws SQLException, NamingException{
+		Connection conn = null;
+		PreparedStatement stm = null;
+		ResultSet rs = null;
+		ArrayList pregunta = new ArrayList();
+
+		// Preparar consulta
+		String sql = "select a.id_pre, a.des_pre,c.des_opc from tb_pregunta a , tb_opcxpre b, tb_opcion c "+
+                             "where a.id_pre=b.id_pre and b.id_opc=c.id_opc; ";
+
+		// Ejecutar consulta
+		try {
+			conn =getConnection();
+			stm = conn.prepareStatement(sql);
+			rs = stm.executeQuery();
+
+			// obtener la lista
+			while(rs.next()){
+                            System.out.print("Preguntasssss"+ rs.getString(3) +"\n");
+
+			}
+		} finally {
+			rs.close();
+                        stm.close();
+                        conn.close();
+		}
+
+		return pregunta;
+	}
+
 
     public String GenerarCodigo()throws Exception {
 

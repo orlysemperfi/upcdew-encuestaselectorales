@@ -15,6 +15,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionForward;
 import pe.edu.upc.dew.proyectoencuestas.dao.PreguntaDAO;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Pregunta;
+import pe.edu.upc.dew.proyectoencuestas.service.bo.PreguntaBO;
 
 /**
  *
@@ -35,7 +36,15 @@ public class EncuestaManagerAction extends DispatchAction {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
-         System.out.println("hola como estaas");
+
+
+        PreguntaBO preguntaBO= new PreguntaBO();
+        ArrayList<Pregunta> preguntas = preguntaBO.ObtenerListadoPreguntas();
+        
+
+         System.out.println("hola como estaas"+preguntas.size());
+
+
 
          PreguntaDAO preguntax = new PreguntaDAO();
 
