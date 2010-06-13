@@ -75,7 +75,7 @@ public class EncuestaManagerAction extends DispatchAction {
 
 System.out.println("usuariossssssssssssssssssssssssssssssss"+ usuarios.size());
 
-        request.setAttribute("usuarios", usuarios); 
+        request.setAttribute("usuarios", preguntas);
 
         return mapping.findForward("exito");
     }
