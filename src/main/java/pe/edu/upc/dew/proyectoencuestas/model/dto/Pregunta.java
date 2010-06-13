@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author cramirez
  */
-public class Pregunta {
+public class Pregunta  implements java.io.Serializable{
 
     private Integer idPregunta;
     private String descripcion;
