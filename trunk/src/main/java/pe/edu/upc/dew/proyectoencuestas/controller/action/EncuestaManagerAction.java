@@ -12,12 +12,13 @@ import org.apache.struts.actions.DispatchAction;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionForward;
+import pe.edu.upc.dew.proyectoencuestas.dao.PreguntaDAO;
 
 /**
  *
  * @author 2424005
  */
-public class encuestaAction extends DispatchAction {
+public class EncuestaManagerAction extends DispatchAction {
     
     /* forward name="success" path="" */
     private final static String SUCCESS = "success";
@@ -33,7 +34,13 @@ public class encuestaAction extends DispatchAction {
             throws Exception {
 
          System.out.println("hola como estaas");
-         
+
+         PreguntaDAO pregunta = new PreguntaDAO();
+
+        String valor= pregunta.GenerarCodigo();
+
+
+         System.out.println(valor);
         return mapping.findForward("exito");
     }
 
