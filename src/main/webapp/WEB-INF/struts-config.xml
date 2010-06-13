@@ -12,7 +12,12 @@
 
   <!-- ========== Form Bean Definitions =================================== -->
   <form-beans>
+
+    <form-bean name="UsuarioForm" type="pe.edu.upc.dew.proyectoencuestas.form.UsuarioForm"/>
+    <form-bean name="encuestasForm" type="pe.edu.upc.dew.proyectoencuestas.form.encuestasForm"/>
+
     <form-bean name="encuestasForm" type="pe.edu.upc.dew.proyectoencuestas.form.EncuestaForm"/>
+
      
   </form-beans>
 
@@ -76,6 +81,12 @@
         redirect="false"
       />
       
+    </action>
+    <action input="/" name="UsuarioForm" path="/Usuario" scope="request" type="pe.edu.upc.dew.proyectoencuestas.controller.action.UsuarioAction">
+      <forward name="exito" path="/mainPrincipal.jsp" redirect="false"/>
+      <forward name="userexito" path="/pregunta1.jsp" redirect="false"/>
+    <forward name="error" path="/index.jsp" redirect="false"/>
+        
     </action>
    <!-- Action Servlet Mapping without xdoclet-->
 
