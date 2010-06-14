@@ -27,24 +27,54 @@ public class MySqlDBConn {
 	/**
 	 * Obtiene una conexión a la Base de Datos.
 	 */
-	public Connection getConnection() {
+	public static Connection getConnection() {
 
 		Connection connection = null;
 		try {
 
 			connection =
-			DriverManager.getConnection("jdbc:mysql://localhost:3306/dbencuesta","root","admin");
+			DriverManager.getConnection("jdbc:mysql://localhost:3306/dbencuesta","root","sa");
 
 		} catch (Exception e) {
 			System.out.println(
 				"Proyecto: "
 					+ Parametros.S_APP_NOMBRE
 					+ "; Clase: "
-					+ getClass().getName()
+					//+ getClass().getName()
 					+ "; Mensaje:"
 					+ e);
 
 		}
 		return connection;
 	}
+
+    public static void closeConnection(Connection connection) {
+        try {
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void closeStatement(Statement statement) {
+        try {
+            if (statement != null) {
+                statement.close();
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void closeResultSet(ResultSet resultSet) {
+        try {
+            if (resultSet != null) {
+                resultSet.close();
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
