@@ -33,7 +33,7 @@
     </c:choose>
 
                 </a></div></th>
-        <th width="200" scope="col" class="td4"><div align="right"><a href="Login.html" class="enlaces2">Cerrar Sesi&oacute;n</a> </div></th>
+        <th width="200" scope="col" class="td4"><div align="right"><a href="login.jsp" class="enlaces2">Cerrar Sesi&oacute;n</a> </div></th>
       </tr>
     </table></td>
   </tr>
