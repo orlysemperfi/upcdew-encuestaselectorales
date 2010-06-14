@@ -11,7 +11,7 @@ package pe.edu.upc.dew.proyectoencuestas.model.dto;
  */
 public class Usuario {
 
-    private Integer idUsuario;
+    private String idUsuario;
     private String dni;
     private String nombre;
     private String apellido;
@@ -53,7 +53,7 @@ public class Usuario {
         this.dni = dni;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
+    public void setIdUsuario(String idUsuario) {
         this.idUsuario = idUsuario;
     }
 
@@ -73,7 +73,7 @@ public class Usuario {
         return dni;
     }
 
-    public Integer getIdUsuario() {
+    public String getIdUsuario() {
         return idUsuario;
     }
 
