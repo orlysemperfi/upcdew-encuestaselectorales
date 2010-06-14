@@ -8,7 +8,7 @@
 <%@ taglib uri="/tags/struts-bean" prefix="bean" %>
 
 <%
-String nextJSP = "/encuesta.do?methodToCall=aceptar";
+String nextJSP = "/encuestas.do?methodToCall=aceptar";
 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
 dispatcher.forward(request,response);
 %>

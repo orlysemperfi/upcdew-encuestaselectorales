@@ -36,8 +36,8 @@
   <!-- ========== Action Mapping Definitions =================================== -->
     <action-mappings>
         <action
-            path="/encuesta"
-            type="pe.edu.upc.dew.proyectoencuestas.controller.action.EncuestaManagerAction"
+            path="/encuestas"
+            type="pe.edu.upc.dew.proyectoencuestas.controller.action.PreguntaManagerAction"
             name="encuestasForm"
             scope="request"
             input="/index.jsp"
@@ -48,38 +48,16 @@
 
     <forward
         name="exito"
-        path="/encuestas.jsp"
+        path="/cuestionario.jsp"
         redirect="false"
       />
     <forward
         name="error"
-        path="/encuestas.jsp"
+        path="/cuestionario.jsp"
         redirect="false"
       />
 
-    </action>
 
-        <action
-            path="/encuestas"
-            type="pe.edu.upc.dew.proyectoencuestas.controller.action.EncuestaManagerAction"
-            name="encuestasForm"
-            scope="request"
-            input="/index.jsp"
-            parameter="methodToCall"
-            unknown="false"
-            validate="false"
-         >
-
-    <forward
-        name="exito"
-        path="/encuestas.jsp"
-        redirect="false"
-      />
-    <forward
-        name="error"
-        path="/encuestas.jsp"
-        redirect="false"
-      />
       
     </action>
     <action 

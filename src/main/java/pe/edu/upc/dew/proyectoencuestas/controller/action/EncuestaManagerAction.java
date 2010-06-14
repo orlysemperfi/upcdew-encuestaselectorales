@@ -36,12 +36,7 @@ public class EncuestaManagerAction extends DispatchAction {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
-
-        PreguntaBO preguntaBO= new PreguntaBO();
-        ArrayList<Pregunta> preguntas = preguntaBO.ObtenerListadoPreguntas();
-        System.out.println("hola como estaas"+preguntas.size());
-        request.setAttribute("usuarios", preguntas);
-
+ 
         return mapping.findForward("exito");
     }
 
