@@ -5,6 +5,8 @@
 
 package pe.edu.upc.dew.proyectoencuestas.model.dto;
 
+import java.util.List;
+
 /**
  *
  * @author cramirez
@@ -16,14 +18,23 @@ public class Encuesta {
     private String fechaInicio;
     private String fechaFin;
     private Integer muestra;
-    private Ubigeo ubigeo;
+    private List<Ubigeo> ubigeos;
+    private List<Pregunta> preguntas;
 
-    public void setUbigeo(Ubigeo ubigeo) {
-        this.ubigeo = ubigeo;
+    public List<Pregunta> getPreguntas() {
+        return preguntas;
     }
 
-    public Ubigeo getUbigeo() {
-        return ubigeo;
+    public void setPreguntas(List<Pregunta> preguntas) {
+        this.preguntas = preguntas;
+    }
+
+    public List<Ubigeo> getUbigeos() {
+        return ubigeos;
+    }
+
+    public void setUbigeos(List<Ubigeo> ubigeos) {
+        this.ubigeos = ubigeos;
     }
 
     public void setIdEncuesta(Integer idEncuesta) {
