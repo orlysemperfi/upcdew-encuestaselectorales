@@ -11,11 +11,18 @@ package pe.edu.upc.dew.proyectoencuestas.model.dto;
  */
 public class Ubigeo {
 
-    private Integer idUbigeo;
     private String codDepartamento;
     private String codProvincia;
     private String codDistrito;
-    private String descripcion;
+    private String nomDistrito;
+
+    public String getNomDistrito() {
+        return nomDistrito;
+    }
+
+    public void setNomDistrito(String nomDistrito) {
+        this.nomDistrito = nomDistrito;
+    }
 
     public void setCodDepartamento(String codDepartamento) {
         this.codDepartamento = codDepartamento;
@@ -29,14 +36,6 @@ public class Ubigeo {
         this.codProvincia = codProvincia;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public void setIdUbigeo(Integer idUbigeo) {
-        this.idUbigeo = idUbigeo;
-    }
-
     public String getCodDepartamento() {
         return codDepartamento;
     }
@@ -47,14 +46,6 @@ public class Ubigeo {
 
     public String getCodProvincia() {
         return codProvincia;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public Integer getIdUbigeo() {
-        return idUbigeo;
     }
 
 }
