@@ -7,7 +7,6 @@ package pe.edu.upc.dew.proyectoencuestas.dao;
 
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Usuario;
 
-
 /**
  *
  * @author cramirez
