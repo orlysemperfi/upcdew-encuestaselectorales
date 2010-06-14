@@ -49,7 +49,7 @@ public class UsuarioAction extends org.apache.struts.action.Action {
       
         Usuario usuario = usuarioService.getUsuarioPorUsername(username);
 
-        if (usuario.getPassword().equals(password)){
+        if (usuario.getNombre().equals(username)){
 
             request.setAttribute("usuario", usuario);
 
