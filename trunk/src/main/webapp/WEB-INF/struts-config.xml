@@ -32,6 +32,13 @@
     Define your forwards in a file called global-forwards.xml and place
     it in your merge directory.
   -->
+  <global-forwards>
+      <forward name="pregunta2" path="/pregunta2.jsp" />
+      <forward name="pregunta3" path="/pregunta3.jsp" />
+      <forward name="pregunta4" path="/pregunta4.jsp" />
+      <forward name="pregunta1" path="/pregunta1.jsp" />
+
+  </global-forwards>
 
   <!-- ========== Action Mapping Definitions =================================== -->
     <action-mappings>
