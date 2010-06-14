@@ -7,6 +7,8 @@
 <%@page contentType="text/html" pageEncoding="windows-1252"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 
 <html>
 <head>
@@ -20,9 +22,9 @@
 
 
 <table border="0" width="100%" height="581" cellspacing="0" cellpadding="0">
-	<tr>
-		<td colspan="2"> <jsp:include page="/header.jsp" /> </td>
-	</tr>
+<tr>
+        <td colspan="2"> <jsp:include page="/header.jsp" /> </td>
+</tr>
 
   <tr>
     <td width="8%">&nbsp;</td>
@@ -139,7 +141,12 @@
 	<table width="400" height="33" border="0"  align="center" cellpadding="0" cellspacing="0">
                 <tr>
                   <td align="center">
-                    <div align="center"><a href="EncuestaRegistroPregunta2.html" class="enlaces" onclick="f_fotos21();">Siguiente</a> </div>
+
+            <div align="center">
+           <html:link forward="pregunta2">Siguiente</html:link>
+           <!--  <a href="EncuestaRegistroPregunta2.html" class="enlaces" onclick="f_fotos21();">Siguiente</a> -->
+
+            </div>
 
 				    <div align="center"></div></td>
                 </tr>
