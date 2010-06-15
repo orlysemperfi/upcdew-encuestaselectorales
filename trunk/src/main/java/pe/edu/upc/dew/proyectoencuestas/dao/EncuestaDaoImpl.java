@@ -19,7 +19,7 @@ import pe.edu.upc.dew.proyectoencuestas.util.MySqlDBConn;
  *
  * @author cramirez
  */
-public class EncuestaDaoImpl implements EncuestaDAO{
+public class EncuestaDaoImpl implements EncuestaDao{
 
      public List<Encuesta> getEncuestasPorDistritos(String distrito)
      {
