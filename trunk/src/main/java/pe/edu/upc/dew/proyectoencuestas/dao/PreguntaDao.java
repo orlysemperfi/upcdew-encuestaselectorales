@@ -11,10 +11,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collection;
 import javax.naming.NamingException;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Pregunta;
 import pe.edu.upc.dew.proyectoencuestas.util.MySqlDBConn;
+
 
 
 /**
