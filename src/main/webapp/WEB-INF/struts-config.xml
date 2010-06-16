@@ -14,8 +14,6 @@
   <form-beans>
 
     <form-bean name="UsuarioForm" type="pe.edu.upc.dew.proyectoencuestas.form.UsuarioForm"/>
-    <form-bean name="encuestasForm" type="pe.edu.upc.dew.proyectoencuestas.form.encuestasForm"/>
-
     <form-bean name="encuestasForm" type="pe.edu.upc.dew.proyectoencuestas.form.EncuestaForm"/>
 
      
