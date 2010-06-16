@@ -9,6 +9,7 @@ import pe.edu.upc.dew.proyectoencuestas.model.dto.Usuario;
 
 /**
  *
+ * 
  * @author cramirez
  */
 public interface UsuarioDao {
