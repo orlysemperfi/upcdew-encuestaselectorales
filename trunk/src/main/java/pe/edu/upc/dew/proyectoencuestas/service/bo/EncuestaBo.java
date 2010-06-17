@@ -11,4 +11,6 @@ package pe.edu.upc.dew.proyectoencuestas.service.bo;
  */
 public class EncuestaBo {
 
+    //
+    
 }
