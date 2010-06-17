@@ -14,6 +14,7 @@ import pe.edu.upc.dew.proyectoencuestas.model.dto.Encuesta;
  */
 public interface EncuestaDao {
 
+    
     List<Encuesta> getEncuestasPorDistritos(String distrito);
 }
 
