@@ -15,7 +15,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionForward;
 import pe.edu.upc.dew.proyectoencuestas.dao.PreguntaDao;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Pregunta;
-import pe.edu.upc.dew.proyectoencuestas.service.bo.PreguntaBo;
+import pe.edu.upc.dew.proyectoencuestas.service.bo.PreguntaBO;
 
 /**
  *
