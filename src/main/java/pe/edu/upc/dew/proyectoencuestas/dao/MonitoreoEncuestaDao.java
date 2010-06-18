@@ -16,4 +16,10 @@ public interface MonitoreoEncuestaDao {
 //Sale del impl
 //List<MonitoreoEncuesta> getMonitoreoPorEncuesta(String encuesta);
    List<MonitoreoEncuesta> getMonitoreoPorEncuestas(String encuesta);
+
+    List<MonitoreoEncuesta> getMonitoreoPorMayorAvanceDistritoxEncuesta(String encuesta);
+
+     List<MonitoreoEncuesta> getMonitoreoAvanceDiarioxEncuesta(String encuesta);
+
+      List<MonitoreoEncuesta> getMonitoreoAvanceAcumuladoxEncuesta();
 }
