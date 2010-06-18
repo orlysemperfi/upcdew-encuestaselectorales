@@ -13,7 +13,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import pe.edu.upc.dew.proyectoencuestas.form.MonitoreoEncuestaForm;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.MonitoreoEncuesta;
-import pe.edu.upc.dew.proyectoencuestas.service.bo.MonitoreoEncuestaService;
+//import pe.edu.upc.dew.proyectoencuestas.service.bo.MonitoreoEncuestaService;
 
 /**
  *
@@ -21,7 +21,7 @@ import pe.edu.upc.dew.proyectoencuestas.service.bo.MonitoreoEncuestaService;
  */
 public class MonitoreoEncuestaAction extends org.apache.struts.action.Action{
 
-     private MonitoreoEncuestaService monitoreoEncuestaService;
+  //   private MonitoreoEncuestaService monitoreoEncuestaService;
     /* forward name="success" path="" */
     private static final String SUCCESS = "exito";
     private static final String ERROR = "error";
@@ -46,7 +46,7 @@ public class MonitoreoEncuestaAction extends org.apache.struts.action.Action{
         String encuesta = ((MonitoreoEncuestaForm)form).getIdencuesta();
 
 
-        MonitoreoEncuesta monitoreoEncuesta = monitoreoEncuestaService.getMonitoreoPorEncuesta(encuesta);
+       // MonitoreoEncuesta monitoreoEncuesta = monitoreoEncuestaService.getMonitoreoPorEncuesta(encuesta);
 
        return mapping.findForward(SUCCESS);
        
