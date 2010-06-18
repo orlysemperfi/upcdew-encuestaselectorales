@@ -24,13 +24,16 @@
 
   <tr>
     <td width="8%">&nbsp;</td>
-    <td width="22%"  valign="top">
+    <td width="22%"   style="vertical-align:text-top" >
 	<%-- Inicio del Menu del Web Site --%>
 	<jsp:include page="/menuAdmin.jsp" />
 	<%-- Fin Menu del Web Site --%>
    </td>
    <td width="70%" valign="top" align="left">   <p>&nbsp;</p>
-      <jsp:include page="/configuracion.jsp" />
+      
+       Bienvenidoooooooo
+
+
     </td>
   </tr>
 </table>
