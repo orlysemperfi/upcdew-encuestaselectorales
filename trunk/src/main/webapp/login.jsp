@@ -58,7 +58,7 @@ $(this).attr("src", "images/normal/"+nombre+".jpg");
         </tr>
       <tr>
         <td rowspan="3" align="left"><img src="images/CuadroIzq.png" width="4" height="269" /></td>
-        <td height="26"   class="subtitulosPrinc">Autenticaci&oacute;n de Usuarios </td>
+        <td height="26" class="subtitulosPrinc">Autenticaci&oacute;n de Usuarios </td>
         <td rowspan="3" align="right"><img src="images/CuadroDer.png" width="10" height="269" /></td>
       </tr>
       <tr>
