@@ -13,5 +13,5 @@ import pe.edu.upc.dew.proyectoencuestas.model.dto.Encuesta;
  */
 public class MonitoreoEncuestaDao {
 
-
+//Sale del service
 }
