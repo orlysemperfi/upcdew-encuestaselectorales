@@ -5,9 +5,8 @@
 
 package pe.edu.upc.dew.proyectoencuestas.service.bo;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-import javax.naming.NamingException;
+import java.util.List;
+import pe.edu.upc.dew.proyectoencuestas.model.dto.Opcion;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Pregunta;
 
 /**
@@ -16,6 +15,9 @@ import pe.edu.upc.dew.proyectoencuestas.model.dto.Pregunta;
  */
 public interface   PreguntaService {
 
-    ArrayList<Pregunta> ObtenerListadoPreguntas()throws SQLException, NamingException  ;
+    List<Pregunta> getPreguntasPorEncuesta(int idEncuesta);
+
+    List<Opcion> getOpcionesPorPregunta(int idPregunta);
+   // ArrayList<Pregunta> ObtenerListadoPreguntas()throws SQLException, NamingException  ;
     
 }
