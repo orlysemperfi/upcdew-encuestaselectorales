@@ -31,7 +31,7 @@ public class MonitoreoEncuestaDaoImpl implements MonitoreoEncuestaDao{
 
 		// Preparar consulta
 		String sql = "select * from ReporteAvance" +
-                        " where id_enc '"+encuesta+"'";
+                        " where  tit_enc '"+encuesta+"'";
 
 		// Ejecutar consulta
 		try {
@@ -42,6 +42,132 @@ public class MonitoreoEncuestaDaoImpl implements MonitoreoEncuestaDao{
 			// obtener la lista
 			while(rs.next()){
                             
+                            monitoreoEncuesta = new MonitoreoEncuesta();
+                            monitoreoEncuesta.setId_enc(Integer.parseInt(rs.getString(1)));
+                            
+                            listamonitoreoEncuestas.add(monitoreoEncuesta);
+
+			}
+		} catch (Exception e) {
+                        e.printStackTrace();
+                }
+                finally {
+			MySqlDBConn.closeResultSet(rs);
+                        MySqlDBConn.closeStatement(stm);
+                        MySqlDBConn.closeConnection(conn);
+		}
+
+
+         return listamonitoreoEncuestas;
+     }
+
+      public List<MonitoreoEncuesta> getMonitoreoPorMayorAvanceDistritoxEncuesta(String encuesta)
+     {
+           List<MonitoreoEncuesta> listamonitoreoEncuestas = new ArrayList<MonitoreoEncuesta>();
+
+		Connection conn = null;
+		Statement stm = null;
+		ResultSet rs = null;
+
+                MonitoreoEncuesta monitoreoEncuesta =null;
+
+		// Preparar consulta
+		String sql = "select * from vw_MayorAvanceDistritoxEncuesta" +
+                        " where  tit_enc '"+encuesta+"'";
+
+		// Ejecutar consulta
+		try {
+			conn = MySqlDBConn.getConnection();
+			stm = conn.createStatement();
+			rs = stm.executeQuery(sql);
+
+			// obtener la lista
+			while(rs.next()){
+
+                            monitoreoEncuesta = new MonitoreoEncuesta();
+                            monitoreoEncuesta.setId_enc(Integer.parseInt(rs.getString(1)));
+
+                            listamonitoreoEncuestas.add(monitoreoEncuesta);
+
+			}
+		} catch (Exception e) {
+                        e.printStackTrace();
+                }
+                finally {
+			MySqlDBConn.closeResultSet(rs);
+                        MySqlDBConn.closeStatement(stm);
+                        MySqlDBConn.closeConnection(conn);
+		}
+
+
+         return listamonitoreoEncuestas;
+     }
+
+
+       public List<MonitoreoEncuesta> getMonitoreoAvanceDiarioxEncuesta(String encuesta)
+     {
+           List<MonitoreoEncuesta> listamonitoreoEncuestas = new ArrayList<MonitoreoEncuesta>();
+
+		Connection conn = null;
+		Statement stm = null;
+		ResultSet rs = null;
+
+                MonitoreoEncuesta monitoreoEncuesta =null;
+
+		// Preparar consulta
+		String sql = "select * from vw_AvanceDiario" +
+                        " where  tit_enc '"+encuesta+"'";
+
+		// Ejecutar consulta
+		try {
+			conn = MySqlDBConn.getConnection();
+			stm = conn.createStatement();
+			rs = stm.executeQuery(sql);
+
+			// obtener la lista
+			while(rs.next()){
+
+                            monitoreoEncuesta = new MonitoreoEncuesta();
+                            monitoreoEncuesta.setId_enc(Integer.parseInt(rs.getString(1)));
+
+                            listamonitoreoEncuestas.add(monitoreoEncuesta);
+
+			}
+		} catch (Exception e) {
+                        e.printStackTrace();
+                }
+                finally {
+			MySqlDBConn.closeResultSet(rs);
+                        MySqlDBConn.closeStatement(stm);
+                        MySqlDBConn.closeConnection(conn);
+		}
+
+
+         return listamonitoreoEncuestas;
+     }
+
+       public List<MonitoreoEncuesta> getMonitoreoAvanceAcumuladoxEncuesta()
+     {
+           List<MonitoreoEncuesta> listamonitoreoEncuestas = new ArrayList<MonitoreoEncuesta>();
+
+		Connection conn = null;
+		Statement stm = null;
+		ResultSet rs = null;
+
+                MonitoreoEncuesta monitoreoEncuesta =null;
+
+		// Preparar consulta
+		String sql = "select * from vw_AvanceDiario" ;
+
+		// Ejecutar consulta
+		try {
+			conn = MySqlDBConn.getConnection();
+			stm = conn.createStatement();
+			rs = stm.executeQuery(sql);
+
+			// obtener la lista
+			while(rs.next()){
+
                             monitoreoEncuesta = new MonitoreoEncuesta();
                             monitoreoEncuesta.setId_enc(Integer.parseInt(rs.getString(1)));
 
