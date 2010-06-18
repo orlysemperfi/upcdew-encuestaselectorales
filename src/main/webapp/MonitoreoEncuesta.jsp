@@ -57,12 +57,11 @@
         <td class="subtitulosbd">Encuesta</td>
                 <td align="center">	<div align="left">
 			  <select name="" id="" style="width:250px">
-			    <option value="" selected="selected">Encuesta Surco 2010 - I</option>
-			    <option value="" selected="selected">Encuesta VES 2010</option>
-			    <option value="" selected="selected">Encuesta San Miguel 2009 -II</option>
-			    <option value="" selected="selected">Encuesta Jesús María 2008</option>
-			    <option value="" selected="selected">Administrador BD</option>
-				 <option value="" selected="selected">SELECCIONE</option>
+			    <option value="" selected="selected">Elecciones Municipales 2010 - Sector Alto</option>
+			    <option value="" selected="selected">Elecciones Municipales 2010 - Sector Medio</option>
+			    <option value="" selected="selected">Elecciones Lima Sur 2010 - II</option>
+			    <option value="" selected="selected">Elecciones lima Norte 2010 -II </option>
+			    <option value="" selected="selected">SELECCIONE</option>
 		      </select>
           </div></td>
       </tr>
