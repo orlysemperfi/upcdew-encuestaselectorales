@@ -15,6 +15,7 @@
     <form-bean name="PreguntaManagerForm" type="pe.edu.upc.dew.proyectoencuestas.form.PreguntaManagerForm"/>
     <form-bean name="UsuarioForm" type="pe.edu.upc.dew.proyectoencuestas.form.UsuarioForm"/>
     <form-bean name="encuestasForm" type="pe.edu.upc.dew.proyectoencuestas.form.EncuestaForm"/>
+    <form-bean name="configuracionForm" type="pe.edu.upc.dew.proyectoencuestas.form.ConfiguracionForm"/>
 
      
   </form-beans>
@@ -49,35 +50,39 @@
             parameter="methodToCall"
             unknown="false"
             validate="false"
-       >
+         >
 
-    <forward
-        name="exito"
-        path="/cuestionario.jsp"
-        redirect="false"
-      />
-    <forward
-        name="error"
-        path="/cuestionario.jsp"
-        redirect="false"
-      />
+        <forward
+            name="exito"
+            path="/cuestionario.jsp"
+            redirect="false"
+        />
+        <forward
+            name="error"
+            path="/cuestionario.jsp"
+            redirect="false"
+        />
 
     </action>
 
      <action
-        input="/" name="PreguntaManagerForm"
-        path="/Preguntas"
-        scope="request"
-        type="pe.edu.upc.dew.proyectoencuestas.controller.action.PreguntaManagerAction">
+            path="/Preguntas"
+            type="pe.edu.upc.dew.proyectoencuestas.controller.action.PreguntaManagerAction"
+            name="PreguntaManagerForm"
+            input="/"
+            scope="request"
+        >
       <forward
-        name="exito"
-        path="/pregunta1.jsp"
-        redirect="false"/>
+            name="exito"
+            path="/pregunta1.jsp"
+            redirect="false"/>
 
       <forward
-      name="error" path="/index.jsp" redirect="false"/>
+            name="error"
+            path="/index.jsp"
+            redirect="false"/>
 
-    </action>
+     </action>
 
 
     <action 
@@ -96,7 +101,30 @@
       
       <forward
       name="error" path="/index.jsp" redirect="false"/>
-        
+
+    </action>
+       <action
+            path="/configuracion"
+            type="pe.edu.upc.dew.proyectoencuestas.controller.action.EncuestaManagerAction"
+            name="configuracionForm"
+            scope="request"
+            input="/index.jsp"
+            parameter="methodToCall"
+            unknown="false"
+            validate="false"
+       >
+
+    <forward
+        name="exito"
+        path="/configuracion.jsp"
+        redirect="false"
+      />
+    <forward
+        name="error"
+        path="/configuracion.jsp"
+        redirect="false"
+      />
+
     </action>
    <!-- Action Servlet Mapping without xdoclet-->
 
