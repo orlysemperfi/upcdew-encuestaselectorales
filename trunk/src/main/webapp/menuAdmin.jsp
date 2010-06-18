@@ -32,7 +32,7 @@
         <td class="td5"><img src="images/OpReportes.jpg" width="200" height="19" /></td>
       </tr>
       <tr>
-        <td><img src="images/icono.jpg" width="13" height="15" /><a href="#" class="enlaces" onclick="f_fotos41();">Encuestas</a><br />
+        <td><img src="images/icono.jpg" width="13" height="15" /><a href="configuracion.do?methodToCall=iniciar" class="enlaces" onclick="f_fotos41();">Encuestas</a><br />
           <img src="images/icono.jpg" width="13" height="15" /><a href="#" class="enlaces" onclick="f_fotos42();">Reporte 01</a><br />
 		  <img src="images/icono.jpg" width="13" height="15" /><a href="#" class="enlaces" onclick="f_fotos43();">Reporte 02</a><br />
 		  <img src="images/icono.jpg" width="13" height="15" /><a href="#" class="enlaces" onclick="f_fotos44();">Reporte 03</a><br />
