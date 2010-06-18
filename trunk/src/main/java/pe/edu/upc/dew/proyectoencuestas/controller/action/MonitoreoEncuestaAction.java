@@ -43,7 +43,7 @@ public class MonitoreoEncuestaAction extends org.apache.struts.action.Action{
 
       
 
-        String encuesta = ((MonitoreoEncuestaForm)form).getIdencuesta();
+        String encuesta = ((MonitoreoEncuestaForm)form).getEncuesta();
 
 
        // MonitoreoEncuesta monitoreoEncuesta = monitoreoEncuestaService.getMonitoreoPorEncuesta(encuesta);
