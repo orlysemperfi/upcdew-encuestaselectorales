@@ -119,6 +119,11 @@
         path="/configuracion.jsp"
         redirect="false"
       />
+     <forward
+        name="consultar"
+        path="/configuracionDetalle.jsp"
+        redirect="false"
+      />
     <forward
         name="error"
         path="/configuracion.jsp"
