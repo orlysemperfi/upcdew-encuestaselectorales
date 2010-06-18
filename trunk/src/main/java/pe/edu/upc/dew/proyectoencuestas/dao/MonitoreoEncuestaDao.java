@@ -14,6 +14,6 @@ import pe.edu.upc.dew.proyectoencuestas.model.dto.MonitoreoEncuesta;
 public class MonitoreoEncuestaDao {
 
 //Sale del impl
-
+//List<MonitoreoEncuesta> getMonitoreoPorEncuesta(String encuesta);
     //List<MonitoreoEncuesta> getMonitoreoPorEncuestas(String encuesta);
 }
