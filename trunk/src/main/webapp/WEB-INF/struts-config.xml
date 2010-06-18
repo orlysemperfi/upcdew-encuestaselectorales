@@ -12,7 +12,7 @@
 
   <!-- ========== Form Bean Definitions =================================== -->
   <form-beans>
-
+    <form-bean name="PreguntaManagerForm" type="pe.edu.upc.dew.proyectoencuestas.form.PreguntaManagerForm"/>
     <form-bean name="UsuarioForm" type="pe.edu.upc.dew.proyectoencuestas.form.UsuarioForm"/>
     <form-bean name="encuestasForm" type="pe.edu.upc.dew.proyectoencuestas.form.EncuestaForm"/>
 
@@ -42,7 +42,7 @@
     <action-mappings>
         <action
             path="/encuestas"
-            type="pe.edu.upc.dew.proyectoencuestas.controller.action.PreguntaManagerAction"
+            type="pe.edu.upc.dew.proyectoencuestas.controller.action.EncuestaManagerAction"
             name="encuestasForm"
             scope="request"
             input="/index.jsp"
@@ -62,9 +62,24 @@
         redirect="false"
       />
 
-
-      
     </action>
+
+     <action
+        input="/" name="PreguntaManagerForm"
+        path="/Preguntas"
+        scope="request"
+        type="pe.edu.upc.dew.proyectoencuestas.controller.action.PreguntaManagerAction">
+      <forward
+        name="exito"
+        path="/pregunta1.jsp"
+        redirect="false"/>
+
+      <forward
+      name="error" path="/index.jsp" redirect="false"/>
+
+    </action>
+
+
     <action 
         input="/" name="UsuarioForm"
         path="/Usuario"
@@ -76,7 +91,7 @@
         redirect="false"/>
       <forward
         name="userexito"
-        path="/pregunta1.jsp"
+        path="/encuestasPorDistrito.jsp"
         redirect="false"/>
       
       <forward
