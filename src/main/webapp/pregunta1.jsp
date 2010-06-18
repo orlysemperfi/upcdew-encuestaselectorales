@@ -16,11 +16,44 @@
 <link rel="stylesheet" type="text/css" href="css/estilos.css">
 <%--<link rel="stylesheet" type="text/css" href="css/pantalla.css">--%>
 <link rel="stylesheet" type="text/css" href="css/fuente.css">
+
+<script language="JavaScript">
+<!--
+function checker()
+{
+
+var radio_choice = false;
+
+for (counter = 0; counter < document.forms[0].preg1.length; counter++)
+{
+
+if (document.forms[0].preg1[counter].checked)
+radio_choice = true;
+}
+
+for (counter = 0; counter < document.forms[0].preg2.length; counter++)
+{
+if (document.forms[0].preg2[counter].checked)
+radio_choice = true;
+}
+
+if (!radio_choice)
+{
+alert("Falta seleccionar una rpta.")
+}
+else
+    alert("Muchas gracias, su encuesta fue registrada satisfactoriamente...")
+}
+
+-->
+</script>
+
+
 </head>
 
 <body>
 
-
+ <form action="Preguntas.do" method="post">
 <table border="0" width="100%" height="581" cellspacing="0" cellpadding="0">
 <tr>
         <td colspan="2"> <jsp:include page="/header.jsp" /> </td>
@@ -32,127 +65,250 @@
    <td width="92%" valign="top" align="left">
 
   <table width="539" border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2">
-  <tr>
-    <td width="10" scope="col">&nbsp;</td>
-    <td colspan="2" scope="col" class="letrast" >Encuesta electoral 1 </td>
-    <td width="16" scope="col">&nbsp;</td>
-  </tr>
+ 
 
   <tr>
     <td>&nbsp;</td>
-    <td colspan="2" class="subtitulosMayus">Si las elecciones fueran ma&ntilde;ana, &iquest;por qui&eacute;n votar&iacute;a usted para la alcald&iacute;a de Lima? </td>
+    <td colspan="2" class="subtitulosMayus">¿Cómo considera ud. la gestión actual del Municipio de lima?</td>
     <td>&nbsp;</td>
   </tr>
 
   <tr>
     <td>&nbsp;</td>
     <td class="subtitulosOpc"><div align="center">
-        <input name="txtP36_1" type="radio" value="1" />
+        <input name="preg1" type="radio" value="1" />
     </div></td>
-    <td class="subtitulosOpc">Alexander Kouri</td>
+    <td class="subtitulosOpc">Buena</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <td>&nbsp;</td>
      <td width="34" class="subtitulosOpc"><div align="center">
-          <input name="txtP36_1" type="radio" value="1" />
+          <input name="preg1" type="radio" value="2" />
           </div></td>
-      <td class="subtitulosOpc">Lourdes Flores</td>
+      <td class="subtitulosOpc">Muy buena</td>
 	    <td>&nbsp;</td>
   </tr>
 
   <tr>
     <td>&nbsp;</td>
     <td width="34" class="subtitulosOpc"><div align="center">
-      <input name="txtP36_1" type="radio" value="1" />
+      <input name="preg1" type="radio" value="3" />
     </div></td>
-    <td width="479" class="subtitulosOpc">Fernando Andrade  </td>
+    <td width="479" class="subtitulosOpc">Mala </td>
     <td>&nbsp;</td>
   </tr>
    <tr>
    <td>&nbsp;</td>
     <td width="34" class="subtitulosOpc"><div align="center">
-      <input name="txtP36_1" type="radio" value="1" />
+      <input name="preg1" type="radio" value="4" />
     </div></td>
-    <td width="479" class="subtitulosOpc">Susana Villarán</td>
+    <td width="479" class="subtitulosOpc">Muy mala</td>
     <td>&nbsp;</td>
   </tr>
    <tr>
     <td>&nbsp;</td>
     <td width="34" class="subtitulosOpc"><div align="center">
-      <input name="txtP36_1" type="radio" value="1" />
+      <input name="preg1" type="radio" value="5" />
     </div></td>
-    <td width="479" class="subtitulosOpc">Un candidato fujimorista</td>
+    <td width="479" class="subtitulosOpc">Regular</td>
     <td>&nbsp;</td>
   </tr>
 
    <tr>
     <td>&nbsp;</td>
     <td width="34" class="subtitulosOpc"><div align="center">
-      <input name="txtP36_1" type="radio" value="1" />
+      <input name="preg1" type="radio" value="6" />
     </div></td>
-    <td width="479" class="subtitulosOpc">Alberto Tejada</td>
+    <td width="479" class="subtitulosOpc">No precisa</td>
+    <td>&nbsp;</td>
+  </tr>
+ 
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+<!--Pregunta 2 -->
+<table width="539" border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2">
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="2" class="subtitulosMayus">
+        ¿Cuál cree ud. que es el principal problema que afecta al Municipio?
+ </td>
+    <td>&nbsp;</td>
+  </tr>
+
+    <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="preg2" type="radio" value="1" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Inseguridad publica</td>
+    <td>&nbsp;</td>
+  </tr>
+
+    <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="preg2" type="radio" value="2" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Basura</td>
+    <td>&nbsp;</td>
+  </tr>
+
+    <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="preg2" type="radio" value="3" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Vandalismo</td>
+    <td>&nbsp;</td>
+  </tr>
+
+    <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="preg2" type="radio" value="4" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Transporte</td>
+    <td>&nbsp;</td>
+  </tr>
+
+
+    <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="preg2" type="radio" value="5" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Corrupción</td>
+    <td>&nbsp;</td>
+  </tr>
+
+    <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="preg2" type="radio" value="6" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Pavimentación</td>
+    <td>&nbsp;</td>
+  </tr>
+  
+
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+
+       
+ <!--Pregunta 3 -->
+<table width="539" border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2">
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="2" class="subtitulosMayus">
+        Independientemente de sus preferencias políticas, ¿Cuáles considera que son los PRINCIPALES OBJETIVOS que debería tener el futuro alcalde de Lima ?
+ </td>
+    <td>&nbsp;</td>
+  </tr>
+
+  <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc">
+	<div align="center">
+
+	      <input type="checkbox" name="preg3" value="1" />
+	  </div>	</td>
+	 <td class="subtitulosOpc">Mejorar la seguridad ciudadana en Lima</td>
+	   <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+     <td width="34" class="subtitulosOpc"><div align="center">
+         <input type="checkbox" name="preg3" value="2" />
+          </div></td>
+      <td class="subtitulosOpc">Combatir la corrupción</td>
+	    <td>&nbsp;</td>
+  </tr>
+
+  <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+     <input type="checkbox" name="preg3" value="3" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Mejorar el sistema de transporte  </td>
+    <td>&nbsp;</td>
+  </tr>
+   <tr>
+   <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+     <input type="checkbox" name="preg3" value="4" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Prevenir y controlar la contaminación ambiental</td>
     <td>&nbsp;</td>
   </tr>
    <tr>
     <td>&nbsp;</td>
     <td width="34" class="subtitulosOpc"><div align="center">
-      <input name="txtP36_1" type="radio" value="1" />
+   <input type="checkbox" name="preg3" value="4" />
     </div></td>
-    <td width="479" class="subtitulosOpc">Un candidato del Apra</td>
+    <td width="479" class="subtitulosOpc">Mejorar el sistema de recojo de basura</td>
+    <td>&nbsp;</td>
+  </tr>
+
+   <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+     <input type="checkbox" name="preg3" value="5" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Realizar el mantenimiento de calles y pistas</td>
     <td>&nbsp;</td>
   </tr>
    <tr>
     <td>&nbsp;</td>
     <td width="34" class="subtitulosOpc"><div align="center">
-      <input name="txtP36_1" type="radio" value="1" />
+  <input type="checkbox" name="preg3" value="6" />
     </div></td>
-    <td width="479" class="subtitulosOpc">Jaime Salinas  </td>
+    <td width="479" class="subtitulosOpc">Gestionar el monto de los arbitrios e impuestos municipales</td>
     <td>&nbsp;</td>
   </tr>
+
    <tr>
     <td>&nbsp;</td>
     <td width="34" class="subtitulosOpc"><div align="center">
-      <input name="txtP36_1" type="radio" value="1" />
+   <input type="checkbox" name="preg3" value="7" />
     </div></td>
     <td width="479" class="subtitulosOpc">Otro </td>
     <td>&nbsp;</td>
   </tr>
-   <tr>
-    <td>&nbsp;</td>
-    <td width="34" class="subtitulosOpc"><div align="center">
-      <input name="txtP36_1" type="radio" value="1" />
-    </div></td>
-    <td width="479" class="subtitulosOpc">Blanco/Viciado </td>
-    <td>&nbsp;</td>
-  </tr>
-   <tr>
-    <td>&nbsp;</td>
-    <td width="34" class="subtitulosOpc"><div align="center">
-      <input name="txtP36_1" type="radio" value="1" />
-    </div></td>
-    <td width="479" class="subtitulosOpc">No precisa  </td>
-    <td>&nbsp;</td>
-  </tr>
 
-  <tr>
-    <td>&nbsp;</td>
-    <td colspan="2" rowspan="3" align="center" valign="top">
-	<table width="400" height="33" border="0"  align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td align="center">
-
-            <div align="center">
-           <html:link forward="pregunta2">Siguiente</html:link>
-           <!--  <a href="EncuestaRegistroPregunta2.html" class="enlaces" onclick="f_fotos21();">Siguiente</a> -->
-
-            </div>
-
-				    <div align="center"></div></td>
-                </tr>
-              </table>	</td>
-    <td>&nbsp;</td>
-  </tr>
+ 
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -162,12 +318,196 @@
     <td>&nbsp;</td>
   </tr>
 </table>
+
+<!--Pregunta 4 -->
+<table width="539" border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2">
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="2" class="subtitulosMayus">
+        ¿Cuál es la CUALIDAD principal que según usted debe caracterizar al futuro Alcalde?
+ </td>
+    <td>&nbsp;</td>
+  </tr>
+
+    <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="preg4" type="radio" value="1" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Tener objetivos y metas claras</td>
+    <td>&nbsp;</td>
+  </tr>
+
+    <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="preg4" type="radio" value="2" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Ser un buen líder</td>
+    <td>&nbsp;</td>
+  </tr>
+
+    <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="preg4" type="radio" value="3" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Honestidad y confiabilidad</td>
+    <td>&nbsp;</td>
+  </tr>
+
+    <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="preg4" type="radio" value="4" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Firmeza y autoridad </td>
+    <td>&nbsp;</td>
+  </tr>
+
+
+    <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="preg4" type="radio" value="5" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Capacidad para tomar decisiones difíciles</td>
+    <td>&nbsp;</td>
+  </tr>
+
+ 
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+
+<!--Pregunta 5 -->
+<table width="539" border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2">
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="2" class="subtitulosMayus">
+        Por quien votaría ud. si las eleccione fueran el dia de mañana?
+ </td>
+    <td>&nbsp;</td>
+  </tr>
+
+    <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="preg5" type="radio" value="1" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Lourdes flores</td>
+    <td>&nbsp;</td>
+  </tr>
+
+    <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="preg5" type="radio" value="2" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Alex kouri</td>
+    <td>&nbsp;</td>
+  </tr>
+
+    <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="preg5" type="radio" value="3" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Susana Villaran</td>
+    <td>&nbsp;</td>
+  </tr>
+
+    <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="preg5" type="radio" value="4" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Fernando Andrade</td>
+    <td>&nbsp;</td>
+  </tr>
+
+
+    <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="preg5" type="radio" value="5" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Humberto Lay</td>
+    <td>&nbsp;</td>
+  </tr>
+
+    <tr>
+    <td>&nbsp;</td>
+    <td width="34" class="subtitulosOpc"><div align="center">
+      <input name="preg5" type="radio" value="6" />
+    </div></td>
+    <td width="479" class="subtitulosOpc">Luis Iberico</td>
+    <td>&nbsp;</td>
+  </tr>
+
+
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+
+  
+
+</table>
+
+
+
+
 
   </td>
   </tr>
+
+   <tr>
+
+    <td colspan="2" align="center" valign="top">
+	<table width="100%" height="33" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+
+		<td align="center">
+                   <%-- <html:link forward="pregunta3" onclick="checker();">Terminar encuesta</html:link>--%>
+                    <a href="" onclick="checker();">Terminar encuesta </a>
+                </td>
+                </tr>
+      </table>
+	
+        <td></td>
+  </tr>
+
+
 </table>
 
 
-
+</form>
 </body>
 </html>
