@@ -17,21 +17,23 @@ import org.apache.struts.action.ActionForm;
  */
 public class MonitoreoEncuestaForm extends ActionForm{
 
-    private String idencuesta;
+    private String encuesta; //nombre de la encuesta
 
     /**
-     * @return the idencuesta
+     * @return the encuesta
      */
-    public String getIdencuesta() {
-        return idencuesta;
+    public String getEncuesta() {
+        return encuesta;
     }
 
     /**
-     * @param idencuesta the idencuesta to set
+     * @param encuesta the encuesta to set
      */
-    public void setIdencuesta(String idencuesta) {
-        this.idencuesta = idencuesta;
+    public void setEncuesta(String encuesta) {
+        this.encuesta = encuesta;
     }
+
+   
 
 
 
