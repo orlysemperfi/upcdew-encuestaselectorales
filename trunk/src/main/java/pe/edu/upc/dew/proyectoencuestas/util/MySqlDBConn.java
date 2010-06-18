@@ -33,7 +33,7 @@ public class MySqlDBConn {
 		try {
 
 			connection =
-			DriverManager.getConnection("jdbc:mysql://localhost:3306/dbencuesta","root","admin");
+			DriverManager.getConnection("jdbc:mysql://localhost:3306/dbencuesta","root","root");
 
 		} catch (Exception e) {
 			System.out.println(
