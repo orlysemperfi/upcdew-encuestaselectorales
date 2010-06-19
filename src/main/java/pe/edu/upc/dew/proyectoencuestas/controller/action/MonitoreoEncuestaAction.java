@@ -13,7 +13,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import pe.edu.upc.dew.proyectoencuestas.form.MonitoreoEncuestaForm;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.ResultadoEncuesta;
-//import pe.edu.upc.dew.proyectoencuestas.service.bo.MonitoreoEncuestaService;
+import pe.edu.upc.dew.proyectoencuestas.service.bo.MonitoreoEncuestaService;
 
 /**
  *
