@@ -16,7 +16,7 @@
     <form-bean name="UsuarioForm" type="pe.edu.upc.dew.proyectoencuestas.form.UsuarioForm"/>
     <form-bean name="encuestasForm" type="pe.edu.upc.dew.proyectoencuestas.form.EncuestaForm"/>
     <form-bean name="configuracionForm" type="pe.edu.upc.dew.proyectoencuestas.form.ConfiguracionForm"/>
-    <form-bean name="MonitoreoEncuestaForm" type="pe.edu.upc.dew.proyectoencuestas.form.MonitoreoEncuestaForm"/>
+    <form-bean name="monitoreoEncuestaForm" type="pe.edu.upc.dew.proyectoencuestas.form.MonitoreoEncuestaForm"/>
     <form-bean name="reporteForm" type="pe.edu.upc.dew.proyectoencuestas.form.ReporteForm"/>
 
   </form-beans>
@@ -155,10 +155,16 @@
     </action>
 
      <action
-        input="/" name="MonitoreoEncuestaForm"
-        path="/MonitoreoEncuesta"
+       
+        path="/monitoreoEncuesta"
+        type="pe.edu.upc.dew.proyectoencuestas.controller.action.MonitoreoEncuestaAction"
+        name="monitoreoEncuestaForm"
         scope="request"
-        type="pe.edu.upc.dew.proyectoencuestas.controller.action.MonitoreoEncuestaAction">
+        input="/index.jsp"
+        parameter="methodToCall"
+        unknown="false"
+        validate="false"
+        >
 
 
 
