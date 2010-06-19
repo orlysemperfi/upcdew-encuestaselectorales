@@ -11,7 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import pe.edu.upc.dew.proyectoencuestas.model.dto.MonitoreoEncuesta;
+import pe.edu.upc.dew.proyectoencuestas.model.dto.ResultadoEncuesta;
 import pe.edu.upc.dew.proyectoencuestas.util.MySqlDBConn;
 /**
  *
@@ -19,15 +19,15 @@ import pe.edu.upc.dew.proyectoencuestas.util.MySqlDBConn;
  */
 public class MonitoreoEncuestaDaoImpl implements MonitoreoEncuestaDao{
 
-     public List<MonitoreoEncuesta> getMonitoreoPorEncuesta(String encuesta)
+     public List<ResultadoEncuesta> getMonitoreoPorEncuesta(String encuesta)
      {
-           List<MonitoreoEncuesta> listamonitoreoEncuestas = new ArrayList<MonitoreoEncuesta>();
+           List<ResultadoEncuesta> listamonitoreoEncuestas = new ArrayList<ResultadoEncuesta>();
 
 		Connection conn = null;
 		Statement stm = null;
 		ResultSet rs = null;
 
-                MonitoreoEncuesta monitoreoEncuesta =null;
+                ResultadoEncuesta monitoreoEncuesta =null;
 
 		// Preparar consulta
 		String sql = "select * from ReporteAvance" +
@@ -42,7 +42,7 @@ public class MonitoreoEncuestaDaoImpl implements MonitoreoEncuestaDao{
 			// obtener la lista
 			while(rs.next()){
                             
-                            monitoreoEncuesta = new MonitoreoEncuesta();
+                            monitoreoEncuesta = new ResultadoEncuesta();
                             monitoreoEncuesta.setId_enc(Integer.parseInt(rs.getString(1)));
                             
                             listamonitoreoEncuestas.add(monitoreoEncuesta);
@@ -61,15 +61,15 @@ public class MonitoreoEncuestaDaoImpl implements MonitoreoEncuestaDao{
          return listamonitoreoEncuestas;
      }
 
-      public List<MonitoreoEncuesta> getMonitoreoPorMayorAvanceDistritoxEncuesta(String encuesta)
+      public List<ResultadoEncuesta> getMonitoreoPorMayorAvanceDistritoxEncuesta(String encuesta)
      {
-           List<MonitoreoEncuesta> listamonitoreoEncuestas = new ArrayList<MonitoreoEncuesta>();
+           List<ResultadoEncuesta> listamonitoreoEncuestas = new ArrayList<ResultadoEncuesta>();
 
 		Connection conn = null;
 		Statement stm = null;
 		ResultSet rs = null;
 
-                MonitoreoEncuesta monitoreoEncuesta =null;
+                ResultadoEncuesta monitoreoEncuesta =null;
 
 		// Preparar consulta
 		String sql = "select * from vw_MayorAvanceDistritoxEncuesta" +
@@ -84,7 +84,7 @@ public class MonitoreoEncuestaDaoImpl implements MonitoreoEncuestaDao{
 			// obtener la lista
 			while(rs.next()){
 
-                            monitoreoEncuesta = new MonitoreoEncuesta();
+                            monitoreoEncuesta = new ResultadoEncuesta();
                             monitoreoEncuesta.setId_enc(Integer.parseInt(rs.getString(1)));
 
                             listamonitoreoEncuestas.add(monitoreoEncuesta);
@@ -104,15 +104,15 @@ public class MonitoreoEncuestaDaoImpl implements MonitoreoEncuestaDao{
      }
 
 
-       public List<MonitoreoEncuesta> getMonitoreoAvanceDiarioxEncuesta(String encuesta)
+       public List<ResultadoEncuesta> getMonitoreoAvanceDiarioxEncuesta(String encuesta)
      {
-           List<MonitoreoEncuesta> listamonitoreoEncuestas = new ArrayList<MonitoreoEncuesta>();
+           List<ResultadoEncuesta> listamonitoreoEncuestas = new ArrayList<ResultadoEncuesta>();
 
 		Connection conn = null;
 		Statement stm = null;
 		ResultSet rs = null;
 
-                MonitoreoEncuesta monitoreoEncuesta =null;
+                ResultadoEncuesta monitoreoEncuesta =null;
 
 		// Preparar consulta
 		String sql = "select * from vw_AvanceDiario" +
@@ -127,7 +127,7 @@ public class MonitoreoEncuestaDaoImpl implements MonitoreoEncuestaDao{
 			// obtener la lista
 			while(rs.next()){
 
-                            monitoreoEncuesta = new MonitoreoEncuesta();
+                            monitoreoEncuesta = new ResultadoEncuesta();
                             monitoreoEncuesta.setId_enc(Integer.parseInt(rs.getString(1)));
 
                             listamonitoreoEncuestas.add(monitoreoEncuesta);
@@ -146,15 +146,15 @@ public class MonitoreoEncuestaDaoImpl implements MonitoreoEncuestaDao{
          return listamonitoreoEncuestas;
      }
 
-       public List<MonitoreoEncuesta> getMonitoreoAvanceAcumuladoxEncuesta()
+       public List<ResultadoEncuesta> getMonitoreoAvanceAcumuladoxEncuesta()
      {
-           List<MonitoreoEncuesta> listamonitoreoEncuestas = new ArrayList<MonitoreoEncuesta>();
+           List<ResultadoEncuesta> listamonitoreoEncuestas = new ArrayList<ResultadoEncuesta>();
 
 		Connection conn = null;
 		Statement stm = null;
 		ResultSet rs = null;
 
-                MonitoreoEncuesta monitoreoEncuesta =null;
+                ResultadoEncuesta monitoreoEncuesta =null;
 
 		// Preparar consulta
 		String sql = "select * from vw_AvanceDiario" ;
@@ -168,7 +168,7 @@ public class MonitoreoEncuestaDaoImpl implements MonitoreoEncuestaDao{
 			// obtener la lista
 			while(rs.next()){
 
-                            monitoreoEncuesta = new MonitoreoEncuesta();
+                            monitoreoEncuesta = new ResultadoEncuesta();
                             monitoreoEncuesta.setId_enc(Integer.parseInt(rs.getString(1)));
 
                             listamonitoreoEncuestas.add(monitoreoEncuesta);
@@ -187,7 +187,7 @@ public class MonitoreoEncuestaDaoImpl implements MonitoreoEncuestaDao{
          return listamonitoreoEncuestas;
      }
 
-    public List<MonitoreoEncuesta> getMonitoreoPorEncuestas(String encuesta) {
+    public List<ResultadoEncuesta> getMonitoreoPorEncuestas(String encuesta) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
