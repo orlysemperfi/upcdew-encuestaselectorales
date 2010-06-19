@@ -33,6 +33,7 @@
 //});
 </script>
 
+<form action="MonitoreoEncuesta.do" method="post">
 <table width="493" border="0" align="left"   cellpadding="0" cellspacing="0" >
   <tr>
     <th scope="col">&nbsp;</th>
@@ -56,7 +57,7 @@
       <tr>
         <td class="subtitulosbd">Encuesta</td>
                 <td align="center">	<div align="left">
-			  <select name="" id="" style="width:250px">
+			  <select name="encuesta" id="" style="width:250px">
 			    <option value="" selected="selected">Elecciones Municipales 2010 - Sector Alto</option>
 			    <option value="" selected="selected">Elecciones Municipales 2010 - Sector Medio</option>
 			    <option value="" selected="selected">Elecciones Lima Sur 2010 - II</option>
@@ -101,5 +102,6 @@
     <td>&nbsp;</td>
   </tr>
 </table>
+    </form>
 </body>
 </html>
