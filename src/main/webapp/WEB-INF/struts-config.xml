@@ -159,17 +159,20 @@
         path="/MonitoreoEncuesta"
         scope="request"
         type="pe.edu.upc.dew.proyectoencuestas.controller.action.MonitoreoEncuestaAction">
-      <forward
-        name="exito"
-        path="/mainPrincipal.jsp"
-        redirect="false"/>
-      <forward
-        name="userexito"
-        path="/MonitoreoEncuesta.jsp"
-        redirect="false"/>
+
+
 
       <forward
-      name="error" path="/index.jsp" redirect="false"/>
+            name="exito"
+            path="/MonitoreoEncuesta.jsp"
+            redirect="false"
+        />
+
+        <forward
+            name="error"
+            path="/MonitoreoEncuesta.jsp"
+            redirect="false"
+        />
 
     </action>
 <action
