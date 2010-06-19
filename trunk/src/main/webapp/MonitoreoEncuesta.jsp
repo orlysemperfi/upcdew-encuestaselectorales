@@ -18,39 +18,32 @@
 <title>Untitled Document</title>
 </head>
 
+
 <body>
 
-<script>
-//$(document).ready(function() {
-//$('.boton').mouseover(function() {
-//var nombre=$(this).attr("name");
-//$(this).attr("src", "images/roll/"+nombre+".jpg");
-//});
-//$('.boton').mouseout(function() {
-//var nombre=$(this).attr("name");
-//$(this).attr("src", "images/normal/"+nombre+".jpg");
-//});
-//});
-</script>
 
-<form action="MonitoreoEncuesta.do" method="post">
-<table width="493" border="0" align="left"   cellpadding="0" cellspacing="0" >
-  <tr>
-    <th scope="col">&nbsp;</th>
-    <th colspan="2" scope="col"  >&nbsp;</th>
-    <th scope="col">&nbsp;</th>
-  </tr>
-  <tr>
-    <th width="41" scope="col">&nbsp;</th>
-    <th colspan="2" align="center" class="span-12 SeccionCap" scope="col" ><div align="center">MONITOREO DE ENCUESTA </div></th>
-    <th width="17" scope="col">&nbsp;</th>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
+    <table border="0" width="100%" height="581" cellspacing="0" cellpadding="0">
+	<tr>
+		<td colspan="3"> <jsp:include page="/header.jsp" /> </td>
+	</tr>
+
+    <tr>
+            <td></td>
+             <td></td>
+             <!--
+            <td width="22%"  style="vertical-align:text-top">
+	                <%-- Inicio del Menu del Web Site --%>
+	               <%--  <jsp:include page="/menuAdmin.jsp" /> --%>
+	                <%-- Fin Menu del Web Site --%>
+            </td>-->
+            <td  valign="top" align="left">   <p>&nbsp;</p>
+
+
+
+<html:form action="MonitoreoEncuesta.do">
+
+    <table width="493" border="0"   align="center" cellpadding="0" cellspacing="0" >
+
   <tr>
     <td>&nbsp;</td>
     <td colspan="2"><table width="200" border="1" align="center">
@@ -101,7 +94,24 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
+
+  <tr> <td colspan="2">
+                                     <center>
+
+                                           <a href="configuracion.do?methodToCall=iniciar"> Ver Listado de Encuestas </a>
+                                      </center>
+                                 </td></tr>
+
+
 </table>
-    </form>
+   </html:form>
+
+
+            </td>
+    </tr>
+</table>
+
+
 </body>
+
 </html>
