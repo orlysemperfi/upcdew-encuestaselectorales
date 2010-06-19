@@ -17,7 +17,7 @@ import org.apache.struts.action.ActionForm;
  */
 public class MonitoreoEncuestaForm extends ActionForm{
 
-    private String encuesta; //nombre de la encuesta
+    private String encuesta; //nombre del combo encuesta
 
     /**
      * @return the encuesta
