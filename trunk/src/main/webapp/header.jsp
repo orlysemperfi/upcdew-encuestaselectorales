@@ -4,12 +4,7 @@
     Author     : cramirez
 --%>
 
-<%@page contentType="text/html" pageEncoding="windows-1252"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-
 <table width="1041" border="0" align="center"   cellpadding="0" cellspacing="0" class="tabla2">
   <tr>
     <th height="75" colspan="3" scope="col"><img src="images/cabecera.png" width="1050" height="80" />
