@@ -6,7 +6,7 @@
 package pe.edu.upc.dew.proyectoencuestas.dao;
 
 import java.util.List; 
-import pe.edu.upc.dew.proyectoencuestas.model.dto.MonitoreoEncuesta;
+import pe.edu.upc.dew.proyectoencuestas.model.dto.ResultadoEncuesta;
 /**
  *
  * @author Gaby
@@ -15,11 +15,11 @@ public interface MonitoreoEncuestaDao {
 
 //Sale del impl
 
-   List<MonitoreoEncuesta> getMonitoreoPorEncuesta(String encuesta);
+   List<ResultadoEncuesta> getMonitoreoPorEncuesta(String encuesta);
 
-   List<MonitoreoEncuesta> getMonitoreoPorMayorAvanceDistritoxEncuesta(String encuesta);
+   List<ResultadoEncuesta> getMonitoreoPorMayorAvanceDistritoxEncuesta(String encuesta);
 
-   List<MonitoreoEncuesta> getMonitoreoAvanceDiarioxEncuesta(String encuesta);
+   List<ResultadoEncuesta> getMonitoreoAvanceDiarioxEncuesta(String encuesta);
 
-   List<MonitoreoEncuesta> getMonitoreoAvanceAcumuladoxEncuesta();
+   List<ResultadoEncuesta> getMonitoreoAvanceAcumuladoxEncuesta();
 }
