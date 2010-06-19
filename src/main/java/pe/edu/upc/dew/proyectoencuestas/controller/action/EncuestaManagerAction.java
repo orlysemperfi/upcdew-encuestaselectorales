@@ -14,6 +14,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionForward;
 import pe.edu.upc.dew.proyectoencuestas.dao.PreguntaDao;
+import pe.edu.upc.dew.proyectoencuestas.form.EncuestaForm;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Pregunta;
 import pe.edu.upc.dew.proyectoencuestas.service.bo.PreguntaService;
 
@@ -42,11 +43,35 @@ public class EncuestaManagerAction extends DispatchAction {
            return mapping.findForward("exito");
     }
 
+        public ActionForward configurar(ActionMapping mapping, ActionForm  form,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+
+            EncuestaForm encuestaForm = (EncuestaForm)form;
+
+           System.out.println("\n Iniciando la configuracion con el código ---->"+ encuestaForm.getIdEncuesta());
+           return mapping.findForward("configurar");
+    }
+
+
+           public ActionForward monitorear(ActionMapping mapping, ActionForm  form,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+
+           EncuestaForm encuestaForm = (EncuestaForm)form;
+           System.out.println("\n Iniciando el monitoreo con el código ---->"+ encuestaForm.getIdEncuesta());
+           return mapping.findForward("monitorear");
+    }
+
+
+
+
      public ActionForward consultar(ActionMapping mapping, ActionForm  form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
-           System.out.println("\n Iniciando la consulta detallada de una encuesta");
+         EncuestaForm encuestaForm = (EncuestaForm)form;
+           System.out.println("\n Iniciando la consulta detallada de una encuesta  con el código ---->"+ encuestaForm.getIdEncuesta());
            return mapping.findForward("consultar");
      }
 
