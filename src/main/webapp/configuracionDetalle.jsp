@@ -82,7 +82,7 @@
 
                                      <html:text property="fechaInicio"></html:text>
 
-                                         <a href="#" id="a_fechaDes"><img src="images/ic_calendar.gif" width="22" height="16" border="0" /></a>
+                                         <a href="#" id="a_fechaDes"><img src="images/iconos/Calendar.png" width="22" height="16" border="0" /></a>
                                                          <script type="text/javascript">
                                                                                 Calendar.setup({
                                                                                 inputField     :    "fechaInicio", // id of the input field
@@ -102,7 +102,7 @@
 
                                       <html:text property="fechaFin"></html:text>
 
-                                         <a href="#" id="b_fechaDes"><img src="images/ic_calendar.gif" width="22" height="16" border="0" /></a>
+                                         <a href="#" id="b_fechaDes"><img src="images/iconos/Calendar.png" width="22" height="16" border="0" /></a>
                                                          <script type="text/javascript">
                                                                                 Calendar.setup({
                                                                                 inputField     :    "fechaFin", // id of the input field
