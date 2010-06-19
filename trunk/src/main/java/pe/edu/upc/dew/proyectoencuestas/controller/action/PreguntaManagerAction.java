@@ -41,14 +41,14 @@ public class PreguntaManagerAction extends org.apache.struts.action.Action {
 
             request.setAttribute("preguntas", preguntas);
 
-//            if(preguntas.size() > 0)
-//            {
+            if(preguntas.size() > 0)
+            {
                 return mapping.findForward(SUCCESS);
 
-//            } else
-//            {
-//                return mapping.findForward(ERROR);
-//            }
+            } else
+            {
+                return mapping.findForward(ERROR);
+            }
 
     }
 
