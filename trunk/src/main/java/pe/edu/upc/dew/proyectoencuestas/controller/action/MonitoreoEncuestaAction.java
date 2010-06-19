@@ -52,4 +52,43 @@ public class MonitoreoEncuestaAction extends org.apache.struts.action.Action{
        
     }
 
+     public ActionForward iniciar(ActionMapping mapping, ActionForm  form,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+
+           System.out.println("\n Iniciando el monitoreo de encuestas");
+           return mapping.findForward("exito");
+    }
+
+     public ActionForward consultar(ActionMapping mapping, ActionForm  form,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+
+           System.out.println("\n Iniciando la consulta del monitoreo de una encuesta");
+           return mapping.findForward("consultar");
+     }
+
+
+
+    public ActionForward aceptar(ActionMapping mapping, ActionForm  form,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+
+
+        return mapping.findForward("exito");
+    }
+
+    /**
+     * This is the Struts action method called on
+     * http://.../actionPath?method=myAction2,
+     * where "method" is the value specified in <action> element :
+     * ( <action parameter="method" .../> )
+     */
+    public ActionForward myAction2(ActionMapping mapping, ActionForm  form,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+
+        return mapping.findForward(SUCCESS);
+    }
+
 }
