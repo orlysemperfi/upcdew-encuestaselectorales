@@ -33,6 +33,25 @@ public class EncuestaManagerAction extends DispatchAction {
      * where "method" is the value specified in <action> element : 
      * ( <action parameter="method" .../> )
      */
+
+      public ActionForward iniciar(ActionMapping mapping, ActionForm  form,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+
+           System.out.println("\n Iniciando el listado de encuestas");
+           return mapping.findForward("exito");
+    }
+
+     public ActionForward consultar(ActionMapping mapping, ActionForm  form,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+
+           System.out.println("\n Iniciando la consulta detallada de una encuesta");
+           return mapping.findForward("consultar");
+     }
+
+
+      
     public ActionForward aceptar(ActionMapping mapping, ActionForm  form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
