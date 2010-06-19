@@ -82,4 +82,18 @@ private List<Encuesta> encuestas;
         return fecha_res;
     }
 
+    /**
+     * @return the encuestas
+     */
+    public List<Encuesta> getEncuestas() {
+        return encuestas;
+    }
+
+    /**
+     * @param encuestas the encuestas to set
+     */
+    public void setEncuestas(List<Encuesta> encuestas) {
+        this.encuestas = encuestas;
+    }
+
 }
