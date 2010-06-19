@@ -50,7 +50,7 @@
     <td class="subtitulosOpc"><div align="center">
         <input name="number" type="radio" value="1" />
     </div></td>
-    <td class="subtitulosOpc">Encuesta 1</td>
+    <td class="subtitulosOpc">Elecciones Municipales 2010 - Sector Alto</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
@@ -58,7 +58,7 @@
      <td width="34" class="subtitulosOpc"><div align="center">
           <input name="number" type="radio" value="2" />
           </div></td>
-      <td class="subtitulosOpc">Encuesta 2</td>
+      <td class="subtitulosOpc">Elecciones Municipales 2010 - Sector Medio</td>
 	    <td>&nbsp;</td>
   </tr>
 
@@ -67,7 +67,7 @@
     <td width="34" class="subtitulosOpc"><div align="center">
       <input name="number" type="radio" value="3" />
     </div></td>
-    <td width="479" class="subtitulosOpc">Encuesta 3</td>
+    <td width="479" class="subtitulosOpc">Elecciones Lima Sur 2010 - II </td>
     <td>&nbsp;</td>
   </tr>
    <tr>
@@ -75,7 +75,7 @@
     <td width="34" class="subtitulosOpc"><div align="center">
       <input name="number" type="radio" value="4" />
     </div></td>
-    <td width="479" class="subtitulosOpc">Encuesta 4</td>
+    <td width="479" class="subtitulosOpc">Elecciones lima Norte 2010 -II </td>
     <td>&nbsp;</td>
   </tr>
 
