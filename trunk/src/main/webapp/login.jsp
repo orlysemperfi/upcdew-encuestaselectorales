@@ -103,7 +103,7 @@ $(this).attr("src", "images/normal/"+nombre+".jpg");
           <tr>
             <td height="20" class="subtitulosMayus">&nbsp;</td>
             <td align="center">
-                <input type="submit" name="Ingresar" />
+                <input type="submit" name="Ingresar" value="Ingresar" />
             <!--
             <a href="Principal.html">
              <img class="boton" name="btnIngresar" src="images/normal/btnIngresar.jpg" width="90" height="28"  border="0"/ >
