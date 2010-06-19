@@ -22,27 +22,69 @@
 function checker()
 {
 
-var radio_choice = false;
+var radio_choice1 = false;
+var radio_choice2 = false;
+var radio_choice4 = false;
+var radio_choice5 = false;
+
+var check3 = false;
 
 for (counter = 0; counter < document.forms[0].preg1.length; counter++)
 {
-
-if (document.forms[0].preg1[counter].checked)
-radio_choice = true;
+    if (document.forms[0].preg1[counter].checked)
+        radio_choice1 = true;
 }
 
 for (counter = 0; counter < document.forms[0].preg2.length; counter++)
 {
-if (document.forms[0].preg2[counter].checked)
-radio_choice = true;
+    if (document.forms[0].preg2[counter].checked)
+        radio_choice2 = true;
 }
 
-if (!radio_choice)
+for (counter = 0; counter < document.forms[0].preg4.length; counter++)
 {
-alert("Falta seleccionar una rpta.")
+    if (document.forms[0].preg4[counter].checked)
+        radio_choice4 = true;
 }
-else
-    alert("Muchas gracias, su encuesta fue registrada satisfactoriamente...")
+
+for (counter = 0; counter < document.forms[0].preg5.length; counter++)
+{
+    if (document.forms[0].preg5[counter].checked)
+        radio_choice5 = true;
+}
+
+for (counter = 0; counter < document.forms[0].preg3.length; counter++)
+{
+    if (document.forms[0].preg3[counter].checked)
+        check3 = true;
+}
+
+if (!radio_choice1)
+    alert("Falta responder la pregunta 1");
+
+if (!radio_choice2)
+    alert("Falta responder la pregunta 2");
+
+if (!check3)
+    alert("Falta responder la pregunta 3");
+
+if (!radio_choice4)
+    alert("Falta responder la pregunta 4");
+
+if (!radio_choice5)
+    alert("Falta responder la pregunta 5");
+
+
+
+
+
+
+
+if (radio_choice1 == true && radio_choice2 == true && radio_choice4 == true && radio_choice5 == true && check3 == true)
+    {
+        alert("Muchas gracias, su encuesta fue registrada satisfactoriamente...");
+        window.location.href = "login.jsp";
+    }
 }
 
 -->
@@ -53,7 +95,7 @@ else
 
 <body>
 
- <form action="Preguntas.do" method="post">
+ <form>
 <table border="0" width="100%" height="581" cellspacing="0" cellpadding="0">
 <tr>
         <td colspan="2"> <jsp:include page="/header.jsp" /> </td>
@@ -496,12 +538,12 @@ else
 
 		<td align="center">
                    <%-- <html:link forward="pregunta3" onclick="checker();">Terminar encuesta</html:link>--%>
-                    <a href="" onclick="checker();">Terminar encuesta </a>
+                    <a href="#" onclick="checker();">Terminar encuesta </a>
                 </td>
                 </tr>
       </table>
 	
-        <td></td>
+      
   </tr>
 
 

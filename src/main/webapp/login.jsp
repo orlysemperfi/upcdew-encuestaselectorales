@@ -90,7 +90,7 @@ $(this).attr("src", "images/normal/"+nombre+".jpg");
             </tr>
             <tr>
               <td height="38" class="subtitulosMayus">Contrase&ntilde;a</td>
-            <th width="128" class="subtitulosMayus" scope="col">
+            <th class="subtitulosMayus" scope="col">
 			  <input
 				name="password"
 				type="password"

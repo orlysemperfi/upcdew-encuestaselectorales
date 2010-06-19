@@ -35,7 +35,7 @@
   <table width="539" border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2">
   <tr>
     <td width="10" scope="col">&nbsp;</td>
-    <td colspan="2" scope="col" class="letrast" >Encuesta por distrito </td>
+    <td colspan="2" scope="col" class="letrast" >Encuestas por distrito </td>
     <td width="16" scope="col">&nbsp;</td>
   </tr>
 
@@ -87,9 +87,9 @@
                   <td align="center">
 
             <div align="center">
-           <html:link forward="pregunta1">Empezar encuesta</html:link>
+                <%-- <html:link forward="pregunta1">Empezar encuesta</html:link>--%>
 
-
+<a href="Preguntas.do" class="enlaces">Empezar encuesta</a>
             </div>
 
                     </td>
