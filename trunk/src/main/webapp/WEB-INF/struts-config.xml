@@ -57,6 +57,7 @@
             path="/cuestionario.jsp"
             redirect="false"
         />
+
         <forward
             name="error"
             path="/cuestionario.jsp"
@@ -106,7 +107,7 @@
        <action
             path="/configuracion"
             type="pe.edu.upc.dew.proyectoencuestas.controller.action.EncuestaManagerAction"
-            name="configuracionForm"
+            name="encuestasForm"
             scope="request"
             input="/index.jsp"
             parameter="methodToCall"
@@ -120,12 +121,24 @@
         redirect="false"
       />
      <forward
-        name="consultar"
+        name="configurar"
+        path="/configuracionDetalle.jsp"
+        redirect="false"
+      />
+
+       <forward
+        name="monitorear"
+        path="/configuracionDetalle.jsp"
+        redirect="false"
+      />
+
+      <forward
+        name="configurar"
         path="/configuracionDetalle.jsp"
         redirect="false"
       />
     <forward
-        name="error"
+        name="consultar"
         path="/configuracion.jsp"
         redirect="false"
       />
