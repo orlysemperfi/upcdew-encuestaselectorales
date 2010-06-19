@@ -79,7 +79,7 @@
 
       <forward
             name="error"
-            path="/index.jsp"
+            path="/pregunta1.jsp"
             redirect="false"/>
 
      </action>
@@ -132,6 +132,14 @@
 
     </action>
 
+    <action path="/respuesta" type="pe.edu.upc.dew.proyectoencuestas.controller.action.RespuestaAction">
+        <forward
+        name="exito"
+        path="/pregunta1.jsp"
+        redirect="true"
+      />
+    </action>
+
      <action
         input="/" name="MonitoreoEncuestaForm"
         path="/MonitoreoEncuesta"
@@ -150,6 +158,7 @@
       name="error" path="/index.jsp" redirect="false"/>
 
     </action>
+
    <!-- Action Servlet Mapping without xdoclet-->
 
   </action-mappings>
