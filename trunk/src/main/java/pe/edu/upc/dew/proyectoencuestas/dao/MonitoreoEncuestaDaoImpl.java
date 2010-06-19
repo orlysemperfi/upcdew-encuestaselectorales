@@ -170,7 +170,7 @@ public class MonitoreoEncuestaDaoImpl implements MonitoreoEncuestaDao{
 
                             monitoreoEncuesta = new ResultadoEncuesta();
                             monitoreoEncuesta.setId_enc(Integer.parseInt(rs.getString(1)));
-
+                          
                             listamonitoreoEncuestas.add(monitoreoEncuesta);
 
 			}
