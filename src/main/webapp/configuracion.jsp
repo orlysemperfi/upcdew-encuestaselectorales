@@ -67,7 +67,7 @@
                         <td style="height: 20px; width: 130px; text-align: center;">11</td>
                         <td style="height: 20px; text-align: center;"><a href="configuracion.do?methodToCall=configurar&idEncuesta=1"> <img src="images/iconos/settings.png"   style="text-decoration:none"> </a>  </td>
                         <td style="height: 20px; text-align: center;"><a href="configuracion.do?methodToCall=monitorear&idEncuesta=1"> <img src="images/iconos/computer.png" style="text-decoration:none"> </a>  </td>
-                        <td style="height: 20px; text-align: center;"><a href="configuracion.do?methodToCall=consultar&idEncuesta=1"> <img src="images/iconos/chart.png" style="text-decoration:none"> </a>  </td>
+                        <td style="height: 20px; text-align: center;"><a href="reporte.do?methodToCall=iniciar&idEncuesta=1&descripcion='Elecciones Municipales 2010 - Sector Alto'"> <img src="images/iconos/chart.png" style="text-decoration:none"> </a>  </td>
                     </tr>
 
                     <tr class="subtitulosTabla">
@@ -78,7 +78,7 @@
                         <td style="height: 20px; width: 130px; text-align: center;">8 </td>
                         <td style="height: 20px; text-align: center;"><a href="configuracion.do?methodToCall=configurar&idEncuesta=2"> <img src="images/iconos/settings.png" style="text-decoration:none"> </a>  </td>
                         <td style="height: 20px; text-align: center;"><a href="configuracion.do?methodToCall=monitorear&idEncuesta=2"> <img src="images/iconos/computer.png" style="text-decoration:none"> </a>  </td>
-                        <td style="height: 20px; text-align: center;"><a href="configuracion.do?methodToCall=consultar&idEncuesta=2"><img src="images/iconos/chart.png" style="text-decoration:none"></a>   </td>
+                        <td style="height: 20px; text-align: center;"><a href="reporte.do?methodToCall=iniciar&idEncuesta=2&descripcion='Elecciones Municipales 2010 - Sector Medio'"><img src="images/iconos/chart.png" style="text-decoration:none"></a>   </td>
                    </tr>
 
 
@@ -90,7 +90,7 @@
                         <td style="height: 20px; width: 130px; text-align: center;">3 </td>
                         <td style="height: 20px; text-align: center;"><a href="configuracion.do?methodToCall=configurar&idEncuesta=3"> <img src="images/iconos/settings.png" style="text-decoration:none"> </a>  </td>
                         <td style="height: 20px; text-align: center;"><a href="configuracion.do?methodToCall=monitorear&idEncuesta=3"> <img src="images/iconos/computer.png" style="text-decoration:none"> </a>  </td>
-                        <td style="height: 20px; text-align: center;"><a href="configuracion.do?methodToCall=consultar&idEncuesta=3"> <img src="images/iconos/chart.png" style="text-decoration:none"></a> </td>
+                        <td style="height: 20px; text-align: center;"><a href="reporte.do?methodToCall=iniciar&idEncuesta=3&descripcion='Elecciones Lima Sur 2010 - II'"> <img src="images/iconos/chart.png" style="text-decoration:none"></a> </td>
                     </tr>
 
                    <tr class="subtitulosTabla">
@@ -101,7 +101,7 @@
                         <td style="height: 20px; width: 130px; text-align: center;">3 </td>
                         <td style="height: 20px; text-align: center;"><a href="configuracion.do?methodToCall=configurar&idEncuesta=4"> <img src="images/iconos/settings.png" style="text-decoration:none"> </a>  </td>
                         <td style="height: 20px; text-align: center;"><a href="configuracion.do?methodToCall=monitorear&idEncuesta=4"> <img src="images/iconos/computer.png" style="text-decoration:none"> </a>  </td>
-                        <td style="height: 20px; text-align: center;"><a href="configuracion.do?methodToCall=consultar&idEncuesta=4"> <img src="images/iconos/chart.png" style="text-decoration:none"></a> </td>
+                        <td style="height: 20px; text-align: center;"><a href="reporte.do?methodToCall=iniciar&idEncuesta=4&descripcion='Elecciones lima Norte 2010 -II'"> <img src="images/iconos/chart.png" style="text-decoration:none"></a> </td>
                     </tr>
 
 
