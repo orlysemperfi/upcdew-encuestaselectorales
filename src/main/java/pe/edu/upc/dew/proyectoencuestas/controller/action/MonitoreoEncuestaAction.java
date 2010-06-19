@@ -11,6 +11,7 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.actions.DispatchAction;
 import pe.edu.upc.dew.proyectoencuestas.form.MonitoreoEncuestaForm;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.ResultadoEncuesta;
 import pe.edu.upc.dew.proyectoencuestas.service.bo.MonitoreoEncuestaService;
@@ -19,7 +20,7 @@ import pe.edu.upc.dew.proyectoencuestas.service.bo.MonitoreoEncuestaService;
  *
  * @author Gaby
  */
-public class MonitoreoEncuestaAction extends org.apache.struts.action.Action{
+public class MonitoreoEncuestaAction extends DispatchAction{
 
   //   private MonitoreoEncuestaService monitoreoEncuestaService;
     /* forward name="success" path="" */
@@ -36,26 +37,14 @@ public class MonitoreoEncuestaAction extends org.apache.struts.action.Action{
      * @throws java.lang.Exception
      * @return
      */
-    @Override
-    public ActionForward execute(ActionMapping mapping, ActionForm form,
-            HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
 
-      
-
-        String encuesta = ((MonitoreoEncuestaForm)form).getEncuesta();
-
-
-       // MonitoreoEncuesta monitoreoEncuesta = monitoreoEncuestaService.getMonitoreoPorEncuesta(encuesta);
-
-       return mapping.findForward(SUCCESS);
-       
-    }
+   
 
      public ActionForward iniciar(ActionMapping mapping, ActionForm  form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
+           System.out.println("\n Iniciando el monitoreo de encuestas");
            System.out.println("\n Iniciando el monitoreo de encuestas");
            return mapping.findForward("exito");
     }
