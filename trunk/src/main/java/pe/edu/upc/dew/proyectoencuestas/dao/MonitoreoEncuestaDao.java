@@ -14,8 +14,8 @@ import pe.edu.upc.dew.proyectoencuestas.model.dto.MonitoreoEncuesta;
 public interface MonitoreoEncuestaDao {
 
 //Sale del impl
-//List<MonitoreoEncuesta> getMonitoreoPorEncuesta(String encuesta);
-   List<MonitoreoEncuesta> getMonitoreoPorEncuestas(String encuesta);
+
+   List<MonitoreoEncuesta> getMonitoreoPorEncuesta(String encuesta);
 
    List<MonitoreoEncuesta> getMonitoreoPorMayorAvanceDistritoxEncuesta(String encuesta);
 
