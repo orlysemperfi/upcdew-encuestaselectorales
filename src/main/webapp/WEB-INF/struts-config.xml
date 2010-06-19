@@ -17,7 +17,8 @@
     <form-bean name="encuestasForm" type="pe.edu.upc.dew.proyectoencuestas.form.EncuestaForm"/>
     <form-bean name="configuracionForm" type="pe.edu.upc.dew.proyectoencuestas.form.ConfiguracionForm"/>
     <form-bean name="MonitoreoEncuestaForm" type="pe.edu.upc.dew.proyectoencuestas.form.MonitoreoEncuestaForm"/>
-     
+    <form-bean name="reporteForm" type="pe.edu.upc.dew.proyectoencuestas.form.ReporteForm"/>
+
   </form-beans>
 
   <!-- ========== Global Exceptions Definitions =================================== -->
@@ -93,7 +94,7 @@
         type="pe.edu.upc.dew.proyectoencuestas.controller.action.UsuarioAction">
       <forward
         name="exito"
-        path="/mainPrincipal.jsp"
+        path="/configuracion.jsp"
         redirect="false"/>
       <forward
         name="userexito"
@@ -169,6 +170,30 @@
 
       <forward
       name="error" path="/index.jsp" redirect="false"/>
+
+    </action>
+<action
+            path="/reporte"
+            type="pe.edu.upc.dew.proyectoencuestas.controller.action.ReporteAction"
+            name="reporteForm"
+            scope="request"
+            input="/index.jsp"
+            parameter="methodToCall"
+            unknown="false"
+            validate="false"
+         >
+
+        <forward
+            name="exito"
+            path="/reporte.jsp"
+            redirect="false"
+        />
+
+        <forward
+            name="error"
+            path="/reporte.jsp"
+            redirect="false"
+        />
 
     </action>
 
