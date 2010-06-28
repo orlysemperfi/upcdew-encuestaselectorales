@@ -14,6 +14,6 @@ import pe.edu.upc.dew.proyectoencuestas.model.dto.Usuario;
  */
 public interface UsuarioDao {
 
-    Usuario getUsuarioPorUsername(String username);
+    Usuario getUsuarioPorUsername(String username, String password);
 
 }
