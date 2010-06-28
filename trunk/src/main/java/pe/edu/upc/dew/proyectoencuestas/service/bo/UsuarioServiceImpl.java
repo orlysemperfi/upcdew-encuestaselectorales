@@ -22,8 +22,8 @@ public class UsuarioServiceImpl implements UsuarioService{
         this.usuarioDao = new UsuarioDaoImpl();
     }
 
-    public Usuario getUsuarioPorUsername(String username) {
-        return usuarioDao.getUsuarioPorUsername(username);
+    public Usuario getUsuarioPorUsername(String username, String password) {
+        return usuarioDao.getUsuarioPorUsername(username, password);
     }
 
 }
