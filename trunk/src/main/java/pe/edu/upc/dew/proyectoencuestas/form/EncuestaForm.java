@@ -5,11 +5,6 @@
 
 package pe.edu.upc.dew.proyectoencuestas.form;
 
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionForm;
 
 /**
@@ -25,10 +20,16 @@ public class EncuestaForm extends ActionForm {
     private String fechaFin;
     private Integer muestra;
     private String estado;
+    private String distrito;
 
+    public String getDistrito() {
+        return distrito;
+    }
 
-    private String name;
-    private String number;
+    public void setDistrito(String distrito) {
+        this.distrito = distrito;
+    }
+
 
     public String getEstado() {
         return estado;
@@ -36,9 +37,7 @@ public class EncuestaForm extends ActionForm {
 
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-
-    
+    }    
     
     public String getFechaFin() {
         return fechaFin;
@@ -79,38 +78,5 @@ public class EncuestaForm extends ActionForm {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-
-
-
-    /**
-     * @return
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param string
-     */
-    public void setName(String string) {
-        name = string;
-    }
-
-    /**
-     * @return
-     */
-    public String getNumber() {
-        return number;
-    }
-
-    /**
-     * @param i
-     */
-    public void setNumber(String i) {
-        number = i;
-    }
-
-
 
 }
