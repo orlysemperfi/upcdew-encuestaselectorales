@@ -22,6 +22,8 @@
 <body>
 <form action="Preguntas.do" method="post">
 
+      
+
 <table border="0" width="100%" height="581" cellspacing="0" cellpadding="0">
 <tr>
         <td colspan="2"> <jsp:include page="/header.jsp" /> </td>
@@ -32,6 +34,70 @@
 
    <td width="92%" valign="top" align="left">
 
+  <table width="539" border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2">
+  <tr>
+    <td width="10" scope="col">&nbsp;</td>
+    <td colspan="2" scope="col" class="letrast" >Encuestas por distrito </td>
+    <td width="16" scope="col">&nbsp;</td>
+  </tr>
+
+    <tr>
+    <td>&nbsp;</td>
+    <td colspan="2" class="subtitulosMayus">Elija la encuesta que desea empezar:</td>
+    <td>&nbsp;</td>
+  </tr>
+
+
+              <c:forEach var="encuesta" items="${encuestas}">
+                  <tr>
+
+                     <td>&nbsp;</td>
+
+                     <td class="subtitulosOpc"><div align="center">
+                        <input name="number" type="radio" value="1" />
+                    </div>
+
+                     </td>
+
+
+                      <td class="subtitulosOpc"> ${encuesta.nombre}</td>
+                      <td>&nbsp;</td>
+
+                  </tr>
+            </c:forEach>
+        <tr>
+
+        
+    <tr>
+    <td>&nbsp;</td>
+    <td colspan="2" rowspan="3" align="center" valign="top">
+	<table width="400" height="33" border="0"  align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td align="center">
+
+            <div align="center">
+
+                <a href="Preguntas.do" class="enlaces">Empezar encuesta</a>
+            </div>
+
+                    </td>
+                </tr>
+              </table>
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+<!--
   <table width="539" border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2">
   <tr>
     <td width="10" scope="col">&nbsp;</td>
@@ -87,7 +153,7 @@
                   <td align="center">
 
             <div align="center">
-                <%-- <html:link forward="pregunta1">Empezar encuesta</html:link>--%>
+            
 
 <a href="Preguntas.do" class="enlaces">Empezar encuesta</a>
             </div>
@@ -108,7 +174,7 @@
     <td>&nbsp;</td>
   </tr>
 </table>
-
+-->
   </td>
   </tr>
 </table>
