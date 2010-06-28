@@ -55,13 +55,13 @@
 
         <forward
             name="exito"
-            path="/cuestionario.jsp"
+            path="/encuestasPorDistrito.jsp"
             redirect="false"
         />
 
         <forward
             name="error"
-            path="/cuestionario.jsp"
+            path="/index.jsp"
             redirect="false"
         />
 
