@@ -5,13 +5,18 @@
 
 package pe.edu.upc.dew.proyectoencuestas.controller.action;
 
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import pe.edu.upc.dew.proyectoencuestas.form.UsuarioForm;
+import pe.edu.upc.dew.proyectoencuestas.model.dto.Encuesta;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Usuario;
+import pe.edu.upc.dew.proyectoencuestas.service.bo.EncuestaService;
+import pe.edu.upc.dew.proyectoencuestas.service.bo.EncuestaServiceImpl;
 import pe.edu.upc.dew.proyectoencuestas.service.bo.UsuarioService;
 import pe.edu.upc.dew.proyectoencuestas.service.bo.UsuarioServiceImpl;
 
@@ -46,20 +51,49 @@ public class UsuarioAction extends org.apache.struts.action.Action {
         String username = ((UsuarioForm)form).getUsername();
         String password = ((UsuarioForm)form).getPassword();
       
-        Usuario usuario = usuarioService.getUsuarioPorUsername(username);
+        Usuario usuario = usuarioService.getUsuarioPorUsername(username, password);
 
-//        if (usuario.getNombre().equals(username)){
+        if (usuario == null)
+        {
+            return mapping.findForward(ERROR);
+        }
+        else
+        {
+            if (usuario.getUsername().equals(username) && usuario.getPassword().equals(password)){
 
-            request.setAttribute("usuario", usuario);
+               // request.setAttribute("usuario", usuario);
 
-            if(usuario.getRol()== 1)
-                return mapping.findForward(SUCCESS);
-            else
-                return mapping.findForward(USERSUCCESS);
+                HttpSession session = request.getSession();
+                session.setAttribute("usuario", usuario);
 
-//        } else {
-//            return mapping.findForward(ERROR);
-//        }
+                if(usuario.getRol() == 1)
+                    return mapping.findForward(SUCCESS);
+                else
+                {
+                    EncuestaService encuestaService = new EncuestaServiceImpl();
+                    List<Encuesta> encuestas = encuestaService.getEncuestasPorDistritos(usuario.getUbigeo().getCodDistrito());
+
+                    if (encuestas == null)
+                    {
+                        return mapping.findForward(ERROR);
+                    }
+                    else
+                    {
+                        if (encuestas.size() > 0){
+
+                            request.setAttribute("encuestas", encuestas);
+                            return mapping.findForward(USERSUCCESS);
+
+                        } else {
+                            return mapping.findForward(ERROR);
+                        }
+                    }                   
+                }
+
+            } else {
+                return mapping.findForward(ERROR);
+            }
+        }
        
     }
 }
