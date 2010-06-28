@@ -21,6 +21,12 @@ public class Usuario {
     private String username;
     private String password;
 
+
+    public Usuario(){
+        this.ubigeo = new Ubigeo();
+    }
+
+
     public String getPassword() {
         return password;
     }
