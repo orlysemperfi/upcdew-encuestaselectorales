@@ -38,11 +38,10 @@ public class PreguntaManagerAction extends org.apache.struts.action.Action {
         int idEncuesta = ((PreguntaManagerForm)form).getNumber();
       
         List<Pregunta> preguntas = preguntaService.getPreguntasPorEncuesta(idEncuesta);
-
-            request.setAttribute("preguntas", preguntas);
-
+            
             if(preguntas.size() > 0)
             {
+                request.setAttribute("preguntas", preguntas);
                 return mapping.findForward(SUCCESS);
 
             } else
@@ -52,17 +51,6 @@ public class PreguntaManagerAction extends org.apache.struts.action.Action {
 
     }
 
-//      public ActionForward aceptar(ActionMapping mapping, ActionForm  form,
-//            HttpServletRequest request, HttpServletResponse response)
-//            throws Exception {
-//
-//
-//        PreguntaService preguntaBo= new PreguntaServiceImpl();
-//        ArrayList<Pregunta> preguntas = preguntaBo.ObtenerListadoPreguntas();
-//        System.out.println("hola como estaas"+preguntas.size());
-//        request.setAttribute("usuarios", preguntas);
-//
-//        return mapping.findForward("exito");
-//    }
+
 
 }
