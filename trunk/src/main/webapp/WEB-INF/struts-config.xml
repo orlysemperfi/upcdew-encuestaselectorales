@@ -76,12 +76,12 @@
         >
       <forward
             name="exito"
-            path="/pregunta1.jsp"
+            path="/cuestionario.jsp"
             redirect="false"/>
 
       <forward
             name="error"
-            path="/pregunta1.jsp"
+            path="/login.jsp"
             redirect="false"/>
 
      </action>
