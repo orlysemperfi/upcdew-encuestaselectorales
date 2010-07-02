@@ -54,7 +54,9 @@
                      <td>&nbsp;</td>
 
                      <td class="subtitulosOpc"><div align="center">
-                        <input name="number" type="radio" value="1" />
+                        <input name="number" type="radio" value="${encuesta.idEncuesta}" />
+                       
+
                     </div>
 
                      </td>
@@ -75,10 +77,10 @@
                 <tr>
                   <td align="center">
 
-            <div align="center">
-
-                <a href="Preguntas.do" class="enlaces">Empezar encuesta</a>
-            </div>
+          
+                <input type="submit" name="Empezar encuesta" value="Empezar encuesta"/>
+             <!--   <a href="Preguntas.do" class="enlaces">Empezar encuesta</a>-->
+       
 
                     </td>
                 </tr>
