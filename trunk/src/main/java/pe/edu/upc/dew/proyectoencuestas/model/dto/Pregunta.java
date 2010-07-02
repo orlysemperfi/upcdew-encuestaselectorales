@@ -5,6 +5,7 @@
 
 package pe.edu.upc.dew.proyectoencuestas.model.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,16 +17,12 @@ public class Pregunta  implements java.io.Serializable{
     private Integer idPregunta;
     private String descripcion;
     private List<Opcion> opciones;
-    private String tipo;
-    private String tipoGrafico;
+    private Integer tipo;
     private Integer orden;
 
-    public void setTipoGrafico(String tipoGrafico) {
-        this.tipoGrafico = tipoGrafico;
-    }
-
-    public String getTipoGrafico() {
-        return tipoGrafico;
+    public Pregunta()
+    {
+        opciones = new ArrayList<Opcion>();
     }
 
     public void setOrden(Integer orden) {
@@ -36,7 +33,7 @@ public class Pregunta  implements java.io.Serializable{
         return orden;
     }
 
-    public String getTipo() {
+    public Integer getTipo() {
         return tipo;
     }
 
@@ -48,7 +45,7 @@ public class Pregunta  implements java.io.Serializable{
         this.idPregunta = idPregunta;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(Integer tipo) {
         this.tipo = tipo;
     }
 
