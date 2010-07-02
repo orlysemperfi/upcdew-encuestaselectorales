@@ -9,7 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Opcion;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Pregunta;
-
+import java.sql.Statement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import pe.edu.upc.dew.proyectoencuestas.util.MySqlDBConn;
 /**
  *
  * @author cramirez
@@ -19,56 +22,118 @@ public class PreguntaDaoImpl implements PreguntaDao{
  public List<Pregunta> getPreguntasPorEncuesta(int idEncuesta)
  {
     List<Pregunta> preguntas = new ArrayList<Pregunta>();
+    Connection connection = null;
+    Statement st = null;
+    ResultSet rs = null;
+    Pregunta pregunta = null;
 
-    Pregunta pregunta1 = new Pregunta();
-    pregunta1.setIdPregunta(1);
-    pregunta1.setDescripcion("Si las elecciones fueran mañana, ¿por quién votaría usted para la alcaldía de Lima?");
+    try {
+            connection = MySqlDBConn.getConnection();
+            st = connection.createStatement();
+            rs = st.executeQuery("select a.id_pre, a.des_pre, a.id_tip_pre, a.ord_pre from tb_pregunta a, tb_prexenc b where a.id_pre = b.id_pre and b.id_enc =" + idEncuesta);
+           while(rs.next()){
 
-    Pregunta pregunta2 = new Pregunta();
-    pregunta2.setIdPregunta(2);
-    pregunta2.setDescripcion("Independientemente de sus preferencias políticas, ¿cuáles considera que son los PRINCIPALES OBJETIVOS que debería tener el futuro alcalde de Lima o la futura alcaldesa de Lima? ");
+                pregunta = new Pregunta();
+                pregunta.setIdPregunta(rs.getInt("id_pre"));
+                pregunta.setDescripcion(rs.getString("des_pre"));
+                pregunta.setTipo(rs.getInt("id_tip_pre"));
+                pregunta.setOrden(rs.getInt("ord_pre"));
 
-    Pregunta pregunta3 = new Pregunta();
-    pregunta3.setIdPregunta(3);
-    pregunta3.setDescripcion("Independientemente de sus preferencias políticas, ¿cuál de los siguientes candidatos municipales considera usted que está MÁS CAPACITADO(a) para... ? ");
+                List<Opcion> opciones = getOpcionesPorPregunta(pregunta.getIdPregunta());
+                pregunta.setOpciones(opciones);
+
+                preguntas.add(pregunta);
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+
+            MySqlDBConn.closeResultSet(rs);
+            MySqlDBConn.closeStatement(st);
+            MySqlDBConn.closeConnection(connection);
+        }
+
+         return preguntas;
+
+//    Pregunta pregunta1 = new Pregunta();
+//    pregunta1.setIdPregunta(1);
+//    pregunta1.setDescripcion("Si las elecciones fueran mañana, ¿por quién votaría usted para la alcaldía de Lima?");
+//
+//    Pregunta pregunta2 = new Pregunta();
+//    pregunta2.setIdPregunta(2);
+//    pregunta2.setDescripcion("Independientemente de sus preferencias políticas, ¿cuáles considera que son los PRINCIPALES OBJETIVOS que debería tener el futuro alcalde de Lima o la futura alcaldesa de Lima? ");
+//
+//    Pregunta pregunta3 = new Pregunta();
+//    pregunta3.setIdPregunta(3);
+//    pregunta3.setDescripcion("Independientemente de sus preferencias políticas, ¿cuál de los siguientes candidatos municipales considera usted que está MÁS CAPACITADO(a) para... ? ");
+//
+//    Pregunta pregunta4 = new Pregunta();
+//    pregunta4.setIdPregunta(4);
+//    pregunta4.setDescripcion("Independientemente de sus preferencias políticas, de la siguiente lista, ¿cuáles son las DOS CUALIDADES que según usted caracterizan mejor a? ? Respuestas múltiples");
+//
+//    preguntas.add(pregunta1);
+//    preguntas.add(pregunta2);
+//    preguntas.add(pregunta3);
+//    preguntas.add(pregunta4);
     
-    Pregunta pregunta4 = new Pregunta();
-    pregunta4.setIdPregunta(4);
-    pregunta4.setDescripcion("Independientemente de sus preferencias políticas, de la siguiente lista, ¿cuáles son las DOS CUALIDADES que según usted caracterizan mejor a? ? Respuestas múltiples");
-    
-    preguntas.add(pregunta1);
-    preguntas.add(pregunta2);
-    preguntas.add(pregunta3);
-    preguntas.add(pregunta4);
-    
-    return preguntas;
-
+   
  }
 
  public List<Opcion> getOpcionesPorPregunta(int idPregunta)
  {
     List<Opcion> opciones = new ArrayList<Opcion>();
 
-    if (idPregunta == 1)
-    {
-        Opcion opcion1 = new Opcion();
-        opcion1.setIdOpcion(1);
-        opcion1.setDescripcion("Alexander Kouri");
+    Connection connection = null;
+    Statement st = null;
+    ResultSet rs = null;
+    Opcion opcion = null;
 
-        Opcion opcion2 = new Opcion();
-        opcion2.setIdOpcion(2);
-        opcion2.setDescripcion("Lourdes Flores");
+    try {
+            connection = MySqlDBConn.getConnection();
+            st = connection.createStatement();
+            rs = st.executeQuery("select a.id_opc, a.des_opc from tb_opcion a, tb_opcxpre b where a.id_opc = b.id_opc and b.id_pre =" + idPregunta);
+           while(rs.next()){
 
-        Opcion opcion3 = new Opcion();
-        opcion3.setIdOpcion(3);
-        opcion3.setDescripcion("Fernando Andrade");
+                opcion = new Opcion();
+                opcion.setIdOpcion(rs.getInt("id_opc"));
+                opcion.setDescripcion(rs.getString("des_opc"));
 
-        Opcion opcion4 = new Opcion();
-        opcion4.setIdOpcion(4);
-        opcion4.setDescripcion("Susana Villarán");
-    }
+                opciones.add(opcion);
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+
+            MySqlDBConn.closeResultSet(rs);
+            MySqlDBConn.closeStatement(st);
+            MySqlDBConn.closeConnection(connection);
+        }
+
 
     return opciones;
+
+//    if (idPregunta == 1)
+//    {
+//        Opcion opcion1 = new Opcion();
+//        opcion1.setIdOpcion(1);
+//        opcion1.setDescripcion("Alexander Kouri");
+//
+//        Opcion opcion2 = new Opcion();
+//        opcion2.setIdOpcion(2);
+//        opcion2.setDescripcion("Lourdes Flores");
+//
+//        Opcion opcion3 = new Opcion();
+//        opcion3.setIdOpcion(3);
+//        opcion3.setDescripcion("Fernando Andrade");
+//
+//        Opcion opcion4 = new Opcion();
+//        opcion4.setIdOpcion(4);
+//        opcion4.setDescripcion("Susana Villarán");
+//    }
+
+    
  }
 
 //      public  ArrayList<Pregunta>  ObtenerListadoPreguntas()
