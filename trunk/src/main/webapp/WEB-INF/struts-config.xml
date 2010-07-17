@@ -12,6 +12,7 @@
 
   <!-- ========== Form Bean Definitions =================================== -->
   <form-beans>
+    <form-bean name="RespuestaForm" type="pe.edu.upc.dew.proyectoencuestas.form.RespuestaForm"/>
     <form-bean name="PreguntaManagerForm" type="pe.edu.upc.dew.proyectoencuestas.form.PreguntaManagerForm"/>
     <form-bean name="UsuarioForm" type="pe.edu.upc.dew.proyectoencuestas.form.UsuarioForm"/>
     <form-bean name="encuestasForm" type="pe.edu.upc.dew.proyectoencuestas.form.EncuestaForm"/>
@@ -133,14 +134,15 @@
         redirect="false"
       />
 
-      <forward
-        name="configurar"
-        path="/configuracionDetalle.jsp"
-        redirect="false"
-      />
     <forward
         name="consultar"
         path="/configuracion.jsp"
+        redirect="false"
+      />
+
+       <forward
+        name="registrar"
+        path="/login.jsp"
         redirect="false"
       />
 
