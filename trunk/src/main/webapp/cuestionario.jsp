@@ -115,11 +115,15 @@ if (radio_choice1 == true && radio_choice2 == true && radio_choice4 == true && r
 
   <table width="539" border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2">
  
+   <input type="hidden" name="idEncuesta" value="${idEncuesta}">
+
    <c:forEach items="${preguntas}" var="pregunta">
-            
+       <c:set var="counter" value="${counter + 1}"/>
     <tr>
     <td>&nbsp;</td>
-    <td colspan="2" class="subtitulosMayus">${pregunta.idPregunta}- ${pregunta.descripcion}</td>
+    <td colspan="2" class="subtitulosMayus">${counter}- ${pregunta.descripcion}
+    <input type="hidden" name="pregId${counter}" value="${pregunta.idPregunta}">
+    </td>
     <td>&nbsp;</td>
   </tr>
 
@@ -136,7 +140,7 @@ if (radio_choice1 == true && radio_choice2 == true && radio_choice4 == true && r
                          <tr>
                         <td>&nbsp;</td>
                         <td class="subtitulosOpc"><div align="center">
-                            <input name="preg${opcion.idOpcion}" type="radio" value="${opcion.idOpcion}" />
+                            <input name="preg${counter}" type="radio" value="${opcion.idOpcion}" />
                         </div></td>
                         <td class="subtitulosOpc">${opcion.descripcion}</td>
                         <td>&nbsp;</td>
@@ -159,7 +163,7 @@ if (radio_choice1 == true && radio_choice2 == true && radio_choice4 == true && r
                        <tr>
                         <td>&nbsp;</td>
                         <td class="subtitulosOpc"><div align="center">
-                            <input name="preg${opcion.idOpcion}" type="checkbox" value="${opcion.idOpcion}" />
+                            <input name="preg${counter}" type="checkbox" value="${opcion.idOpcion}" />
                         </div></td>
                         <td class="subtitulosOpc">${opcion.descripcion}</td>
                         <td>&nbsp;</td>
