@@ -42,6 +42,7 @@ public class PreguntaManagerAction extends org.apache.struts.action.Action {
             if(preguntas.size() > 0)
             {
                 request.setAttribute("preguntas", preguntas);
+                request.setAttribute("idEncuesta", idEncuesta);
                 return mapping.findForward(SUCCESS);
 
             } else

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.actions.DispatchAction;
 import pe.edu.upc.dew.proyectoencuestas.form.EncuestaForm;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Encuesta;
 import pe.edu.upc.dew.proyectoencuestas.service.bo.EncuestaService;
@@ -20,11 +21,13 @@ import pe.edu.upc.dew.proyectoencuestas.service.bo.EncuestaServiceImpl;
  *
  * @author 2424005
  */
-public class EncuestaManagerAction extends org.apache.struts.action.Action {
+public class EncuestaManagerAction extends DispatchAction {
 
     private EncuestaService encuestaService;
-    private final static String SUCCESS = "exito";
+    private static final String SUCCESS = "exito";
     private static final String ERROR = "error";
+    private static final String REGISTRO = "registrar";
+
         /**
      * This is the action called from the Struts framework.
      * @param mapping The ActionMapping used to select this instance.
@@ -34,8 +37,8 @@ public class EncuestaManagerAction extends org.apache.struts.action.Action {
      * @throws java.lang.Exception
      * @return
      */
-    @Override
-    public ActionForward execute(ActionMapping mapping, ActionForm form,
+   
+    public ActionForward Iniciar(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
@@ -62,50 +65,52 @@ public class EncuestaManagerAction extends org.apache.struts.action.Action {
 
     }
       
-//      public ActionForward iniciar(ActionMapping mapping, ActionForm  form,
-//            HttpServletRequest request, HttpServletResponse response)
-//            throws Exception {
-//
-//           System.out.println("\n Iniciando el listado de encuestas");
-//           return mapping.findForward("exito");
-//    }
-//
-//        public ActionForward configurar(ActionMapping mapping, ActionForm  form,
-//            HttpServletRequest request, HttpServletResponse response)
-//            throws Exception {
-//
-//            EncuestaForm encuestaForm = (EncuestaForm)form;
-//
-//           System.out.println("\n Iniciando la configuracion con el código ---->"+ encuestaForm.getIdEncuesta());
-//           return mapping.findForward("configurar");
-//    }
-//
-//
-//           public ActionForward monitorear(ActionMapping mapping, ActionForm  form,
-//            HttpServletRequest request, HttpServletResponse response)
-//            throws Exception {
-//
-//           EncuestaForm encuestaForm = (EncuestaForm)form;
-//           System.out.println("\n Iniciando el monitoreo con el código ---->"+ encuestaForm.getIdEncuesta());
-//           return mapping.findForward("monitorear");
-//    }
-//
-//     public ActionForward consultar(ActionMapping mapping, ActionForm  form,
-//            HttpServletRequest request, HttpServletResponse response)
-//            throws Exception {
-//
-//         EncuestaForm encuestaForm = (EncuestaForm)form;
-//           System.out.println("\n Iniciando la consulta detallada de una encuesta  con el código ---->"+ encuestaForm.getIdEncuesta());
-//           return mapping.findForward("consultar");
-//     }
-//
-//    public ActionForward aceptar(ActionMapping mapping, ActionForm  form,
-//            HttpServletRequest request, HttpServletResponse response)
-//            throws Exception {
-//
-//
-//        return mapping.findForward("exito");
-//    }
+
+        public ActionForward configurar(ActionMapping mapping, ActionForm  form,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+
+            EncuestaForm encuestaForm = (EncuestaForm)form;
+
+           System.out.println("\n Iniciando la configuracion con el código ---->"+ encuestaForm.getIdEncuesta());
+           return mapping.findForward("configurar");
+    }
+
+           public ActionForward monitorear(ActionMapping mapping, ActionForm  form,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+
+           EncuestaForm encuestaForm = (EncuestaForm)form;
+           System.out.println("\n Iniciando el monitoreo con el código ---->"+ encuestaForm.getIdEncuesta());
+           return mapping.findForward("monitorear");
+    }
+
+     public ActionForward consultar(ActionMapping mapping, ActionForm  form,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+
+         EncuestaForm encuestaForm = (EncuestaForm)form;
+           System.out.println("\n Iniciando la consulta detallada de una encuesta  con el código ---->"+ encuestaForm.getIdEncuesta());
+           return mapping.findForward("consultar");
+     }
+
+    public ActionForward aceptar(ActionMapping mapping, ActionForm  form,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+
+
+        return mapping.findForward("exito");
+    }
+    
+      public ActionForward registrarRespuestas(ActionMapping mapping, ActionForm  form,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+
+
+        return mapping.findForward(REGISTRO);
+    }
+
+
 //
 //    public ActionForward myAction2(ActionMapping mapping, ActionForm  form,
 //            HttpServletRequest request, HttpServletResponse response)
