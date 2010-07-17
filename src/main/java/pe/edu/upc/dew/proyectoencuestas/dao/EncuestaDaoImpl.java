@@ -13,6 +13,7 @@ import java.util.List;
 
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Encuesta;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Pregunta;
+import pe.edu.upc.dew.proyectoencuestas.model.dto.Usuario;
 import pe.edu.upc.dew.proyectoencuestas.util.MySqlDBConn;
 
 /**
@@ -109,5 +110,34 @@ public class EncuestaDaoImpl implements EncuestaDao{
          return listaPreguntas;
 
       }
+
+    public void registrarRespuesta(Integer idEncuesta, Integer idOpcion, Integer idPregunta, Usuario usuario, String fecha)
+    {
+          Connection connection = null;
+          Statement st = null;
+
+
+          try {
+            connection = MySqlDBConn.getConnection();
+
+            String sql;
+
+
+		sql="INSERT INTO tb_result_fin"
+			+" VALUES("+idEncuesta+","+ idOpcion + "," +idPregunta+ ","+ usuario.getIdUsuario() + "," + fecha +")";
+
+		Statement stm=connection.createStatement();
+		stm.executeUpdate(sql);
+
+		stm.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+ 
+            MySqlDBConn.closeStatement(st);
+            MySqlDBConn.closeConnection(connection);
+        }
+    }
 
 }
