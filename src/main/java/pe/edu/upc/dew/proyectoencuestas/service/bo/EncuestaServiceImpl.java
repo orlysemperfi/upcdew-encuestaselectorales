@@ -9,6 +9,7 @@ import java.util.List;
 import pe.edu.upc.dew.proyectoencuestas.dao.EncuestaDao;
 import pe.edu.upc.dew.proyectoencuestas.dao.EncuestaDaoImpl;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Encuesta;
+import pe.edu.upc.dew.proyectoencuestas.model.dto.Usuario;
 
 /**
  *
@@ -26,4 +27,8 @@ public class EncuestaServiceImpl implements EncuestaService{
         return encuestaDao.getEncuestasPorDistritos(distrito);
     }
 
+    public void registrarRespuesta(Integer idEncuesta, Integer idOpcion, Integer idPregunta, Usuario usuario, String fecha)
+    {
+       encuestaDao.registrarRespuesta(idEncuesta, idOpcion, idPregunta, usuario, fecha);
+    }
 }

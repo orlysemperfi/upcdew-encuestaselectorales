@@ -7,7 +7,7 @@ package pe.edu.upc.dew.proyectoencuestas.service.bo;
 
 import java.util.List;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Encuesta;
-import pe.edu.upc.dew.proyectoencuestas.model.dto.Ubigeo;
+import pe.edu.upc.dew.proyectoencuestas.model.dto.Usuario;
 
 /**
  *
@@ -16,5 +16,5 @@ import pe.edu.upc.dew.proyectoencuestas.model.dto.Ubigeo;
 public interface EncuestaService {
 
     List<Encuesta> getEncuestasPorDistritos(String distrito);  
-
+    public void registrarRespuesta(Integer idEncuesta, Integer idOpcion, Integer idPregunta, Usuario usuario, String fecha);
 }
