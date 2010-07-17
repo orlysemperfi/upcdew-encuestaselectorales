@@ -20,9 +20,8 @@
 </head>
 
 <body>
-<form action="Preguntas.do" method="post">
+<form action="Preguntas.do?methodToCall=iniciar" method="post">
 
-      
 
 <table border="0" width="100%" height="581" cellspacing="0" cellpadding="0">
 <tr>
