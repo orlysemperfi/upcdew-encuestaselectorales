@@ -19,6 +19,7 @@
     <form-bean name="configuracionForm" type="pe.edu.upc.dew.proyectoencuestas.form.ConfiguracionForm"/>
     <form-bean name="monitoreoEncuestaForm" type="pe.edu.upc.dew.proyectoencuestas.form.MonitoreoEncuestaForm"/>
     <form-bean name="reporteForm" type="pe.edu.upc.dew.proyectoencuestas.form.ReporteForm"/>
+  
 
   </form-beans>
 
@@ -87,6 +88,17 @@
 
      </action>
 
+      <action
+        path="/respuesta"
+        input="/"
+        name="RespuestaForm"
+        scope="request"
+        type="pe.edu.upc.dew.proyectoencuestas.controller.action.RespuestaAction">
+
+      <forward name="registrar" path="/login.jsp" redirect="false"/>
+      <forward name="error" path="/index.jsp" redirect="false"/>
+
+    </action>
 
     <action 
         input="/" name="UsuarioForm"
@@ -148,13 +160,7 @@
 
     </action>
 
-    <action path="/respuesta" type="pe.edu.upc.dew.proyectoencuestas.controller.action.RespuestaAction">
-        <forward
-        name="exito"
-        path="/pregunta1.jsp"
-        redirect="true"
-      />
-    </action>
+   
 
      <action
        
@@ -167,8 +173,6 @@
         unknown="false"
         validate="false"
         >
-
-
 
       <forward
             name="exito"
