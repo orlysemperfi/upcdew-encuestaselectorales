@@ -5,12 +5,18 @@
 
 package pe.edu.upc.dew.proyectoencuestas.controller.action;
 
+import java.text.DateFormat;
+import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.Action;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import pe.edu.upc.dew.proyectoencuestas.form.RespuestaForm;
+import pe.edu.upc.dew.proyectoencuestas.model.dto.Usuario;
+import pe.edu.upc.dew.proyectoencuestas.service.bo.EncuestaService;
+import pe.edu.upc.dew.proyectoencuestas.service.bo.EncuestaServiceImpl;
 
 /**
  *
@@ -18,8 +24,9 @@ import org.apache.struts.action.ActionMapping;
  */
 public class RespuestaAction extends org.apache.struts.action.Action {
     
-    /* forward name="success" path="" */
+    private EncuestaService encuestaService;
     private static final String SUCCESS = "exito";
+    private static final String REGISTRO = "registrar";
     
     /**
      * This is the action called from the Struts framework.
@@ -34,7 +41,45 @@ public class RespuestaAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+
+          this.encuestaService = new EncuestaServiceImpl();
+
+            String idEncuesta = ((RespuestaForm)form).getIdEncuesta();
+
+            System.out.println("este es el id de la encuesta --->" + idEncuesta );
+
+            //String[] respuestas = ((RespuestaForm)form).getRespuestas();
+
+            String rptas = ((RespuestaForm)form).getRptas();
+            String[] respuestas = rptas.substring(0, rptas.length()-1).split("[|]");
+            HttpSession session = request.getSession();
+            Usuario usuario = (Usuario)session.getAttribute("usuario");
+            Date fecha = new Date();
+            DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT);
+            String fechaFormato = df.format(fecha);
+
+            System.out.println("este es el id del usuario -->" + usuario.getIdUsuario());
+            System.out.println("rptas todas v2------>" + rptas.substring(0, rptas.length()-1));
+
+            if (respuestas.length > 0)
+            {
+                for (String rpta : respuestas)
+                {
+                    if (!rpta.equals(""))
+                    {
+                        System.out.println("este es la seleccion v6 -->" + rpta );
+
+                        String pr = rpta.substring(0,rpta.indexOf("-"));
+                        System.out.println("este es el id de la pregunta -->" + pr);
+
+                        String op = rpta.substring(rpta.indexOf("-")+1, rpta.length());
+                        System.out.println("este es el id de la opcion -->" + op);
+
+                        encuestaService.registrarRespuesta(Integer.parseInt(idEncuesta), Integer.parseInt(op), Integer.parseInt(pr), usuario, fechaFormato);
+                    }
+                }
+            }
+            return mapping.findForward(REGISTRO);
         
-        return mapping.findForward(SUCCESS);
     }
 }

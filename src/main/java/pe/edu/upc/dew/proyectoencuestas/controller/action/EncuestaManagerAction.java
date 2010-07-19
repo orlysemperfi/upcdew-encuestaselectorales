@@ -5,9 +5,11 @@
 
 package pe.edu.upc.dew.proyectoencuestas.controller.action;
 
+
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -26,7 +28,7 @@ public class EncuestaManagerAction extends DispatchAction {
     private EncuestaService encuestaService;
     private static final String SUCCESS = "exito";
     private static final String ERROR = "error";
-    private static final String REGISTRO = "registrar";
+  
 
         /**
      * This is the action called from the Struts framework.
@@ -102,14 +104,7 @@ public class EncuestaManagerAction extends DispatchAction {
         return mapping.findForward("exito");
     }
     
-      public ActionForward registrarRespuestas(ActionMapping mapping, ActionForm  form,
-            HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
-
-
-        return mapping.findForward(REGISTRO);
-    }
-
+   
 
 //
 //    public ActionForward myAction2(ActionMapping mapping, ActionForm  form,
