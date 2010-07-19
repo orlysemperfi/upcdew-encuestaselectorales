@@ -5,6 +5,7 @@
 
 package pe.edu.upc.dew.proyectoencuestas.form;
 
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -18,20 +19,26 @@ import org.apache.struts.action.ActionMapping;
 public class RespuestaForm extends org.apache.struts.action.ActionForm {
     
     private String idEncuesta;
+    private String rptas;
 
-    //preguntas
-    private String pregId1;
-    private String pregId2;
-    private String pregId3;
-    private String pregId4;
-    private String pregId5;
+    public String getRptas() {
+        return rptas;
+    }
 
-    //opciones marcadas
-    private String preg1;
-    private String preg2;
-    private String preg3;
-    private String preg4;
-    private String preg5;
+    public void setRptas(String rptas) {
+        this.rptas = rptas;
+    }
+
+    //respuestas
+    private String[] respuestas;
+
+    public String[] getRespuestas() {
+        return respuestas;
+    }
+
+    public void setRespuestas(String[] respuestas) {
+        this.respuestas = respuestas;
+    }
 
     public String getIdEncuesta() {
         return idEncuesta;
@@ -41,91 +48,15 @@ public class RespuestaForm extends org.apache.struts.action.ActionForm {
         this.idEncuesta = idEncuesta;
     }
 
-    public String getPreg1() {
-        return preg1;
-    }
 
-    public void setPreg1(String preg1) {
-        this.preg1 = preg1;
-    }
-
-    public String getPreg2() {
-        return preg2;
-    }
-
-    public void setPreg2(String preg2) {
-        this.preg2 = preg2;
-    }
-
-    public String getPreg3() {
-        return preg3;
-    }
-
-    public void setPreg3(String preg3) {
-        this.preg3 = preg3;
-    }
-
-    public String getPreg4() {
-        return preg4;
-    }
-
-    public void setPreg4(String preg4) {
-        this.preg4 = preg4;
-    }
-
-    public String getPreg5() {
-        return preg5;
-    }
-
-    public void setPreg5(String preg5) {
-        this.preg5 = preg5;
-    }
-
-    public String getPregId1() {
-        return pregId1;
-    }
-
-    public void setPregId1(String pregId1) {
-        this.pregId1 = pregId1;
-    }
-
-    public String getPregId2() {
-        return pregId2;
-    }
-
-    public void setPregId2(String pregId2) {
-        this.pregId2 = pregId2;
-    }
-
-    public String getPregId3() {
-        return pregId3;
-    }
-
-    public void setPregId3(String pregId3) {
-        this.pregId3 = pregId3;
-    }
-
-    public String getPregId4() {
-        return pregId4;
-    }
-
-    public void setPregId4(String pregId4) {
-        this.pregId4 = pregId4;
-    }
-
-    public String getPregId5() {
-        return pregId5;
-    }
-
-    public void setPregId5(String pregId5) {
-        this.pregId5 = pregId5;
-    }
     /**
      *
      */
     public RespuestaForm() {
         super();
         // TODO Auto-generated constructor stub
+
+        //respuestas = new ArrayList<String>();
     }
 
     /**
