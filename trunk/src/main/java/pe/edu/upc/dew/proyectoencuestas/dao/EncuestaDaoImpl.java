@@ -112,32 +112,21 @@ public class EncuestaDaoImpl implements EncuestaDao{
       }
 
     public void registrarRespuesta(Integer idEncuesta, Integer idOpcion, Integer idPregunta, Usuario usuario, String fecha)
-    {
-          Connection connection = null;
-          Statement st = null;
-
-
-          try {
+    {        
+        Connection connection = null;
+        Statement st = null;
+        try {
             connection = MySqlDBConn.getConnection();
-
-            String sql;
-
-
-		sql="INSERT INTO tb_result_fin"
-			+" VALUES("+idEncuesta+","+ idOpcion + "," +idPregunta+ ","+ usuario.getIdUsuario() + "," + fecha +")";
-
-		Statement stm=connection.createStatement();
-		stm.executeUpdate(sql);
-
-		stm.close();
-
+            st = connection.createStatement();           
+            st.execute("INSERT INTO tb_result_fin"
+			+" VALUES("+idEncuesta+","+ idOpcion + "," + idPregunta + ",'"+ usuario.getIdUsuario() + "','" + fecha +"')");
+            
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
- 
             MySqlDBConn.closeStatement(st);
             MySqlDBConn.closeConnection(connection);
         }
+    
     }
-
 }
