@@ -18,7 +18,13 @@
 <title>Untitled Document</title>
 </head>
 
+ <%
+    String id=request.getParameter("id");
+    if(id==null){
+        id="1";
+        }
 
+    %>
 <body>
 
 
@@ -40,70 +46,39 @@
 
 
 
-<html:form action="MonitoreoEncuesta.do">
+<html:form >
 
-    <table width="493" border="0"   align="center" cellpadding="0" cellspacing="0" >
+    
 
-  <tr>
-    <td>&nbsp;</td>
-    <td colspan="2"><table width="200" border="1" align="center">
-      <tr>
-        <td class="subtitulosbd">Encuesta</td>
-                <td align="center">	<div align="left">
-			  <select name="encuesta" id="" style="width:250px">
-			    <option value="" selected="selected">Elecciones Municipales 2010 - Sector Alto</option>
-			    <option value="" selected="selected">Elecciones Municipales 2010 - Sector Medio</option>
-			    <option value="" selected="selected">Elecciones Lima Sur 2010 - II</option>
-			    <option value="" selected="selected">Elecciones lima Norte 2010 -II </option>
-			    <option value="" selected="selected">SELECCIONE</option>
-		      </select>
-          </div></td>
-      </tr>
-    </table></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td width="232">&nbsp;</td>
-    <td width="201">&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
+            <table  align="center" border="0" cellpadding="0" cellspacing="0" class="tabla1" width="100%">
 
-  <tr align="left">
-    <td><div align="left"></div></td>
-    <td colspan="2" rowspan="3" valign="top"><div align="left">
-      <table width="819" height="428" border="1" cellpadding="0" cellspacing="0" class="tabla1">
-        <tr>
+                <TR>
+                    <TD align="center">
+                        <iframe width="400" height="300" name="report1" src='Reporte01Monitoreo.jsp?id=<%=id%>'></iframe>
+                    </TD>
+                   <TD align="center">
+                        <iframe width="400" height="300" name="report2" src='Reporte02Monitoreo.jsp?id=<%=id%>'></iframe>
+                    </TD>
+                </TR>
+                 <TR>
 
-          <td height="209" colspan="2"><a href="" onclick="f_moni_1();"><img src="images/Monitoreo01.png" width="390" height="153" /></a></td>
-            <td width="419" colspan="2"><a href="" onclick="f_moni_2();"><img src="images/Monitoreo02.png" width="403" height="163" /></a></td>
-          </tr>
-        <tr>
-          <td height="253" colspan="2"><a href="" onclick="f_moni_3();"><img src="images/Monitoreo3.png" width="387" height="159" /></a></td>
-            <td colspan="2"><a href="" onclick="f_moni_4();"><img src="images/Monitoreo04.png" width="415" height="177" /></a></td>
-          </tr>
-      </table>
-    </div></td>
-    <td><div align="left"></div></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
+                        <TD align="center">
+                        <iframe width="400" height="300" name="report4" src='Reporte04Monitoreo.jsp?id=<%=id%>'></iframe>
+                    </TD>
+                    <TD align="center">
+                        <iframe width="400" height="300" name="report3" src='Reporte03Monitoreo.jsp?id=<%=id%>'></iframe>
+                    </TD>
+                
+                </TR>
 
-  <tr> <td colspan="2">
+                <tr> <td colspan="2">
                                      <center>
 
-                                           <a href="configuracion.do?methodToCall=iniciar"> Ver Listado de Encuestas </a>
+                                         <a style="cursor:hand" onclick="window.history.back();"> Ver Listado de Encuestas </a>
                                       </center>
                                  </td></tr>
+            </table>
 
-
-</table>
    </html:form>
 
 
