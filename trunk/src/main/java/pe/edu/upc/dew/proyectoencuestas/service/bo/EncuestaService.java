@@ -15,6 +15,7 @@ import pe.edu.upc.dew.proyectoencuestas.model.dto.Usuario;
  */
 public interface EncuestaService {
 
-    List<Encuesta> getEncuestasPorDistritos(String distrito);  
+    public List<Encuesta> getEncuestas();
+    public List<Encuesta> getEncuestasPorDistritos(String distrito);
     public void registrarRespuesta(Integer idEncuesta, Integer idOpcion, Integer idPregunta, Usuario usuario, String fecha);
 }
