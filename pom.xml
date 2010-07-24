@@ -64,6 +64,11 @@
 
 </dependency>  
 
+<dependency>
+        <groupId>jasperreports</groupId>
+        <artifactId>jasperreports</artifactId>
+        <version>3.7.3</version>
+</dependency>
 
 
   </dependencies>
