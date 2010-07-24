@@ -86,25 +86,38 @@ if (radio_choice1 == true && radio_choice2 == true && radio_choice4 == true && r
 function getValuesOptions()
 {
     var values = "";
-
-      for (num=0; num < document.forms[0].length; num++)
-      {
-          if (document.forms[0].elements[num].name!=undefined)
+    var numvalues = 0;
+     
+          for (num=0; num < document.forms[0].length; num++)
           {
-            if(document.forms[0].elements[num].type=='radio' && document.forms[0].elements[num].checked == true)
-            {
-                values += document.forms[0].elements[num].value + '|';
-            }
 
-            if(document.forms[0].elements[num].type=='checkbox' && document.forms[0].elements[num].checked == true)
-            {
-                values += document.forms[0].elements[num].value + "|";
-            }
+              if (document.forms[0].elements[num].name!=undefined)
+              {
+                if(document.forms[0].elements[num].type=='radio' && document.forms[0].elements[num].checked == true)
+                {
+                    numvalues ++;
+                    values += document.forms[0].elements[num].value + '|';
+                }
+
+                if(document.forms[0].elements[num].type=='checkbox' && document.forms[0].elements[num].checked == true)
+                {
+                    numvalues ++;
+                    values += document.forms[0].elements[num].value + "|";
+                }
+              }
           }
-      }
-       document.getElementById('rptas').value = values;
-       document.forms[0].action='respuesta.do';
-       document.forms[0].submit();
+
+          if (numvalues >=5)
+          {
+           document.getElementById('rptas').value = values;
+           document.forms[0].action='respuesta.do';         
+           document.forms[0].submit();
+          }
+          else
+          {             
+                document.getElementById("msg").innerHTML="Faltan preguntas por responder.";
+          }
+      
 }
 
 
@@ -207,7 +220,11 @@ function getValuesOptions()
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td>&nbsp;</td>
+    <td>
+
+      
+
+    </td>
     <td>&nbsp;</td>
   </tr>
 </table>
@@ -221,6 +238,8 @@ function getValuesOptions()
    <tr>
 
     <td colspan="2" align="center" valign="top">
+
+          <div id="msg"></div>
 	<table width="100%" height="33" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
 
