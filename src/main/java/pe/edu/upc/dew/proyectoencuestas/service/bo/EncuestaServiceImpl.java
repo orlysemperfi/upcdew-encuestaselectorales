@@ -23,6 +23,10 @@ public class EncuestaServiceImpl implements EncuestaService{
         this.encuestaDao = new EncuestaDaoImpl();
     }
 
+    public List<Encuesta> getEncuestas(){
+        return encuestaDao.getEncuestas();
+    }
+
     public List<Encuesta> getEncuestasPorDistritos(String distrito) {
         return encuestaDao.getEncuestasPorDistritos(distrito);
     }
