@@ -28,7 +28,7 @@ public class EncuestaManagerAction extends DispatchAction {
     private EncuestaService encuestaService;
     private static final String SUCCESS = "exito";
     private static final String ERROR = "error";
-  
+    private static final String ERROR_SELECCION = "errorselencuesta";
 
         /**
      * This is the action called from the Struts framework.
@@ -51,7 +51,7 @@ public class EncuestaManagerAction extends DispatchAction {
 
         if (encuestas == null)
         {
-            return mapping.findForward(ERROR);
+            return mapping.findForward(ERROR_SELECCION);
         }
         else
         {
@@ -68,19 +68,21 @@ public class EncuestaManagerAction extends DispatchAction {
     }
       
 
-        public ActionForward configurar(ActionMapping mapping, ActionForm  form,
-            HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
-
-            EncuestaForm encuestaForm = (EncuestaForm)form;
+    public ActionForward configurar(ActionMapping mapping, ActionForm  form,
+        HttpServletRequest request, HttpServletResponse response)
+        throws Exception
+    {
+           EncuestaForm encuestaForm = (EncuestaForm)form;
 
            System.out.println("\n Iniciando la configuracion con el código ---->"+ encuestaForm.getIdEncuesta());
+
            return mapping.findForward("configurar");
     }
 
-           public ActionForward monitorear(ActionMapping mapping, ActionForm  form,
-            HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public ActionForward monitorear(ActionMapping mapping, ActionForm  form,
+    HttpServletRequest request, HttpServletResponse response)
+    throws Exception
+    {
 
            EncuestaForm encuestaForm = (EncuestaForm)form;
            System.out.println("\n Iniciando el monitoreo con el código ---->"+ encuestaForm.getIdEncuesta());
