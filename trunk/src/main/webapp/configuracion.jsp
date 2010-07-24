@@ -44,8 +44,6 @@
 
                <html:form action="configuracion.do">
 
-
-
                 <table width=800 border="1" align="center" cellpadding="0" cellspacing="0" class="tabla1" >
 
                     <tr>
@@ -59,6 +57,23 @@
                         <td class="letrast2" style="width: 100px">Ver&nbsp; Reportes</td>
                     </tr>
 
+
+                      <c:forEach var="encuesta" items="${encuestas}">
+                          <tr class="subtitulosTabla">
+
+                        <td style="height: 20px; width: 462px;">${encuesta.nombre}</td>
+                        <td style="height: 20px; width: 130px; text-align: center;">Activo </td>
+                        <td style="height: 20px; width: 130px; text-align: center;">${encuesta.fechaInicio}</td>
+                        <td style="height: 20px; width: 130px; text-align: center;">${encuesta.fechaFin}</td>
+                        <td style="height: 20px; width: 130px; text-align: center;">${encuesta.muestra}</td>
+                        <td style="height: 20px; text-align: center;"><a href="configuracion.do?methodToCall=configurar&idEncuesta=1"> <img src="images/iconos/settings.png"   style="text-decoration:none"> </a>  </td>
+                        <td style="height: 20px; text-align: center;"><a href="monitoreoEncuesta.do?methodToCall=iniciar&idEncuesta=1"> <img src="images/iconos/computer.png" style="text-decoration:none"> </a>  </td>
+                        <td style="height: 20px; text-align: center;"><a href="reporte.do?methodToCall=iniciar&idEncuesta=1&descripcion='Elecciones Municipales 2010 - Sector Alto'"> <img src="images/iconos/chart.png" style="text-decoration:none"> </a>  </td>
+
+                            
+                          </tr>
+                    </c:forEach>
+<!--
                     <tr class="subtitulosTabla">
                         <td style="height: 20px; width: 462px;">Elecciones Municipales 2010 - Sector Alto</td>
                         <td style="height: 20px; width: 130px; text-align: center;">Inactivo </td>
@@ -104,7 +119,7 @@
                         <td style="height: 20px; text-align: center;"><a href="reporte.do?methodToCall=iniciar&idEncuesta=4&descripcion='Elecciones lima Norte 2010 -II'"> <img src="images/iconos/chart.png" style="text-decoration:none"></a> </td>
                     </tr>
 
-
+-->
 
         </table>
 

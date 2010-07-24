@@ -62,6 +62,13 @@
         />
 
         <forward
+            name="errorselencuesta"
+            path="/encuestasPorDistrito.jsp"
+            redirect="false"
+        />
+
+
+        <forward
             name="error"
             path="/index.jsp"
             redirect="false"

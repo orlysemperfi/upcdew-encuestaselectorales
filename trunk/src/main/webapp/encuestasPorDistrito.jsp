@@ -17,6 +17,38 @@
 <link rel="stylesheet" type="text/css" href="css/estilos.css">
 <%--<link rel="stylesheet" type="text/css" href="css/pantalla.css">--%>
 <link rel="stylesheet" type="text/css" href="css/fuente.css">
+
+<script language="JavaScript">
+<!--
+function checker()
+{
+
+    var radio_choice1 = false;
+
+    for (counter = 0; counter < document.forms[0].number.length; counter++)
+    {
+        if (document.forms[0].number[counter].checked)
+            radio_choice1 = true;
+    }
+
+
+    if (!radio_choice1)
+    {
+         document.getElementById("msg").innerHTML="Debe seleccionar una encuesta.";
+        
+    }
+    else
+    {
+         document.forms[0].action='Preguntas.do?methodToCall=iniciar';
+         document.forms[0].submit();
+
+    }
+}
+
+
+-->
+</script>
+
 </head>
 
 <body>
@@ -72,12 +104,14 @@
     <tr>
     <td>&nbsp;</td>
     <td colspan="2" rowspan="3" align="center" valign="top">
+
+        <div id="msg"></div>
 	<table width="400" height="33" border="0"  align="center" cellpadding="0" cellspacing="0">
                 <tr>
                   <td align="center">
 
           
-                <input type="submit" name="Empezar encuesta" value="Empezar encuesta"/>
+                      <input type="submit" name="Empezar encuesta" value="Empezar encuesta" onclick="checker();"/>
              <!--   <a href="Preguntas.do" class="enlaces">Empezar encuesta</a>-->
        
 
