@@ -27,6 +27,8 @@ import pe.edu.upc.dew.proyectoencuestas.service.bo.UsuarioServiceImpl;
 public class UsuarioAction extends org.apache.struts.action.Action {
 
      private UsuarioService usuarioService;
+     private EncuestaService encuestaService;
+     
     /* forward name="success" path="" */
     private static final String SUCCESS = "exito";
     private static final String ERROR = "error";
@@ -47,6 +49,7 @@ public class UsuarioAction extends org.apache.struts.action.Action {
             throws Exception {
 
         this.usuarioService = new UsuarioServiceImpl();
+        this.encuestaService = new EncuestaServiceImpl();
 
         String username = ((UsuarioForm)form).getUsername();
         String password = ((UsuarioForm)form).getPassword();
@@ -67,10 +70,23 @@ public class UsuarioAction extends org.apache.struts.action.Action {
                 session.setAttribute("usuario", usuario);
 
                 if(usuario.getRol() == 1)
-                    return mapping.findForward(SUCCESS);
-                else
                 {
-                    EncuestaService encuestaService = new EncuestaServiceImpl();
+                     this.encuestaService = new EncuestaServiceImpl();
+
+                    List<Encuesta> encuestas = encuestaService.getEncuestas();
+
+                    if (encuestas.size() > 0){
+
+                        request.setAttribute("encuestas", encuestas);
+                        return mapping.findForward(SUCCESS);
+
+                    } else {
+                        return mapping.findForward(ERROR);
+                    }   
+                   
+                }
+                else
+                {                  
                     List<Encuesta> encuestas = encuestaService.getEncuestasPorDistritos(usuario.getUbigeo().getCodDistrito());
 
                     if (encuestas == null)
