@@ -22,6 +22,50 @@ import pe.edu.upc.dew.proyectoencuestas.util.MySqlDBConn;
  */
 public class EncuestaDaoImpl implements EncuestaDao{
 
+     public List<Encuesta> getEncuestas()
+     {
+           List<Encuesta> listaEncuestas = new ArrayList<Encuesta>();
+
+		Connection conn = null;
+		Statement stm = null;
+		ResultSet rs = null;
+
+                Encuesta encuesta =null;
+
+		// Preparar consulta
+		String sql = "select a.id_enc, a.tit_enc, a.fec_ini_enc, a.fec_fin_enc, a.pob_enc from tb_encuesta a";
+
+		// Ejecutar consulta
+		try {
+			conn = MySqlDBConn.getConnection();
+			stm = conn.createStatement();
+			rs = stm.executeQuery(sql);
+
+			// obtener la lista
+			while(rs.next()){
+
+                            encuesta = new Encuesta();
+                            encuesta.setIdEncuesta(Integer.parseInt(rs.getString(1)));
+                            encuesta.setNombre(rs.getString(2));
+                            encuesta.setFechaInicio(rs.getString(3));
+                            encuesta.setFechaFin(rs.getString(4));
+                            encuesta.setMuestra(Integer.parseInt(rs.getString(5)));
+                            listaEncuestas.add(encuesta);
+
+			}
+		} catch (Exception e) {
+                        e.printStackTrace();
+                }
+                finally {
+			MySqlDBConn.closeResultSet(rs);
+                        MySqlDBConn.closeStatement(stm);
+                        MySqlDBConn.closeConnection(conn);
+		}
+
+
+         return listaEncuestas;
+     }
+
      public List<Encuesta> getEncuestasPorDistritos(String distrito)
      {
            List<Encuesta> listaEncuestas = new ArrayList<Encuesta>();
