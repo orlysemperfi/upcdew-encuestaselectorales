@@ -39,30 +39,14 @@ public class ReporteAction  extends DispatchAction{
             throws Exception {
 
 
-   	//Crear el dataset...
-          DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-          dataset.addValue(1.0, "Fila 1", "Columna 1");
-          dataset.addValue(5.0, "Fila 1", "Columna 2");
-          dataset.addValue(3.0, "Fila 1", "Columna 3");
-          dataset.addValue(2.0, "Fila 2", "Columna 1");
-          dataset.addValue(3.0, "Fila 2", "Columna 2");
-          dataset.addValue(2.0, "Fila 2", "Columna 3");
-            //Crear el gráfico...
-          JFreeChart chart = ChartFactory.createBarChart("Mi gráfico","Periodos","Unidades",dataset, PlotOrientation.VERTICAL,true,true,false);
-
            PieChart();
            PieChart3D();
            XYSeries();
-           BarChart();
+           BarChartA();
+           BarChartB();
            BarChart3D();
            TimeSeries();
-          //crear y visualizar una ventana...
-          ChartFrame frame = new ChartFrame("First", chart);
-          frame.pack();
-          frame.setVisible(true);
-
-
-
+ 
              ReporteForm reporteForm = (ReporteForm)form;
 
              request.setAttribute("encuestaDes", reporteForm.getDescripcion());
@@ -73,10 +57,27 @@ public class ReporteAction  extends DispatchAction{
     }
 
 
+/*
+      	public static CategoryDataset creaDataset(List lista) {
+		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+
+		Map fila=null;
+		for (int i=0; i<lista.size(); i++){
+			fila=(Map)lista.get(i);
+			dataset.addValue(new Double((String)fila.get("3")), (String)fila.get("2"), (String)fila.get("1"));
+		}
+		return dataset;
+	}
+
+ */
+
       public void PieChart() {
 
          // Create a simple pie chart
          DefaultPieDataset pieDataset = new DefaultPieDataset();
+
+
+
          pieDataset.setValue("A", new Integer(75));
          pieDataset.setValue("B", new Integer(10));
          pieDataset.setValue("C", new Integer(10));
@@ -86,6 +87,7 @@ public class ReporteAction  extends DispatchAction{
          try {
 
              ChartUtilities.saveChartAsJPEG(new File("D:chart4.jpg"), chart, 500, 300);
+
 
          } catch (Exception e) {
 
@@ -115,7 +117,89 @@ public class ReporteAction  extends DispatchAction{
          }
 	}
 
-      public void XYSeries() {
+
+          public void BarChartA() {
+
+          //Crear el dataset...
+          DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+          dataset.addValue(1.0, "Fila 1", "Columna 1");
+          dataset.addValue(5.0, "Fila 1", "Columna 2");
+          dataset.addValue(3.0, "Fila 1", "Columna 3");
+          dataset.addValue(2.0, "Fila 2", "Columna 1");
+          dataset.addValue(3.0, "Fila 2", "Columna 2");
+          dataset.addValue(2.0, "Fila 2", "Columna 3");
+            //Crear el gráfico...
+          JFreeChart chart = ChartFactory.createBarChart("Mi gráfico","Periodos","Unidades",dataset, PlotOrientation.VERTICAL,true,true,false);
+
+         //crear y visualizar una ventana...
+          ChartFrame frame = new ChartFrame("First", chart);
+          frame.pack();
+          frame.setVisible(true);
+          }
+
+
+      public void BarChartB() {
+
+           // Create a simple Bar chart
+           DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+           dataset.setValue(6, "Profit", "Jane");
+           dataset.setValue(7, "Profit", "Tom");
+           dataset.setValue(8, "Profit", "Jill");
+           dataset.setValue(5, "Profit", "John");
+           dataset.setValue(12, "Profit", "Fred");
+
+           JFreeChart chart = ChartFactory.createBarChart("Comparison between Salesman",  "Salesman", "Profit", dataset, PlotOrientation.VERTICAL, false,  true, false);
+           JFreeChart chartH = ChartFactory.createBarChart("Comparison between Salesman",  "Salesman", "Profit", dataset, PlotOrientation.HORIZONTAL, false,  true, false);
+           try {
+
+               ChartUtilities.saveChartAsJPEG(new File("D:chartBC.jpg"), chart, 500, 300);
+               ChartUtilities.saveChartAsJPEG(new File("D:chartBCHorizontal.jpg"), chartH, 500, 300);
+
+           } catch (IOException e) {
+
+               System.err.println("Problem occurred creating chart.");
+
+           }
+
+       }
+
+      public void BarChart3D() {
+
+           // Create a simple Bar chart
+
+           DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+
+           dataset.setValue(6, "Profit1", "Jose");
+           dataset.setValue(3, "Profit2", "Jane");
+           dataset.setValue(7, "Profit3", "Tom");
+           dataset.setValue(10,"Profit4", "Maria");
+           dataset.setValue(8, "Profit5", "Jill");
+           dataset.setValue(8, "Profit6", "Juan");
+           dataset.setValue(5, "Profit7", "John");
+           dataset.setValue(6, "Profit8", "Julia");
+           dataset.setValue(12, "Profit9", "Fred");
+           dataset.setValue(5, "Profit10", "Alberto");
+
+	   // Profit1, Profit2 represent the row keys
+           // Jane, Tom, Jill, etc. represent the column keys
+           JFreeChart chart = ChartFactory.createBarChart3D( "Comparison between Salesman", "Salesman", "Value ($)", dataset, PlotOrientation.VERTICAL, true, true, false );
+
+           JFreeChart chartH = ChartFactory.createBarChart3D( "Comparison between Salesman", "Salesman", "Value ($)", dataset, PlotOrientation.HORIZONTAL, true, true, false );
+           try {
+
+               ChartUtilities.saveChartAsJPEG(new File("D:chart3d.jpg"), chart, 500,   300);
+               ChartUtilities.saveChartAsJPEG(new File("D:chart3dHorizontal.jpg"), chartH, 500,   300);
+
+           } catch (IOException e) {
+
+               System.err.println("Problem occurred creating chart.");
+
+           }
+
+       }
+
+
+           public void XYSeries() {
 
          //Create a simple XY chart
          XYSeries series = new XYSeries("XYGraph");
@@ -152,64 +236,6 @@ public class ReporteAction  extends DispatchAction{
          }
 
      }
-
-      public void BarChart() {
-
-           // Create a simple Bar chart
-           DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-           dataset.setValue(6, "Profit", "Jane");
-           dataset.setValue(7, "Profit", "Tom");
-           dataset.setValue(8, "Profit", "Jill");
-           dataset.setValue(5, "Profit", "John");
-           dataset.setValue(12, "Profit", "Fred");
-
-           JFreeChart chart = ChartFactory.createBarChart("Comparison between Salesman",  "Salesman", "Profit", dataset, PlotOrientation.VERTICAL, false,  true, false);
-
-           try {
-
-               ChartUtilities.saveChartAsJPEG(new File("D:chartBC.jpg"), chart, 500, 300);
-
-           } catch (IOException e) {
-
-               System.err.println("Problem occurred creating chart.");
-
-           }
-
-       }
-
-      public void BarChart3D() {
-
-           // Create a simple Bar chart
-
-           DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-
-           dataset.setValue(6, "Profit1", "Jane");
-           dataset.setValue(3, "Profit2", "Jane");
-           dataset.setValue(7, "Profit1", "Tom");
-           dataset.setValue(10, "Profit2", "Tom");
-           dataset.setValue(8, "Profit1", "Jill");
-           dataset.setValue(8, "Profit2", "Jill");
-           dataset.setValue(5, "Profit1", "John");
-           dataset.setValue(6, "Profit2", "John");
-           dataset.setValue(12, "Profit1", "Fred");
-           dataset.setValue(5, "Profit2", "Fred");
-
-	   // Profit1, Profit2 represent the row keys
-           // Jane, Tom, Jill, etc. represent the column keys
-           JFreeChart chart = ChartFactory.createBarChart3D( "Comparison between Salesman", "Salesman", "Value ($)", dataset, PlotOrientation.VERTICAL, true, true, false );
-
-           try {
-
-               ChartUtilities.saveChartAsJPEG(new File("D:chart3d.jpg"), chart, 500,   300);
-
-           } catch (IOException e) {
-
-               System.err.println("Problem occurred creating chart.");
-
-           }
-
-       }
-
       public void TimeSeries() {
 
             // Create a time series chart
