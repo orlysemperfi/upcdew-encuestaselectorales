@@ -13,11 +13,145 @@
 
 <html>
 
-    <head>
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link rel="stylesheet" type="text/css" href="css/estilos.css">
 <%--<link rel="stylesheet" type="text/css" href="css/pantalla.css">--%>
 <link rel="stylesheet" type="text/css" href="css/fuente.css">
+
+
+
+
+		<style type="text/css">
+
+			/* Custom dialog styles */
+			#popup_container.style_1 {
+				font-family: Georgia, serif;
+				color: #A4C6E2;
+				background: #005294;
+				border-color: #113F66;
+			}
+
+			#popup_container.style_1 #popup_title {
+				color: #FFF;
+				font-weight: normal;
+				text-align: left;
+				background: #76A5CC;
+				border: solid 1px #005294;
+				padding-left: 1em;
+			}
+
+			#popup_container.style_1 #popup_content {
+				background: none;
+			}
+
+			#popup_container.style_1 #popup_message {
+				padding-left: 0em;
+			}
+
+			#popup_container.style_1 INPUT[type='button'] {
+				border: outset 2px #76A5CC;
+				color: #A4C6E2;
+				background: #3778AE;
+			}
+
+		</style>
+
+		<!-- Dependencies -->
+
+		<script type="text/javascript"	src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+		<script type="text/javascript"	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+		<script type="text/javascript"	src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.ui.draggable.min.js"></script>
+
+		<!-- Core files -->
+		<script src="js/jquery.alerts.js" type="text/javascript"></script>
+		<link href="css/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen" />
+
+
+<!-- Example script -->
+<script type="text/javascript">
+
+		$(document).ready( function() {
+                $("#alert_button").click( function() {
+
+                    var values = "";
+                    var numvalues = 0;
+                    var numpregunta = 0;
+
+                  <c:forEach items="${preguntas}" var="pregunta">
+                   <c:set var="counterp" value="${counterp + 1}"/>
+                 </c:forEach>
+
+                 var totalpreg = "${counterp}";
+                 var faltan = "";
+
+                    for (num=0; num < totalpreg; num++)
+                    {
+                            myOption = -1;
+                            numpregunta ++;
+                            var preg = document.forms[0].elements['respuestas'+numpregunta];
+
+                            for (i=preg.length-1; i > -1; i--)
+                            {
+                                if (preg[i].checked)
+                                {
+                                    myOption = i; i = -1;
+                                }
+                            }
+                            if (myOption == -1)
+                            {
+                                if (num == totalpreg -1)
+                                    faltan += numpregunta;
+                                else
+                                    faltan += numpregunta + ',';
+                            }
+
+                            if (myOption == -1 && num == totalpreg -1) {
+                                jAlert("Faltan responder las preguntas: " + faltan,"Validación");
+                                return false;
+                            }
+
+                            if (myOption != -1 && num == totalpreg -1)
+                            {
+                                break;
+                            }
+
+                    }
+
+                  for (num=0; num < document.forms[0].length; num++)
+                  {
+                      if (document.forms[0].elements[num].name!=undefined)
+                      {
+                        if(document.forms[0].elements[num].type=='radio' && document.forms[0].elements[num].checked == true)
+                        {
+                            numvalues ++;
+                            values += document.forms[0].elements[num].value + '|';
+                        }
+
+                        if(document.forms[0].elements[num].type=='checkbox' && document.forms[0].elements[num].checked == true)
+                        {
+                            numvalues ++;
+                            values += document.forms[0].elements[num].value + "|";
+                        }
+                      }
+                  }
+
+                   document.getElementById('rptas').value = values;
+
+                   jAlert("Su encuesta se registró satisfactoriamente","Mensaje final");
+
+                   document.forms[0].action='respuesta.do';
+                   document.forms[0].submit();
+
+
+
+		});
+
+
+
+	});
+
+</script>
 
 <script language="JavaScript">
 <!--
@@ -87,10 +221,41 @@ function getValuesOptions()
 {
     var values = "";
     var numvalues = 0;
+    var numpregunta = 0;
+
+      <c:forEach items="${preguntas}" var="pregunta">
+       <c:set var="counterp" value="${counterp + 1}"/>
+     </c:forEach>
+
+     var totalpreg = "${counterp}";
+     
+        for (num=0; num < totalpreg; num++)
+        {            
+                myOption = -1;
+                numpregunta ++;
+                var preg = document.forms[0].elements['respuestas'+numpregunta];
+
+                for (i=preg.length-1; i > -1; i--)
+                {
+                    if (preg[i].checked)
+                    {
+                        myOption = i; i = -1;
+                    }
+                }
+                if (myOption == -1) {
+                    alert("Faltan preguntas por responder.");
+                    return false;
+                }
+
+                if (myOption != -1 && num == totalpreg -1)
+                {
+                    break;
+                }
+
+        }
      
           for (num=0; num < document.forms[0].length; num++)
           {
-
               if (document.forms[0].elements[num].name!=undefined)
               {
                 if(document.forms[0].elements[num].type=='radio' && document.forms[0].elements[num].checked == true)
@@ -106,18 +271,12 @@ function getValuesOptions()
                 }
               }
           }
-
-          if (numvalues >=5)
-          {
+    
            document.getElementById('rptas').value = values;
-           document.forms[0].action='respuesta.do';         
+
+           alert("su encuesta se registro satisfactoriamente");
+           document.forms[0].action='respuesta.do';
            document.forms[0].submit();
-          }
-          else
-          {             
-                document.getElementById("msg").innerHTML="Faltan preguntas por responder.";
-          }
-      
 }
 
 
@@ -250,7 +409,7 @@ function getValuesOptions()
 		</html:submit>
                     --%>
 
-                 <a href="#" onclick="getValuesOptions();">Terminar encuesta </a>
+                    <a id="alert_button" href="#">Terminar encuesta </a>
                 
                 </td>
                 </tr>
