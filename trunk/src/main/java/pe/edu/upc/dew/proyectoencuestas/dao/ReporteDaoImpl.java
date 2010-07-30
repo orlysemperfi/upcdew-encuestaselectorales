@@ -31,7 +31,14 @@ public class ReporteDaoImpl implements ReporteDao {
                 Reporte reporteEncuesta =null;
 
 		// Preparar consulta
-		String sql = "select * from tb_pregunta" ;
+		String sql =" select count(r.id_opc)as total,r.id_pre,des_pre,r.id_opc,des_opc "+  
+                            " from tb_pregunta p, tb_opcion o,tb_result_fin r "+ 
+                            " where r.id_enc=1    and r.id_pre=1 "+ 
+                            " and p.id_pre=r.id_pre and o.id_opc=r.id_opc "+ 
+                            " group by r.id_enc,r.id_opc,r.id_pre "+ 
+                            " order by id_pre,des_pre ";
+
+
 
 		// Ejecutar consulta
 		try {
@@ -44,7 +51,8 @@ public class ReporteDaoImpl implements ReporteDao {
 
                             reporteEncuesta = new Reporte();
                             reporteEncuesta.setCantidad(rs.getString(1));
-                            reporteEncuesta.setDescripcion(rs.getString(2));
+                            reporteEncuesta.setTitulo(rs.getString(3));
+                            reporteEncuesta.setDescripcion(rs.getString(5));
                             listaVotos.add(reporteEncuesta);
 
 			}
