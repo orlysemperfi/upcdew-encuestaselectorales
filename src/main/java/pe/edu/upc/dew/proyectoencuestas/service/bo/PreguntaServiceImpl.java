@@ -36,11 +36,5 @@ public List<Opcion> getOpcionesPorPregunta(int idPregunta)
 {
     return preguntaDao.getOpcionesPorPregunta(idPregunta);
 }
-//      public ArrayList<Pregunta> ObtenerListadoPreguntas() throws SQLException, NamingException   {
-//		ArrayList<Pregunta> preguntas = new ArrayList<Pregunta>();
-//                PreguntaDao preguntaDAO = new PreguntaDao();
-//		preguntas = preguntaDAO.ObtenerListadoPreguntas();
-//		return preguntas;
-//	}
 
 }
