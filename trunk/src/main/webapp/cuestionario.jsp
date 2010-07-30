@@ -307,7 +307,7 @@ function getValuesOptions()
   <table width="539" border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2">
  
    <input type="hidden" name="idEncuesta" value="${idEncuesta}">
-   <input type="hidden" name="rptas">
+   <input type="hidden" name="rptas" id="rptas">
 
    <c:forEach items="${preguntas}" var="pregunta">
        <c:set var="counter" value="${counter + 1}"/>
