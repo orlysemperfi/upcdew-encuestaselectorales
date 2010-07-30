@@ -18,6 +18,5 @@ public interface   PreguntaService {
     List<Pregunta> getPreguntasPorEncuesta(int idEncuesta);
 
     List<Opcion> getOpcionesPorPregunta(int idPregunta);
-   // ArrayList<Pregunta> ObtenerListadoPreguntas()throws SQLException, NamingException  ;
-    
+     
 }

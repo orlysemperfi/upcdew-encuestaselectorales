@@ -35,4 +35,9 @@ public class EncuestaServiceImpl implements EncuestaService{
     {
        encuestaDao.registrarRespuesta(idEncuesta, idOpcion, idPregunta, usuario, fecha);
     }
+
+    public Encuesta getEncuesta(Integer idEncuesta)
+    {
+        return encuestaDao.getEncuesta(idEncuesta);
+    }
 }
