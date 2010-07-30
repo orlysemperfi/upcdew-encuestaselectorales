@@ -12,6 +12,7 @@ package pe.edu.upc.dew.proyectoencuestas.model.dto;
 public class Reporte {
 
     private String cantidad;
+    private String titulo;
     private String descripcion;
 
     public String getCantidad() {
@@ -28,6 +29,14 @@ public class Reporte {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     
