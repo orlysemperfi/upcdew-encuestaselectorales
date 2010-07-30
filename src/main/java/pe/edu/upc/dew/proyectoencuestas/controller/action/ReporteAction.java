@@ -7,6 +7,8 @@ package pe.edu.upc.dew.proyectoencuestas.controller.action;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -26,6 +28,9 @@ import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
+import pe.edu.upc.dew.proyectoencuestas.model.dto.Reporte;
+import pe.edu.upc.dew.proyectoencuestas.service.bo.ReporteService;
+import pe.edu.upc.dew.proyectoencuestas.service.bo.ReporteServiceImpl;
 
 /**
  *
@@ -34,18 +39,29 @@ import org.jfree.data.xy.XYSeriesCollection;
 public class ReporteAction  extends DispatchAction{
 
 
+    private ReporteService reporteBO;
+
       public ActionForward iniciar(ActionMapping mapping, ActionForm  form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
+              List<Reporte> reporte =null;
 
-           PieChart();
-           PieChart3D();
-           XYSeries();
-           BarChartA();
-           BarChartB();
-           BarChart3D();
-           TimeSeries();
+
+              this.reporteBO =  new ReporteServiceImpl();
+              reporte= reporteBO.getCantidadVotosxCandidato("1");
+         
+              
+                String basePath = request.getSession().getId();
+                System.out.println("rutaaaaaaaaaaaaaa "+basePath);
+
+           PieChart(reporte);
+          // PieChart3D();
+         //  XYSeries();
+         //  BarChartA();
+         //  BarChartB();
+         //  BarChart3D();
+         //  TimeSeries();
  
              ReporteForm reporteForm = (ReporteForm)form;
 
@@ -71,28 +87,32 @@ public class ReporteAction  extends DispatchAction{
 
  */
 
-      public void PieChart() {
+
+
+      public void PieChart(List<Reporte> lista) {
 
          // Create a simple pie chart
-         DefaultPieDataset pieDataset = new DefaultPieDataset();
+
+        DefaultPieDataset pieDataset = new DefaultPieDataset();
+        String titulo="";
 
 
 
-         pieDataset.setValue("A", new Integer(75));
-         pieDataset.setValue("B", new Integer(10));
-         pieDataset.setValue("C", new Integer(10));
-         pieDataset.setValue("D", new Integer(5));
-         JFreeChart chart = ChartFactory.createPieChart( "CSC408 Mark Distribution",pieDataset,true,    true,    false);
+        for (int i=0; i<lista.size(); i++){
+               pieDataset.setValue(lista.get(i).getDescripcion(),new Integer(lista.get(i).getCantidad()));
+               titulo=lista.get(i).getTitulo();
+             }
+
+         JFreeChart chart = ChartFactory.createPieChart( titulo,pieDataset,true,    true,    false);
 
          try {
 
-             ChartUtilities.saveChartAsJPEG(new File("D:chart4.jpg"), chart, 500, 300);
 
-
+             ChartUtilities.saveChartAsJPEG(new File("D:/graficos/chart4.jpg"), chart, 500, 300);
+            
          } catch (Exception e) {
-
              System.out.println("Problem occurred creating chart.");
-
+             System.out.println(getClass().getResource("/tupath/path"));
          }
 
      }
