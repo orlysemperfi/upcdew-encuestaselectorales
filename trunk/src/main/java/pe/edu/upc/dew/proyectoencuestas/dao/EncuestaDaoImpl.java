@@ -13,6 +13,7 @@ import java.util.List;
 
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Encuesta;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Pregunta;
+import pe.edu.upc.dew.proyectoencuestas.model.dto.Ubigeo;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Usuario;
 import pe.edu.upc.dew.proyectoencuestas.util.MySqlDBConn;
 
@@ -173,4 +174,86 @@ public class EncuestaDaoImpl implements EncuestaDao{
         }
     
     }
+
+    public Encuesta getEncuesta(Integer idEncuesta)
+    {       
+        Connection conn = null;
+        Statement stm = null;
+        ResultSet rs = null;
+
+        Encuesta encuesta =null;
+
+        // Preparar consulta
+        String sql = "select a.id_enc, a.tit_enc, a.fec_ini_enc, a.fec_fin_enc, a.pob_enc from tb_encuesta a";
+
+        // Ejecutar consulta
+        try {
+                conn = MySqlDBConn.getConnection();
+                stm = conn.createStatement();
+                rs = stm.executeQuery(sql);
+
+                // obtener la lista
+                if(rs.next()){
+
+                    encuesta = new Encuesta();
+                    encuesta.setIdEncuesta(Integer.parseInt(rs.getString(1)));
+                    encuesta.setNombre(rs.getString(2));
+                    encuesta.setFechaInicio(rs.getString(3));
+                    encuesta.setFechaFin(rs.getString(4));
+                    encuesta.setMuestra(Integer.parseInt(rs.getString(5)));
+                    encuesta.setUbigeos(getDistritosPorEncuesta(idEncuesta));
+                }
+        } catch (Exception e) {
+                e.printStackTrace();
+        }
+        finally {
+                MySqlDBConn.closeResultSet(rs);
+                MySqlDBConn.closeStatement(stm);
+                MySqlDBConn.closeConnection(conn);
+        }
+
+
+         return encuesta;       
+    }
+
+    public List<Ubigeo> getDistritosPorEncuesta(Integer idEncuesta)
+    {
+            List<Ubigeo> listaUbigeos = new ArrayList<Ubigeo>();
+
+            Connection conn = null;
+            Statement stm = null;
+            ResultSet rs = null;
+            Ubigeo ubigeo =null;
+
+            // Preparar consulta
+            String sql = "select a.CodigoDistrito, b.NombreDistrito from tb_encxdist a, tb_distrito b"+
+            "where a.CodigoDistrito = b.CodigoDistrito and a.id_enc =" + idEncuesta;
+
+            // Ejecutar consulta
+            try {
+                    conn = MySqlDBConn.getConnection();
+                    stm = conn.createStatement();
+                    rs = stm.executeQuery(sql);
+
+                    // obtener la lista
+                    while(rs.next()){
+
+                        ubigeo = new Ubigeo();
+                        ubigeo.setCodDistrito(rs.getString(1));
+                        ubigeo.setNomDistrito(rs.getString(2));
+                    
+                        listaUbigeos.add(ubigeo);
+
+                    }
+            } catch (Exception e) {
+                    e.printStackTrace();
+            }
+            finally {
+                    MySqlDBConn.closeResultSet(rs);
+                    MySqlDBConn.closeStatement(stm);
+                    MySqlDBConn.closeConnection(conn);
+            }
+
+         return listaUbigeos;
+     }
 }
