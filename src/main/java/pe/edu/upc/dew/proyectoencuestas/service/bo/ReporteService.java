@@ -5,10 +5,16 @@
 
 package pe.edu.upc.dew.proyectoencuestas.service.bo;
 
+import java.util.List;
+import pe.edu.upc.dew.proyectoencuestas.model.dto.Reporte;
+
 /**
  *
  * @author Sofía
  */
-public class ReporteService {
+public interface ReporteService {
+
+      List<Reporte> getCantidadVotosxCandidato(String encuesta);
+
 
 }
