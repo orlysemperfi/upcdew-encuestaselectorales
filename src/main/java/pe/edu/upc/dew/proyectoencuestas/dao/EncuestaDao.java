@@ -7,6 +7,7 @@ package pe.edu.upc.dew.proyectoencuestas.dao;
 
 import java.util.List;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Encuesta;
+import pe.edu.upc.dew.proyectoencuestas.model.dto.Ubigeo;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Usuario;
 
 /**
@@ -20,5 +21,9 @@ public interface EncuestaDao {
     public List<Encuesta> getEncuestasPorDistritos(String distrito);
 
     public void registrarRespuesta(Integer idEncuesta, Integer idOpcion, Integer idPregunta, Usuario usuario, String fecha);
+
+    public Encuesta getEncuesta(Integer idEncuesta);
+
+    List<Ubigeo> getDistritosPorEncuesta(Integer idEncuesta);
 }
 
