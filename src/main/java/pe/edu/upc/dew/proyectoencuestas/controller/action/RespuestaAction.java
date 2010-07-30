@@ -6,6 +6,7 @@
 package pe.edu.upc.dew.proyectoencuestas.controller.action;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -54,10 +55,13 @@ public class RespuestaAction extends org.apache.struts.action.Action {
             String[] respuestas = rptas.substring(0, rptas.length()-1).split("[|]");
             HttpSession session = request.getSession();
             Usuario usuario = (Usuario)session.getAttribute("usuario");
+
+            SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
+
             Date fecha = new Date();
             DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT);
-            String fechaFormato = df.format(fecha);
-
+            String fechaFormato = formateador.format(fecha);
+            
             System.out.println("este es el id del usuario -->" + usuario.getIdUsuario());
             System.out.println("rptas todas v2------>" + rptas.substring(0, rptas.length()-1));
 
