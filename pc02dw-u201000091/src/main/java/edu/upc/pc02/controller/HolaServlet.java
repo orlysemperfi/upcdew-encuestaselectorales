@@ -128,7 +128,7 @@ public class HolaServlet extends HttpServlet {
         getServletContext().setAttribute("aaa", request);
 
         //donde quieres que vaya y le le doy
-        request.getRequestDispatcher("cliente.jsp").forward(request, response);
+        request.getRequestDispatcher("ciente.jsp").forward(request, response);
 
 
     }
