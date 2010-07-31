@@ -26,9 +26,12 @@ public class Cuenta {
         this.saldo = saldo;
     }
 
-    public Cuenta(int i, String string) {
-        throw new UnsupportedOperationException("Not yet implemented");
+    public Cuenta(Integer idCuenta, String tipo) {
+         this.idCuenta = idCuenta;
+         this.tipo = tipo;
     }
+
+
 
     /**
      * @return the idCuenta
