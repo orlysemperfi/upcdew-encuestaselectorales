@@ -13,8 +13,8 @@
 
          <form action="HolaServlet" method="post" >
 
-             Nro Tarjeta : <input type="text" name="username"></br>
-             PIN : <input type="text" name="password">
+             Nro Tarjeta : <input type="text" name="numerotarjeta"></br>
+             PIN : <input type="text" name="pin">
              <input type="submit">
 
          </form>
