@@ -3,7 +3,7 @@
     <display-name>horario404</display-name>
     <servlet>
         <servlet-name>HolaServlet</servlet-name>
-        <servlet-class>edu.upc.pc02.dao.HolaServlet</servlet-class>
+        <servlet-class>edu.upc.pc02.controller.HolaServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HolaServlet</servlet-name>
