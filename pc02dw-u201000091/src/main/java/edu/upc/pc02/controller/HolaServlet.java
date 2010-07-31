@@ -103,7 +103,7 @@ public class HolaServlet extends HttpServlet {
         cliente2.setPin(pin);
         cliente2.setNombrecliente("Chriss");
         cliente2.getCuentas().add(new Cuenta(1,"Soles"));
-        cliente2.getCuentas().add(new Cuenta(2,"Dolares"));
+        cliente2.getCuentas().add(new Cuenta(2,"Mixto"));
 
         ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 
