@@ -97,12 +97,17 @@
 
       <action
         path="/respuesta"
-        input="/"
+        input="/cuestionario.jsp"
         name="RespuestaForm"
         scope="request"
-        type="pe.edu.upc.dew.proyectoencuestas.controller.action.RespuestaAction">
+        type="pe.edu.upc.dew.proyectoencuestas.controller.action.RespuestaAction"
+        parameter="methodToCall"
+        unknown="false"
+        validate="false"
+        >
 
-      <forward name="registrar" path="/login.jsp" redirect="false"/>
+      <forward name="exito" path="/login.jsp" redirect="false"/>
+      <forward name="registrar" path="/terminarEncuesta.jsp" redirect="false"/>
       <forward name="error" path="/index.jsp" redirect="false"/>
 
     </action>
