@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.actions.DispatchAction;
 import pe.edu.upc.dew.proyectoencuestas.form.RespuestaForm;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Usuario;
 import pe.edu.upc.dew.proyectoencuestas.service.bo.EncuestaService;
@@ -23,7 +24,7 @@ import pe.edu.upc.dew.proyectoencuestas.service.bo.EncuestaServiceImpl;
  *
  * @author cramirez
  */
-public class RespuestaAction extends org.apache.struts.action.Action {
+public class RespuestaAction extends DispatchAction {
     
     private EncuestaService encuestaService;
     private static final String SUCCESS = "exito";
@@ -38,8 +39,8 @@ public class RespuestaAction extends org.apache.struts.action.Action {
      * @throws java.lang.Exception
      * @return
      */
-    @Override
-    public ActionForward execute(ActionMapping mapping, ActionForm form,
+
+    public ActionForward registrar(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
@@ -47,9 +48,7 @@ public class RespuestaAction extends org.apache.struts.action.Action {
 
             String idEncuesta = ((RespuestaForm)form).getIdEncuesta();
 
-            System.out.println("este es el id de la encuesta --->" + idEncuesta );
-
-            //String[] respuestas = ((RespuestaForm)form).getRespuestas();
+            System.out.println("este es el id de la encuesta --->" + idEncuesta );         
 
             String rptas = ((RespuestaForm)form).getRptas();
             String[] respuestas = rptas.substring(0, rptas.length()-1).split("[|]");
@@ -85,5 +84,13 @@ public class RespuestaAction extends org.apache.struts.action.Action {
             }
             return mapping.findForward(REGISTRO);
         
+    }
+
+    public ActionForward aceptar(ActionMapping mapping, ActionForm  form,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+
+
+        return mapping.findForward(SUCCESS);
     }
 }
