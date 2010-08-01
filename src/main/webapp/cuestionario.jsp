@@ -68,7 +68,7 @@
 		<link href="css/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen" />
 
 
-<!-- Example script -->
+
 <script type="text/javascript">
 
 		$(document).ready( function() {
@@ -84,6 +84,7 @@
 
                  var totalpreg = "${counterp}";
                  var faltan = "";
+                 var termino = false;
 
                     for (num=0; num < totalpreg; num++)
                     {
@@ -113,6 +114,7 @@
 
                             if (myOption != -1 && num == totalpreg -1)
                             {
+                                termino = true;
                                 break;
                             }
 
@@ -136,13 +138,13 @@
                       }
                   }
 
-                   document.getElementById('rptas').value = values;
+                  document.getElementById('rptas').value = values;
 
-                   jAlert("Su encuesta se registró satisfactoriamente","Mensaje final");
-
-                   document.forms[0].action='respuesta.do';
-                   document.forms[0].submit();
-
+                  if (termino == true)
+                  {
+                    document.forms[0].action='respuesta.do?methodToCall=registrar';
+                    document.forms[0].submit();
+                  }
 
 
 		});
@@ -155,67 +157,6 @@
 
 <script language="JavaScript">
 <!--
-function checker()
-{
-
-var radio_choice1 = false;
-var radio_choice2 = false;
-var radio_choice4 = false;
-var radio_choice5 = false;
-
-var check3 = false;
-
-for (counter = 0; counter < document.forms[0].preg1.length; counter++)
-{
-    if (document.forms[0].preg1[counter].checked)
-        radio_choice1 = true;
-}
-
-for (counter = 0; counter < document.forms[0].preg2.length; counter++)
-{
-    if (document.forms[0].preg2[counter].checked)
-        radio_choice2 = true;
-}
-
-for (counter = 0; counter < document.forms[0].preg4.length; counter++)
-{
-    if (document.forms[0].preg4[counter].checked)
-        radio_choice4 = true;
-}
-
-for (counter = 0; counter < document.forms[0].preg5.length; counter++)
-{
-    if (document.forms[0].preg5[counter].checked)
-        radio_choice5 = true;
-}
-
-for (counter = 0; counter < document.forms[0].preg3.length; counter++)
-{
-    if (document.forms[0].preg3[counter].checked)
-        check3 = true;
-}
-
-if (!radio_choice1)
-    alert("Falta responder la pregunta 1");
-
-if (!radio_choice2)
-    alert("Falta responder la pregunta 2");
-
-if (!check3)
-    alert("Falta responder la pregunta 3");
-
-if (!radio_choice4)
-    alert("Falta responder la pregunta 4");
-
-if (!radio_choice5)
-    alert("Falta responder la pregunta 5");
-
-if (radio_choice1 == true && radio_choice2 == true && radio_choice4 == true && radio_choice5 == true && check3 == true)
-    {
-        alert("Muchas gracias, su encuesta fue registrada satisfactoriamente...");
-        window.location.href = "login.jsp";
-    }
-}
 
 function getValuesOptions()
 {
