@@ -5,6 +5,8 @@
 
 package pe.edu.upc.dew.proyectoencuestas.controller.action;
 
+import java.awt.Color;
+import java.awt.GradientPaint;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -20,7 +22,13 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.CategoryLabelPositions;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PiePlot3D;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.time.Day;
@@ -28,6 +36,7 @@ import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
+import org.jfree.ui.RectangleInsets;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Reporte;
 import pe.edu.upc.dew.proyectoencuestas.service.bo.ReporteService;
 import pe.edu.upc.dew.proyectoencuestas.service.bo.ReporteServiceImpl;
@@ -54,9 +63,13 @@ public class ReporteAction  extends DispatchAction{
               
                 String basePath = request.getSession().getId();
                 System.out.println("rutaaaaaaaaaaaaaa "+basePath);
+         //  Quesos3D();
+         //  ComparativaBarras3D();
 
-           PieChart(reporte);
-          // PieChart3D();
+         //  PieChart(reporte);
+           PieChart3D(reporte);
+           //BarChartB();
+           BarChart3D();
          //  XYSeries();
          //  BarChartA();
          //  BarChartB();
@@ -92,22 +105,17 @@ public class ReporteAction  extends DispatchAction{
       public void PieChart(List<Reporte> lista) {
 
          // Create a simple pie chart
-
         DefaultPieDataset pieDataset = new DefaultPieDataset();
         String titulo="";
-
-
 
         for (int i=0; i<lista.size(); i++){
                pieDataset.setValue(lista.get(i).getDescripcion(),new Integer(lista.get(i).getCantidad()));
                titulo=lista.get(i).getTitulo();
              }
 
-         JFreeChart chart = ChartFactory.createPieChart( titulo,pieDataset,true,    true,    false);
+         JFreeChart chart = ChartFactory.createPieChart( titulo,pieDataset,true,    true,    true);
 
          try {
-
-
              ChartUtilities.saveChartAsJPEG(new File("D:/graficos/chart4.jpg"), chart, 500, 300);
             
          } catch (Exception e) {
@@ -117,18 +125,21 @@ public class ReporteAction  extends DispatchAction{
 
      }
 
-      public void PieChart3D() {
-	 DefaultPieDataset data = new DefaultPieDataset();
-         data.setValue("A", new Integer(75));
-         data.setValue("B", new Integer(10));
-         data.setValue("C", new Integer(10));
-         data.setValue("D", new Integer(5));
+      public void PieChart3D(List<Reporte> lista) {
+	 DefaultPieDataset pieDataset = new DefaultPieDataset();
+         String titulo="";
+         for (int i=0; i<lista.size(); i++){
+               pieDataset.setValue(lista.get(i).getDescripcion(),new Integer(lista.get(i).getCantidad()));
+               titulo=lista.get(i).getTitulo();
+             }
 
-  	 JFreeChart chart = ChartFactory.createPieChart3D("torta", data, true,  true, true);
+  	 JFreeChart chart = ChartFactory.createPieChart3D(titulo, pieDataset , true,  true, true);
+         PiePlot3D p=(PiePlot3D)chart.getPlot();
+         p.setForegroundAlpha(0.5f);// opacidad de la gráfica
 
 	 try {
 
-             ChartUtilities.saveChartAsJPEG(new File("D:chartPie3d.jpg"), chart, 500, 300);
+             ChartUtilities.saveChartAsJPEG(new File("D:/graficos/chartPie3d.jpg"), chart, 500, 300);
 
          } catch (Exception e) {
 
@@ -158,22 +169,94 @@ public class ReporteAction  extends DispatchAction{
           }
 
 
+               public void Quesos3D(){
+
+          DefaultPieDataset pieDataset = new DefaultPieDataset();
+
+        // Inserción de datos
+        pieDataset.setValue("One", new Integer(10));
+        pieDataset.setValue("Two", new Integer(20));
+        pieDataset.setValue("Three", new Integer(30));
+        pieDataset.setValue("Four", new Integer(10));
+        pieDataset.setValue("Five", new Integer(20));
+        pieDataset.setValue("Six", new Integer(10));
+
+        //Creación de gráfica
+        JFreeChart chart = ChartFactory.createPieChart3D
+        ("3D Pie Chart", pieDataset, true,true,true);
+
+        //Dibuja gráfica y también se puede cambiar las propiedades de la gráfica
+        PiePlot3D p=(PiePlot3D)chart.getPlot();
+
+        p.setForegroundAlpha(0.3f);// opacidad de la gráfica
+        ChartFrame frame1=new ChartFrame("3D Pie Chart",chart);
+        frame1.setVisible(true);
+        frame1.setSize(300,300);
+
+       }
+
+       public void ComparativaBarras3D(){
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+
+         //Insertamos los valores a la gráfica
+
+        //La posicion de los valores en la grafica es le siguiente (valor, comporable fila,       //comparable columna), si se omita el ultimo valor, lo pones como "" se muestra la //gráfica en columnas simples 3D
+        dataset.setValue(6, "SURCO", "Lourdes Flores");
+        dataset.setValue(8, "MIRAFLORES", "Lourdes Flores");
+        dataset.setValue(5, "BARRANCO", "Lourdes Flores");
+        dataset.setValue(5, "SURCO", "Alex Kouri");
+        dataset.setValue(3, "MIRAFLORES", "Alex Kouri");
+        dataset.setValue(6, "SURCO", "Susana Villarán");
+        dataset.setValue(9, "MIRAFLORES", "Susana Villarán");
+        dataset.setValue(2, "SURCO", "Humberto Lai");
+        dataset.setValue(4, "MIRAFLORES", "Humberto La");
+
+        //Creación de gráfica. PlotOrientation.HORIZONTAL -> se puede poner en vertical
+        JFreeChart chart = ChartFactory.createBarChart3D
+        ("Comparison between Students","Students", "Marks",
+        dataset, PlotOrientation.HORIZONTAL, true,true, false);
+        chart.setBackgroundPaint(Color.yellow); //el fondo de la pantalla
+        chart.getTitle().setPaint(Color.blue); // color del titulo
+
+
+        //Dibuja gráfica y también se puede cambiar las propiedades de la gráfica
+        CategoryPlot p = chart.getCategoryPlot();
+        p.setRangeGridlinePaint(Color.green);
+        ChartFrame frame2=new ChartFrame("3D Bar Chart",chart);
+        frame2.setVisible(true);
+        frame2.setSize(300,300);
+   }
+
+
+
       public void BarChartB() {
 
            // Create a simple Bar chart
            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+           /*
+           dataset.setValue(6, "Profit1", "Jane");
+           dataset.setValue(7, "Profit2", "Tom");
+           dataset.setValue(8, "Profit3", "Jill");
+           dataset.setValue(5, "Profit4", "John");
+           dataset.setValue(12, "Profit5", "Fred");
+         */
            dataset.setValue(6, "Profit", "Jane");
            dataset.setValue(7, "Profit", "Tom");
            dataset.setValue(8, "Profit", "Jill");
            dataset.setValue(5, "Profit", "John");
-           dataset.setValue(12, "Profit", "Fred");
+           dataset.setValue(12,"Profit", "Fred");
+              
 
-           JFreeChart chart = ChartFactory.createBarChart("Comparison between Salesman",  "Salesman", "Profit", dataset, PlotOrientation.VERTICAL, false,  true, false);
-           JFreeChart chartH = ChartFactory.createBarChart("Comparison between Salesman",  "Salesman", "Profit", dataset, PlotOrientation.HORIZONTAL, false,  true, false);
+           JFreeChart chart = ChartFactory.createBarChart("Comparison between Salesman",  "", "", dataset, PlotOrientation.VERTICAL, false,  true, false);
+           JFreeChart chartH = ChartFactory.createBarChart("Comparison between Salesman",  "", "", dataset, PlotOrientation.HORIZONTAL, false,  true, false);
+
+           // Background del dibujo
+		chart.setBackgroundPaint(Color.white);
+
            try {
 
-               ChartUtilities.saveChartAsJPEG(new File("D:chartBC.jpg"), chart, 500, 300);
-               ChartUtilities.saveChartAsJPEG(new File("D:chartBCHorizontal.jpg"), chartH, 500, 300);
+               ChartUtilities.saveChartAsJPEG(new File("D:/graficos/chartBC.jpg"), chart, 500, 300);
+               ChartUtilities.saveChartAsJPEG(new File("D:/graficos/chartBCHorizontal.jpg"), chartH, 500, 300);
 
            } catch (IOException e) {
 
@@ -207,8 +290,8 @@ public class ReporteAction  extends DispatchAction{
            JFreeChart chartH = ChartFactory.createBarChart3D( "Comparison between Salesman", "Salesman", "Value ($)", dataset, PlotOrientation.HORIZONTAL, true, true, false );
            try {
 
-               ChartUtilities.saveChartAsJPEG(new File("D:chart3d.jpg"), chart, 500,   300);
-               ChartUtilities.saveChartAsJPEG(new File("D:chart3dHorizontal.jpg"), chartH, 500,   300);
+               ChartUtilities.saveChartAsJPEG(new File("D:/graficos/chart3d.jpg"), chart, 500,   300);
+               ChartUtilities.saveChartAsJPEG(new File("D:/graficos/chart3dHorizontal.jpg"), chartH, 500,   300);
 
            } catch (IOException e) {
 
