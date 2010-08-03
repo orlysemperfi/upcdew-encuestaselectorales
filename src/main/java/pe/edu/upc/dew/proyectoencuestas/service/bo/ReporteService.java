@@ -7,6 +7,7 @@ package pe.edu.upc.dew.proyectoencuestas.service.bo;
 
 import java.util.List;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Reporte;
+import pe.edu.upc.dew.proyectoencuestas.model.dto.ReporteEncuesta;
 
 /**
  *
@@ -14,7 +15,7 @@ import pe.edu.upc.dew.proyectoencuestas.model.dto.Reporte;
  */
 public interface ReporteService {
 
-      List<Reporte> getCantidadVotosxCandidato(String encuesta);
-
+      List<Reporte> getCantidadVotos(String encuesta,String idPregunta);
+      List<ReporteEncuesta> getListarPreguntasEncuesta(String encuesta,String ruta);
 
 }
