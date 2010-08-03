@@ -84,6 +84,34 @@
     </tr>
 </table>
 
+                   
+                <table>
+
+                   <c:forEach items="${preguntas}" var="nivel1">
+
+                      <tr>
+                        <td>${nivel1.idEncuesta}</td>
+                        <td>${nivel1.idPregunta}</td>
+                        <td>${nivel1.desEncuesta}</td>
+                        <td>${nivel1.desPregunta}</td>
+                        <td><img src="images/${nivel1.idEncuesta}${nivel1.idPregunta}.jpg" >  </td>
+
+                        
+                        <td><table>
+                        
+                             <c:forEach items="${nivel1.resultado}" var="nivel2">
+                              <tr>
+                                  <td>${nivel2.cantidad}</td>
+                                  <td>${nivel2.descripcion}</td>
+
+                             </tr>
+                         </c:forEach>
+                       </table> </td>
+                      </tr>
+
+
+                    </c:forEach>
+             </table>
 
   </html:form>
 </body>
