@@ -68,7 +68,7 @@
                         <td style="height: 20px; width: 130px; text-align: center;">${encuesta.muestra}</td>
                         <td style="height: 20px; text-align: center;"><a href="configuracion.do?methodToCall=configurar&idEncuesta=1"> <img src="images/iconos/settings.png"   style="text-decoration:none"> </a>  </td>
                         <td style="height: 20px; text-align: center;"><a href="monitoreoEncuesta.do?methodToCall=iniciar&idEncuesta=1"> <img src="images/iconos/computer.png" style="text-decoration:none"> </a>  </td>
-                        <td style="height: 20px; text-align: center;"><a href="reporte.do?methodToCall=iniciar&idEncuesta=1&descripcion='Elecciones Municipales 2010 - Sector Alto'"> <img src="images/iconos/chart.png" style="text-decoration:none"> </a>  </td>
+                        <td style="height: 20px; text-align: center;"><a href="reporte.do?methodToCall=iniciar&idEncuesta=1&descripcion='Elecciones Municipales 2010 - Sector Alto'&ruta=<%=request.getContextPath()%>"> <img src="images/iconos/chart.png" style="text-decoration:none"> </a>  </td>
 
                             
                           </tr>
