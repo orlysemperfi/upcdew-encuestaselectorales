@@ -38,6 +38,7 @@ import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 import org.jfree.ui.RectangleInsets;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Reporte;
+import pe.edu.upc.dew.proyectoencuestas.model.dto.ReporteEncuesta;
 import pe.edu.upc.dew.proyectoencuestas.service.bo.ReporteService;
 import pe.edu.upc.dew.proyectoencuestas.service.bo.ReporteServiceImpl;
 
@@ -54,51 +55,44 @@ public class ReporteAction  extends DispatchAction{
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
+
+
               List<Reporte> reporte =null;
 
 
               this.reporteBO =  new ReporteServiceImpl();
-              reporte= reporteBO.getCantidadVotosxCandidato("1");
-         
-              
-                String basePath = request.getSession().getId();
-                System.out.println("rutaaaaaaaaaaaaaa "+basePath);
-         //  Quesos3D();
-         //  ComparativaBarras3D();
+             // reporte= reporteBO.getCantidadVotos("1");
 
-         //  PieChart(reporte);
-           PieChart3D(reporte);
-           //BarChartB();
-           BarChart3D();
-         //  XYSeries();
-         //  BarChartA();
-         //  BarChartB();
-         //  BarChart3D();
-         //  TimeSeries();
+
+              System.out.println("verrrrrrrrrrrrrrrrrrr"+getServlet().getServletContext().getRealPath("/")+"images/");
+
+              String ruta =getServlet().getServletContext().getRealPath("/")+"images/";
+
+                System.out.println("rutaaaaaaaaaaaaaa "+ruta);
+                 //  Quesos3D();
+                 //  ComparativaBarras3D();
+                 //  PieChart(reporte);
+                 //PieChart3D(reporte,ruta);
+                 //BarChartB();
+                // BarChart3D();
+                 //  XYSeries();
+                 //  BarChartA();
+                 //  BarChartB();
+                 //  BarChart3D();
+                 //  TimeSeries();
  
              ReporteForm reporteForm = (ReporteForm)form;
 
              request.setAttribute("encuestaDes", reporteForm.getDescripcion());
 
+             System.out.println("ruta de la pagia web"+reporteForm.getRuta());
+
+             List<ReporteEncuesta> reporteEncuesta = reporteEncuesta=reporteBO.getListarPreguntasEncuesta("1",ruta);
+             request.setAttribute("preguntas", reporteEncuesta);
 
            System.out.println("\n Iniciando Reportes");
            return mapping.findForward("exito");
     }
-
-
-/*
-      	public static CategoryDataset creaDataset(List lista) {
-		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-
-		Map fila=null;
-		for (int i=0; i<lista.size(); i++){
-			fila=(Map)lista.get(i);
-			dataset.addValue(new Double((String)fila.get("3")), (String)fila.get("2"), (String)fila.get("1"));
-		}
-		return dataset;
-	}
-
- */
 
 
 
@@ -125,7 +119,7 @@ public class ReporteAction  extends DispatchAction{
 
      }
 
-      public void PieChart3D(List<Reporte> lista) {
+      public void PieChart3D(List<Reporte> lista,String ruta) {
 	 DefaultPieDataset pieDataset = new DefaultPieDataset();
          String titulo="";
          for (int i=0; i<lista.size(); i++){
@@ -139,7 +133,7 @@ public class ReporteAction  extends DispatchAction{
 
 	 try {
 
-             ChartUtilities.saveChartAsJPEG(new File("D:/graficos/chartPie3d.jpg"), chart, 500, 300);
+             ChartUtilities.saveChartAsJPEG(new File(ruta+"chartPie3d.jpg"), chart, 500, 300);
 
          } catch (Exception e) {
 
