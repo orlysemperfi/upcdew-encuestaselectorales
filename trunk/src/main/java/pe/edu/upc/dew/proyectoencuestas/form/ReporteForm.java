@@ -14,7 +14,17 @@ import org.apache.struts.action.ActionForm;
 public class ReporteForm  extends ActionForm{
  private String idReporte;
  private String descripcion;
+ private String ruta;
 
+    public String getRuta() {
+        return ruta;
+    }
+
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
+    }
+
+ 
     public String getIdEncuesta() {
         return idEncuesta;
     }
