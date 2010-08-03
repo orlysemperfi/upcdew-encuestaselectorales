@@ -6,6 +6,7 @@
 package pe.edu.upc.dew.proyectoencuestas.dao;
 import java.util.List;
 import pe.edu.upc.dew.proyectoencuestas.model.dto.Reporte;
+import pe.edu.upc.dew.proyectoencuestas.model.dto.ReporteEncuesta;
 /**
  *
  * @author Owner
@@ -13,7 +14,8 @@ import pe.edu.upc.dew.proyectoencuestas.model.dto.Reporte;
 public interface ReporteDao {
 
 
-    List<Reporte> getCantidadVotosxCandidato(String encuesta);
+    List<Reporte> getCantidadVotos(String encuesta,String idPregunta);
+    List<ReporteEncuesta> getListarPreguntasEncuesta(String encuesta);
 
     
 }
