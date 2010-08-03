@@ -97,6 +97,7 @@
                         <td><img src="images/${nivel1.idEncuesta}${nivel1.idPregunta}.jpg" >  </td>
 
                         
+                        
                         <td><table>
                         
                              <c:forEach items="${nivel1.resultado}" var="nivel2">
