@@ -73,14 +73,15 @@ public class ReporteAction  extends DispatchAction{
                  //  ComparativaBarras3D();
                  //  PieChart(reporte);
                  //PieChart3D(reporte,ruta);
-                 //BarChartB();
-                // BarChart3D();
+                  BarChartB();
+                BarChart3D();
                  //  XYSeries();
                  //  BarChartA();
                  //  BarChartB();
                  //  BarChart3D();
                  //  TimeSeries();
- 
+
+               
              ReporteForm reporteForm = (ReporteForm)form;
 
              request.setAttribute("encuestaDes", reporteForm.getDescripcion());
@@ -234,11 +235,11 @@ public class ReporteAction  extends DispatchAction{
            dataset.setValue(5, "Profit4", "John");
            dataset.setValue(12, "Profit5", "Fred");
          */
-           dataset.setValue(6, "Profit", "Jane");
-           dataset.setValue(7, "Profit", "Tom");
-           dataset.setValue(8, "Profit", "Jill");
-           dataset.setValue(5, "Profit", "John");
-           dataset.setValue(12,"Profit", "Fred");
+           dataset.setValue(new Integer ("6"), "", "Jane");
+           dataset.setValue(new Integer ("7"), "", "Tom");
+           dataset.setValue(new Integer ("8"), "", "Jill");
+           dataset.setValue(new Integer ("5"), "", "John");
+           dataset.setValue(new Integer ("12"),"", "Fred");
               
 
            JFreeChart chart = ChartFactory.createBarChart("Comparison between Salesman",  "", "", dataset, PlotOrientation.VERTICAL, false,  true, false);
