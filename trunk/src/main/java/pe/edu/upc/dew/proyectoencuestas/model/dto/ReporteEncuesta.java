@@ -17,7 +17,20 @@ public class ReporteEncuesta {
     private String desPregunta;
     private String rutaReporte;
     private List<Reporte> resultado;
+    private String tipoPreguntaGrafico;
 
+
+    
+    public String getTipoPreguntaGrafico() {
+        return tipoPreguntaGrafico;
+    }
+
+    public void setTipoPreguntaGrafico(String tipoPreguntaGrafico) {
+        this.tipoPreguntaGrafico = tipoPreguntaGrafico;
+    }
+
+
+    
 
    public ReporteEncuesta()
     {
