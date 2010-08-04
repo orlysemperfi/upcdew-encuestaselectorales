@@ -1,4 +1,4 @@
-﻿# DBTools DBMYSQL - MySQL Database Dump
+# DBTools DBMYSQL - MySQL Database Dump
 #  drop database  dbEncuesta
 
 CREATE DATABASE `dbEncuesta`;
@@ -9,6 +9,7 @@ USE `dbEncuesta`;
 CREATE TABLE `tb_encuesta` (
   `id_enc` int,
   `tit_enc` varchar(100) default NULL,
+  `est_enc` int,
   `fec_ini_enc` varchar(10) default NULL,
   `fec_fin_enc` varchar(10) default NULL,
   `pob_enc` int,
@@ -48,6 +49,7 @@ CREATE TABLE `tb_pregunta` (
   `des_pre` varchar(255) default NULL,
   `id_tip_pre` int,
   `ord_pre` int default NULL,
+  `tip_pre_gra` varchar(1) NULL,
   PRIMARY KEY  (`id_pre`)
 ) TYPE=MyISAM;
 #
@@ -58,8 +60,8 @@ CREATE TABLE `tb_pregunta` (
 CREATE TABLE `tb_tipo_pregunta` (
   `id_tip_pre` int,
   `des_tip_pre` varchar(255) default NULL,
-  `tip_gra` varchar(1) NULL,  
-  PRIMARY KEY  (`id_tip_pre`) 
+  `tip_gra` varchar(1) NULL,
+  PRIMARY KEY  (`id_tip_pre`)
 ) TYPE=MyISAM;
 #
 
@@ -85,15 +87,15 @@ CREATE TABLE `tb_opcion` (
 
 # Dumping Table Structure for tb_result_fin
 #
-CREATE TABLE `tb_result_fin` (   
-  `id_enc` int,    
+CREATE TABLE `tb_result_fin` (
+  `id_enc` int,
   `id_opc` int,
   `id_pre` int,
-  `cod_usu` varchar(4),    
+  `cod_usu` varchar(4),
   `fecha_res` varchar(10),
-  KEY `id_enc` (`id_enc`),  
+  KEY `id_enc` (`id_enc`),
    KEY `id_opc` (`id_opc`),
-  KEY `id_pre` (`id_pre`),  
+  KEY `id_pre` (`id_pre`),
   KEY `cod_usu`(`cod_usu`)
 ) TYPE=MyISAM;
 #
@@ -101,8 +103,8 @@ CREATE TABLE `tb_result_fin` (
 # Dumping Table Structure for tb_usuario
 #
 CREATE TABLE `tb_usuario` (
-  `cod_usu` varchar(4) NOT NULL default '',  
-  `user_usu` varchar(20) default NULL,  
+  `cod_usu` varchar(4) NOT NULL default '',
+  `user_usu` varchar(20) default NULL,
   `pass_usu` varchar(20) default NULL,
   `nom_usu` varchar(20) default NULL,
   `ape_usu` varchar(20) default NULL,
@@ -121,7 +123,7 @@ INSERT INTO `tb_usuario` (cod_usu, user_usu, pass_usu, nom_usu, ape_usu, nro_doc
 INSERT INTO `tb_usuario` (cod_usu, user_usu, pass_usu, nom_usu, ape_usu, nro_doc_usu, CodigoDistrito, rol_usu) VALUES ('U004', 'sofi', 'sofi', 'sophia', 'mendez', '40476774', '140101', 0);
 INSERT INTO `tb_usuario` (cod_usu, user_usu, pass_usu, nom_usu, ape_usu, nro_doc_usu, CodigoDistrito, rol_usu) VALUES ('U005', 'gaby', 'gaby', 'gabriela', 'rojas', '40476774', '140103', 0);
 # nuevo
-#Usuarios                                                                                                    
+#Usuarios
 INSERT INTO `tb_usuario` (cod_usu, user_usu, pass_usu, nom_usu, ape_usu,nro_doc_usu, CodigoDistrito,rol_usu) VALUES ('U006', 'chriss', 'chriss', 'chriss','gomez','40010203', '140102', 1);
 INSERT INTO `tb_usuario` (cod_usu, user_usu, pass_usu, nom_usu, ape_usu,nro_doc_usu, CodigoDistrito,rol_usu) VALUES ('U007', 'pedro', 'pedro', 'pedro','aquino','45892880', '140102', 1);
 INSERT INTO `tb_usuario` (cod_usu, user_usu, pass_usu, nom_usu, ape_usu,nro_doc_usu, CodigoDistrito,rol_usu) VALUES ('U008', 'tefy', 'tefy', 'tefy','quijada','41424344', '140102', 0);
@@ -370,7 +372,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('021803', '0218', '02', 'COISHCO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('021804', '0218', '02', 'MACATE');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('021805', '0218', '02', 'MORO');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('021806', '0218', '02', 'NEPEÃ‘A');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('021806', '0218', '02', 'NEPEÑA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('021807', '0218', '02', 'SAMANCO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('021808', '0218', '02', 'SANTA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('021809', '0218', '02', 'NUEVO CHIMBOTE');
@@ -437,8 +439,8 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('030408', '0304', '03', 'JUSTO APU SAHUARAURA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('030409', '0304', '03', 'LUCRE');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('030410', '0304', '03', 'POCOHUANCA');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('030411', '0304', '03', 'SAN JUAN DE CHACÃ‘A');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('030412', '0304', '03', 'SAÃ‘AYCA');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('030411', '0304', '03', 'SAN JUAN DE CHACÑA');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('030412', '0304', '03', 'SAÑAYCA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('030413', '0304', '03', 'SORAYA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('030414', '0304', '03', 'TAPAIRIHUA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('030415', '0304', '03', 'TINTAY');
@@ -486,7 +488,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040112', '0401', '04', 'PAUCARPATA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040113', '0401', '04', 'POCSI');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040114', '0401', '04', 'POLOBAYA');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040115', '0401', '04', 'QUEQUEÃ‘A');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040115', '0401', '04', 'QUEQUEÑA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040116', '0401', '04', 'SABANDIA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040117', '0401', '04', 'SACHACA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040118', '0401', '04', 'SAN JUAN DE SIGUAS');
@@ -506,7 +508,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040203', '0402', '04', 'MARIANO NICOLAS VALCARCEL');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040204', '0402', '04', 'MARISCAL CACERES');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040205', '0402', '04', 'NICOLAS DE PIEROLA');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040206', '0402', '04', 'OCOÃ‘A');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040206', '0402', '04', 'OCOÑA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040207', '0402', '04', 'QUILCA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040208', '0402', '04', 'SAMUEL PASTOR');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040301', '0403', '04', 'CARAVELI');
@@ -533,7 +535,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040409', '0404', '04', 'ORCOPAMPA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040410', '0404', '04', 'PAMPACOLCA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040411', '0404', '04', 'TIPAN');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040412', '0404', '04', 'UÃ‘ON');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040412', '0404', '04', 'UÑON');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040413', '0404', '04', 'URACA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040414', '0404', '04', 'VIRACO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('040501', '0405', '04', 'CHIVAY');
@@ -626,14 +628,14 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050602', '0506', '05', 'AUCARA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050603', '0506', '05', 'CABANA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050604', '0506', '05', 'CARMEN SALCEDO');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050605', '0506', '05', 'CHAVIÃ‘A');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050605', '0506', '05', 'CHAVIÑA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050606', '0506', '05', 'CHIPAO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050607', '0506', '05', 'HUAC-HUAS');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050608', '0506', '05', 'LARAMATE');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050609', '0506', '05', 'LEONCIO PRADO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050610', '0506', '05', 'LLAUTA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050611', '0506', '05', 'LUCANAS');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050612', '0506', '05', 'OCAÃ‘A');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050612', '0506', '05', 'OCAÑA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050613', '0506', '05', 'OTOCA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050614', '0506', '05', 'SAISA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050615', '0506', '05', 'SAN CRISTOBAL');
@@ -645,7 +647,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050621', '0506', '05', 'SANTA LUCIA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050701', '0507', '05', 'CORACORA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050702', '0507', '05', 'CHUMPI');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050703', '0507', '05', 'CORONEL CASTAÃ‘EDA');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050703', '0507', '05', 'CORONEL CASTAÑEDA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050704', '0507', '05', 'PACAPAUSA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050705', '0507', '05', 'PULLO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050706', '0507', '05', 'PUYUSCA');
@@ -665,7 +667,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050902', '0509', '05', 'BELEN');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050903', '0509', '05', 'CHALCOS');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050904', '0509', '05', 'CHILCAYOC');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050905', '0509', '05', 'HUACAÃ‘A');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050905', '0509', '05', 'HUACAÑA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050906', '0509', '05', 'MORCOLLA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050907', '0509', '05', 'PAICO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('050908', '0509', '05', 'SAN PEDRO DE LARCAY');
@@ -696,10 +698,10 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('060102', '0601', '06', 'ASUNCION');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('060103', '0601', '06', 'CHETILLA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('060104', '0601', '06', 'COSPAN');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('060105', '0601', '06', 'ENCAÃ‘ADA');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('060105', '0601', '06', 'ENCAÑADA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('060106', '0601', '06', 'JESUS');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('060107', '0601', '06', 'LLACANORA');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('060108', '0601', '06', 'LOS BAÃ‘OS DEL INCA');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('060108', '0601', '06', 'LOS BAÑOS DEL INCA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('060109', '0601', '06', 'MAGDALENA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('060110', '0601', '06', 'MATARA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('060111', '0601', '06', 'NAMORA');
@@ -811,7 +813,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('061301', '0613', '06', 'SANTA CRUZ');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('061302', '0613', '06', 'ANDABAMBA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('061303', '0613', '06', 'CATACHE');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('061304', '0613', '06', 'CHANCAYBAÃ‘OS');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('061304', '0613', '06', 'CHANCAYBAÑOS');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('061305', '0613', '06', 'LA ESPERANZA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('061306', '0613', '06', 'NINABAMBA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('061307', '0613', '06', 'PULAN');
@@ -873,7 +875,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('070704', '0707', '07', 'COLQUEMARCA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('070705', '0707', '07', 'LIVITACA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('070706', '0707', '07', 'LLUSCO');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('070707', '0707', '07', 'QUIÃ‘OTA');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('070707', '0707', '07', 'QUIÑOTA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('070708', '0707', '07', 'VELILLE');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('070801', '0708', '07', 'ESPINAR');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('070802', '0708', '07', 'CONDOROMA');
@@ -907,7 +909,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('071103', '0711', '07', 'CHALLABAMBA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('071104', '0711', '07', 'COLQUEPATA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('071105', '0711', '07', 'HUANCARANI');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('071106', '0711', '07', 'KOSÃ‘IPATA');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('071106', '0711', '07', 'KOSÑIPATA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('071201', '0712', '07', 'URCOS');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('071202', '0712', '07', 'ANDAHUAYLILLAS');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('071203', '0712', '07', 'CAMANTI');
@@ -1012,7 +1014,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('080706', '0807', '08', 'DANIEL HERNANDEZ');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('080707', '0807', '08', 'HUACHOCOLPA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('080709', '0807', '08', 'HUARIBAMBA');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('080710', '0807', '08', 'Ã‘AHUIMPUQUIO');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('080710', '0807', '08', 'ÑAHUIMPUQUIO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('080711', '0807', '08', 'PAZOS');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('080713', '0807', '08', 'QUISHUAR');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('080714', '0807', '08', 'SALCABAMBA');
@@ -1061,7 +1063,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('090506', '0905', '09', 'MIRAFLORES');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('090507', '0905', '09', 'MONZON');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('090508', '0905', '09', 'PUNCHAO');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('090509', '0905', '09', 'PUÃ‘OS');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('090509', '0905', '09', 'PUÑOS');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('090510', '0905', '09', 'SINGA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('090511', '0905', '09', 'TANTAMAYO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('090601', '0906', '09', 'RUPA-RUPA');
@@ -1083,7 +1085,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('090904', '0909', '09', 'TOURNAVISTA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('090905', '0909', '09', 'YUYAPICHIS');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('091001', '0910', '09', 'JESUS');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('091002', '0910', '09', 'BAÃ‘OS');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('091002', '0910', '09', 'BAÑOS');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('091003', '0910', '09', 'JIVIA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('091004', '0910', '09', 'QUEROPALCA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('091005', '0910', '09', 'RONDOS');
@@ -1098,7 +1100,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('091107', '0911', '09', 'PAMPAMARCA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('091108', '0911', '09', 'CHORAS');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('100101', '1001', '10', 'ICA');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('100102', '1001', '10', 'LA TINGUIÃ‘A');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('100102', '1001', '10', 'LA TINGUIÑA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('100103', '1001', '10', 'LOS AQUIJES');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('100104', '1001', '10', 'OCUCAJE');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('100105', '1001', '10', 'PACHACUTEC');
@@ -1163,7 +1165,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('110128', '1101', '11', 'QUILCAS');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('110129', '1101', '11', 'SAN AGUSTIN');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('110130', '1101', '11', 'SAN JERONIMO DE TUNAN');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('110132', '1101', '11', 'SAÃ‘O');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('110132', '1101', '11', 'SAÑO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('110133', '1101', '11', 'SAPALLANGA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('110134', '1101', '11', 'SICAYA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('110135', '1101', '11', 'SANTO DOMINGO DE ACOBAMBA');
@@ -1201,7 +1203,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('110410', '1104', '11', 'HUERTAS');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('110411', '1104', '11', 'JANJAILLO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('110412', '1104', '11', 'JULCAN');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('110413', '1104', '11', 'LEONOR ORDOÃ‘EZ');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('110413', '1104', '11', 'LEONOR ORDOÑEZ');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('110414', '1104', '11', 'LLOCLLAPAMPA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('110415', '1104', '11', 'MARCO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('110416', '1104', '11', 'MASMA');
@@ -1360,14 +1362,14 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('130112', '1301', '13', 'PIMENTEL');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('130113', '1301', '13', 'REQUE');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('130114', '1301', '13', 'SANTA ROSA');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('130115', '1301', '13', 'SAÃ‘A');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('130115', '1301', '13', 'SAÑA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('130116', '1301', '13', 'CAYALTI');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('130117', '1301', '13', 'PATAPO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('130118', '1301', '13', 'POMALCA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('130119', '1301', '13', 'PUCALA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('130120', '1301', '13', 'TUMAN');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('130201', '1302', '13', 'FERREÃ‘AFE');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('130202', '1302', '13', 'CAÃ‘ARIS');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('130201', '1302', '13', 'FERREÑAFE');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('130202', '1302', '13', 'CAÑARIS');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('130203', '1302', '13', 'INCAHUASI');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('130204', '1302', '13', 'MANUEL A. MESONES MURO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('130205', '1302', '13', 'PITIPO');
@@ -1388,7 +1390,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140102', '1401', '14', 'ANCON');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140103', '1401', '14', 'ATE-VITARTE');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140104', '1401', '14', 'BARRANCO');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140105', '1401', '14', 'BREÃ‘A');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140105', '1401', '14', 'BREÑA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140106', '1401', '14', 'CARABAYLLO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140107', '1401', '14', 'CHACLACAYO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140108', '1401', '14', 'CHORRILLOS');
@@ -1444,7 +1446,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140405', '1404', '14', 'LACHAQUI');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140406', '1404', '14', 'SAN BUENAVENTURA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140407', '1404', '14', 'SANTA ROSA DE QUIVES');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140501', '1405', '14', 'SAN VICENTE DE CAÃ‘ETE');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140501', '1405', '14', 'SAN VICENTE DE CAÑETE');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140502', '1405', '14', 'ASIA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140503', '1405', '14', 'CALANGO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140504', '1405', '14', 'CERRO AZUL');
@@ -1459,7 +1461,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140513', '1405', '14', 'SAN ANTONIO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140514', '1405', '14', 'SAN LUIS');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140515', '1405', '14', 'SANTA CRUZ DE FLORES');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140516', '1405', '14', 'ZUÃ‘IGA');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140516', '1405', '14', 'ZUÑIGA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140601', '1406', '14', 'HUARAL');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140602', '1406', '14', 'ATAVILLOS ALTO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('140603', '1406', '14', 'ATAVILLOS BAJO');
@@ -1538,7 +1540,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('141014', '1410', '14', 'HUANCAYA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('141015', '1410', '14', 'HUANGASCAR');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('141016', '1410', '14', 'HUANTAN');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('141017', '1410', '14', 'HUAÃ‘EC');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('141017', '1410', '14', 'HUAÑEC');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('141018', '1410', '14', 'LARAOS');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('141019', '1410', '14', 'LINCHA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('141020', '1410', '14', 'MADEAN');
@@ -1553,7 +1555,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('141029', '1410', '14', 'TAURIPAMPA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('141030', '1410', '14', 'TOMAS');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('141031', '1410', '14', 'TUPE');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('141032', '1410', '14', 'VIÃ‘AC');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('141032', '1410', '14', 'VIÑAC');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('141033', '1410', '14', 'VITIS');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('141101', '1411', '14', 'CALLAO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('141102', '1411', '14', 'BELLAVISTA');
@@ -1618,7 +1620,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('160202', '1602', '16', 'FITZCARRALD');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('160203', '1602', '16', 'MADRE DE DIOS');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('160204', '1602', '16', 'HUEPETUHE');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('160301', '1603', '16', 'IÃ‘APARI');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('160301', '1603', '16', 'IÑAPARI');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('160302', '1603', '16', 'IBERIA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('160303', '1603', '16', 'TAHUAMANU');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('170101', '1701', '17', 'MOQUEGUA');
@@ -1630,7 +1632,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('170201', '1702', '17', 'OMATE');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('170202', '1702', '17', 'CHOJATA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('170203', '1702', '17', 'COALAQUE');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('170204', '1702', '17', 'ICHUÃ‘A');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('170204', '1702', '17', 'ICHUÑA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('170205', '1702', '17', 'LA CAPILLA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('170206', '1702', '17', 'LLOQUE');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('170207', '1702', '17', 'MATALAQUE');
@@ -1721,7 +1723,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('190606', '1906', '19', 'MIGUEL CHECA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('190607', '1906', '19', 'QUERECOTILLO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('190608', '1906', '19', 'SALITRAL');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('190701', '1907', '19', 'PARIÃ‘AS');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('190701', '1907', '19', 'PARIÑAS');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('190702', '1907', '19', 'EL ALTO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('190703', '1907', '19', 'LA BREA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('190704', '1907', '19', 'LOBITOS');
@@ -1741,7 +1743,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200106', '2001', '20', 'CHUCUITO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200107', '2001', '20', 'COATA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200108', '2001', '20', 'HUATA');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200109', '2001', '20', 'MAÃ‘AZO');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200109', '2001', '20', 'MAÑAZO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200110', '2001', '20', 'PAUCARCOLLA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200111', '2001', '20', 'PICHACANI');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200112', '2001', '20', 'PLATERIA');
@@ -1755,7 +1757,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200205', '2002', '20', 'CAMINACA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200206', '2002', '20', 'CHUPA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200207', '2002', '20', 'JOSE DOMINGO CHOQUEHUANCA');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200208', '2002', '20', 'MUÃ‘ANI');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200208', '2002', '20', 'MUÑANI');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200209', '2002', '20', 'POTONI');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200210', '2002', '20', 'SAMAN');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200211', '2002', '20', 'SAN ANTON');
@@ -1808,7 +1810,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200803', '2008', '20', 'CUPI');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200804', '2008', '20', 'LLALLI');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200805', '2008', '20', 'MACARI');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200806', '2008', '20', 'NUÃ‘OA');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200806', '2008', '20', 'NUÑOA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200807', '2008', '20', 'ORURILLO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200808', '2008', '20', 'SANTA ROSA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('200809', '2008', '20', 'UMACHIRI');
@@ -1868,7 +1870,7 @@ INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, 
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('210502', '2105', '21', 'ALONSO DE ALVARADO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('210503', '2105', '21', 'BARRANQUITA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('210504', '2105', '21', 'CAYNARACHI');
-INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('210505', '2105', '21', 'CUÃ‘UMBUQUI');
+INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('210505', '2105', '21', 'CUÑUMBUQUI');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('210506', '2105', '21', 'PINTO RECODO');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('210507', '2105', '21', 'RUMISAPA');
 INSERT INTO `tb_distrito` (CodigoDistrito, CodigoProvincia, CodigoDepartamento, NombreDistrito) VALUES ('210508', '2105', '21', 'SAN ROQUE DE CUMBAZA');
@@ -2074,7 +2076,7 @@ INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('0903', 'D
 INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('0904', 'HUACAYBAMBA');
 INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('0905', 'HUAMALIES');
 INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('0906', 'LEONCIO PRADO');
-INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('0907', 'MARAÃ‘ON');
+INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('0907', 'MARAÑON');
 INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('0908', 'PACHITEA');
 INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('0909', 'PUERTO INCA');
 INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('0910', 'LAURICOCHA');
@@ -2106,13 +2108,13 @@ INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('1210', 'S
 INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('1211', 'GRAN CHIMU');
 INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('1212', 'VIRU');
 INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('1301', 'CHICLAYO');
-INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('1302', 'FERREÃ‘AFE');
+INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('1302', 'FERREÑAFE');
 INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('1303', 'LAMBAYEQUE');
 INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('1401', 'LIMA');
 INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('1402', 'BARRANCA');
 INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('1403', 'CAJATAMBO');
 INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('1404', 'CANTA');
-INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('1405', 'CAÃ‘ETE');
+INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('1405', 'CAÑETE');
 INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('1406', 'HUARAL');
 INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('1407', 'HUAROCHIRI');
 INSERT INTO `tb_provincia` (CodigoProvincia, NombreProvincia) VALUES ('1408', 'HUAURA');
@@ -2214,10 +2216,10 @@ INSERT INTO `tb_departamento` (CodigoDepartamento, NombreDepartamento) VALUES ('
 
 
 
-INSERT INTO `tb_encuesta` (id_enc, tit_enc, fec_ini_enc, fec_fin_enc, pob_enc ) VALUES (1, 'Elecciones Municipales 2010 - Sector Alto', '01/07/2010', '31/07/2010', 11 );
-INSERT INTO `tb_encuesta` (id_enc, tit_enc, fec_ini_enc, fec_fin_enc, pob_enc ) VALUES (2, 'Elecciones Municipales 2010 - Sector Medio', '01/08/2010', '31/08/2010', 8);
-INSERT INTO `tb_encuesta` (id_enc, tit_enc, fec_ini_enc, fec_fin_enc, pob_enc ) VALUES (3, 'Elecciones Lima Sur 2010 - II', '01/09/2010', '30/09/2010', 3);
-INSERT INTO `tb_encuesta` (id_enc, tit_enc, fec_ini_enc, fec_fin_enc, pob_enc) VALUES (4, 'Elecciones lima Norte 2010 -II ', '01/06/2010', '31/10/2010', 2);
+INSERT INTO `tb_encuesta` (id_enc, tit_enc,est_enc, fec_ini_enc, fec_fin_enc, pob_enc ) VALUES (1, 'Elecciones Municipales 2010 - Sector Alto',1,  '01/07/2010', '31/07/2010', 11 );
+INSERT INTO `tb_encuesta` (id_enc, tit_enc,est_enc, fec_ini_enc, fec_fin_enc, pob_enc ) VALUES (2, 'Elecciones Municipales 2010 - Sector Medio',1,  '01/08/2010', '31/08/2010', 8);
+INSERT INTO `tb_encuesta` (id_enc, tit_enc,est_enc, fec_ini_enc, fec_fin_enc, pob_enc ) VALUES (3, 'Elecciones Lima Sur 2010 - II', 1, '01/09/2010', '30/09/2010', 3);
+INSERT INTO `tb_encuesta` (id_enc, tit_enc,est_enc, fec_ini_enc, fec_fin_enc, pob_enc) VALUES (4, 'Elecciones lima Norte 2010 -II ',1,  '01/06/2010', '31/10/2010', 2);
 
 
 
@@ -2242,16 +2244,16 @@ INSERT INTO `tb_encxdist` (id_enc, CodigoDistrito) VALUES (4, '140104');
 INSERT INTO `tb_tipo_pregunta` (id_tip_pre, des_tip_pre, tip_gra) VALUES (1, 'Unicas', 1);
 INSERT INTO `tb_tipo_pregunta` (id_tip_pre, des_tip_pre, tip_gra) VALUES (2, 'Multiples', 2);
 
-INSERT INTO `tb_pregunta` (id_pre, des_pre, id_tip_pre, ord_pre) VALUES (1, '¿Cómo considera ud. la gestión actual del Municipio de lima', 1, 1);
-INSERT INTO `tb_pregunta` (id_pre, des_pre, id_tip_pre, ord_pre) VALUES (2, 'Cuál cree ud. que es el principal problema que afecta al Municipio', 1,2);
-INSERT INTO `tb_pregunta` (id_pre, des_pre, id_tip_pre, ord_pre) VALUES (3, 'Independientemente de sus preferencias políticas, ¿Cuáles considera que son los PRINCIPALES OBJETIVOS que debería tener el futuro alcalde de Lima ?', 2, 3);
-INSERT INTO `tb_pregunta` (id_pre, des_pre, id_tip_pre, ord_pre) VALUES (4, '¿Cuál es la CUALIDAD principal que según usted debe caracterizar al futuro Alcalde?', 1, 4);
-INSERT INTO `tb_pregunta` (id_pre, des_pre, id_tip_pre, ord_pre) VALUES (5, 'Por quien votaría ud. si las eleccione fueran el dia de mañana', 1, 5);
+INSERT INTO `tb_pregunta` (id_pre, des_pre, id_tip_pre, ord_pre,tip_pre_gra) VALUES (1, '�C�mo considera ud. la gesti�n actual del Municipio de lima', 1, 1, 1);
+INSERT INTO `tb_pregunta` (id_pre, des_pre, id_tip_pre, ord_pre,tip_pre_gra) VALUES (2, 'Cu�l cree ud. que es el principal problema que afecta al Municipio', 1,2, 2);
+INSERT INTO `tb_pregunta` (id_pre, des_pre, id_tip_pre, ord_pre,tip_pre_gra) VALUES (3, 'Independientemente de sus preferencias pol�ticas, �Cu�les considera que son los PRINCIPALES OBJETIVOS que deber�a tener el futuro alcalde de Lima ?', 2, 3, 3);
+INSERT INTO `tb_pregunta` (id_pre, des_pre, id_tip_pre, ord_pre,tip_pre_gra) VALUES (4, '�Cu�l es la CUALIDAD principal que seg�n usted debe caracterizar al futuro Alcalde?', 1, 4, 4);
+INSERT INTO `tb_pregunta` (id_pre, des_pre, id_tip_pre, ord_pre,tip_pre_gra) VALUES (5, 'Por quien votar�a ud. si las eleccione fueran el dia de ma�ana', 1, 5, 5);
 
-                                                                                                                         
-INSERT INTO `tb_pregunta` (id_pre, des_pre, id_tip_pre, ord_pre) VALUES (6, '¿Qué candidato cree Ud. que cumplirá con todo lo prometido?', 1, 1);
-INSERT INTO `tb_pregunta` (id_pre, des_pre, id_tip_pre, ord_pre) VALUES (7, '¿Por quién no votaría Ud.?', 2, 2);
-INSERT INTO `tb_pregunta` (id_pre, des_pre, id_tip_pre, ord_pre) VALUES (8, '¿En que Partido Político confía Ud.?', 1, 3);
+
+INSERT INTO `tb_pregunta` (id_pre, des_pre, id_tip_pre, ord_pre,tip_pre_gra) VALUES (6, '�Qu� candidato cree Ud. que cumplir� con todo lo prometido?', 1, 1, 1);
+INSERT INTO `tb_pregunta` (id_pre, des_pre, id_tip_pre, ord_pre,tip_pre_gra) VALUES (7, '�Por qui�n no votar�a Ud.?', 2, 2, 1);
+INSERT INTO `tb_pregunta` (id_pre, des_pre, id_tip_pre, ord_pre,tip_pre_gra) VALUES (8, '�En que Partido Pol�tico conf�a Ud.?', 1, 3, 1);
 
 # nuevo
 #
@@ -2263,9 +2265,9 @@ INSERT INTO `tb_prexenc` (id_pre, id_enc) VALUES (5, 1);
 
 INSERT INTO `tb_prexenc` (id_pre, id_enc) VALUES (6, 2);
 INSERT INTO `tb_prexenc` (id_pre, id_enc) VALUES (7, 2);
-INSERT INTO `tb_prexenc` (id_pre, id_enc) VALUES (8, 2); 
+INSERT INTO `tb_prexenc` (id_pre, id_enc) VALUES (8, 2);
 
- 
+
 # nuevo
 
 #
@@ -2281,20 +2283,20 @@ INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (7, 'Inseguridad publica');
 INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (8, 'Basura');
 INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (9, 'Vandalismo');
 INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (10, 'Transporte');
-INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (11, 'Corrupción');
-INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (12, 'Pavimentación');
+INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (11, 'Corrupci�n');
+INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (12, 'Pavimentaci�n');
 
 INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (13, 'Mejorar la seguridad ciudadana en Lima');
 INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (14, 'Mejorar el sistema de transporte ');
-INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (15, 'Prevenir y controlar la contaminación ambiental');
+INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (15, 'Prevenir y controlar la contaminaci�n ambiental');
 INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (16, 'Realizar el mantenimiento de calles y pistas');
 INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (17, 'Otro ');
 
 INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (18, 'Tener objetivos y metas claras');
-INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (19, 'Ser un buen líder');
+INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (19, 'Ser un buen l�der');
 INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (20, 'Honestidad y confiabilidads');
 INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (21, 'Firmeza y autoridad ');
-INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (22, 'Capacidad para tomar decisiones difíciles');
+INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (22, 'Capacidad para tomar decisiones dif�ciles');
 
 INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (23, 'Lourdes flores');
 INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (24, 'Alex kouri');
@@ -2302,10 +2304,10 @@ INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (25, 'Susana Villaran');
 INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (26, 'Fernando Andrade ');
 INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (27, 'Humberto Lay');
 INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (28, 'Luis Iberico');
-                                                                
-INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (29, 'Apra');                                                              
+
+INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (29, 'Apra');
 INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (30, 'PPC');
-INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (31, 'Acción Popular');
+INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (31, 'Acci�n Popular');
 INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (32, 'Somos Peru');
 INSERT INTO `tb_opcion` (id_opc, des_opc) VALUES (33, 'Otros');
 
@@ -2342,14 +2344,14 @@ INSERT INTO `tb_opcxpre` (id_opc, id_pre) VALUES (25,5);
 INSERT INTO `tb_opcxpre` (id_opc, id_pre) VALUES (26,5);
 INSERT INTO `tb_opcxpre` (id_opc, id_pre) VALUES (27,5);
 INSERT INTO `tb_opcxpre` (id_opc, id_pre) VALUES (28,5);
-                                     
+
 INSERT INTO `tb_opcxpre` (id_opc, id_pre) VALUES (23,6);
 INSERT INTO `tb_opcxpre` (id_opc, id_pre) VALUES (24,6);
 INSERT INTO `tb_opcxpre` (id_opc, id_pre) VALUES (25,6);
 INSERT INTO `tb_opcxpre` (id_opc, id_pre) VALUES (26,6);
 INSERT INTO `tb_opcxpre` (id_opc, id_pre) VALUES (27,6);
 INSERT INTO `tb_opcxpre` (id_opc, id_pre) VALUES (28,6);
-                                     
+
 INSERT INTO `tb_opcxpre` (id_opc, id_pre) VALUES (23,7);
 INSERT INTO `tb_opcxpre` (id_opc, id_pre) VALUES (24,7);
 INSERT INTO `tb_opcxpre` (id_opc, id_pre) VALUES (25,7);
@@ -2367,7 +2369,7 @@ INSERT INTO `tb_opcxpre` (id_opc, id_pre) VALUES (33,8);
 # nuevo
 #Result_fin
 
-                                         
+
 INSERT INTO `tb_result_fin` (id_enc, id_opc, id_pre, cod_usu,fecha_res) VALUES (1,6,1, 'U001','28/07/2010');
 INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (1,7,2, 'U001','28/07/2010');
 INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (1,13,3, 'U001','28/07/2010');
@@ -2465,7 +2467,7 @@ INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES 
 
 
 # DBTools DBMYSQL - MySQL Database Dump
-#  
+#
 
 CREATE VIEW vw_USUARIOSxDISTRITO
 as
@@ -2473,14 +2475,14 @@ select count(*) as 'UsuariosxDistrito',codigodistrito from tb_usuario
 group by codigodistrito;
 
 # DBTools DBMYSQL - MySQL Database Dump
-# 
+#
 
 create view vw_PoblacionxEncuesta
 as
 select id_enc,tit_enc,pob_enc from tb_encuesta;
 
 # DBTools DBMYSQL - MySQL Database Dump
-# 
+#
 
 create view vw_NroCensadosxEncuestas
 as
@@ -2519,7 +2521,7 @@ order by id_enc;
 # DBTools DBMYSQL - MySQL Database Dump
 #  6
 
-create view vw_NroPersonasxDistritoxEncuesta 
+create view vw_NroPersonasxDistritoxEncuesta
 as
 select count(*) as 'NroUsuariosDistrito',id_enc,codigodistrito from vw_DetalleUsuariosxEncuesta
 group by codigodistrito,id_enc
@@ -2528,7 +2530,7 @@ order by id_enc,codigodistrito;
 # DBTools DBMYSQL - MySQL Database Dump
 #  7
 
-create view vw_NroPersonasxDistritoxEncuestados 
+create view vw_NroPersonasxDistritoxEncuestados
 as
 select count(*) as 'NroUsuariosDistritoEncuestados',id_enc,codigodistrito
 from vw_DetalleUsuariosCensadosxEncuestas d join tb_usuario u
@@ -2541,7 +2543,7 @@ order by id_enc,codigodistrito;
 
 create view vw_AvanceDistritoxEncuesta
 as
-select DISTINCT e2.id_enc,e2.codigodistrito,nrousuariosdistrito,nrousuariosdistritoencuestados, 
+select DISTINCT e2.id_enc,e2.codigodistrito,nrousuariosdistrito,nrousuariosdistritoencuestados,
 (nrousuariosdistritoencuestados/nrousuariosdistrito)*100 as 'AvanceDistritoEncuesta'
 from vw_NroPersonasxDistritoxEncuesta e1
 join vw_NroPersonasxDistritoxEncuestados e2
@@ -2565,7 +2567,7 @@ on e.id_enc=vw.id_enc;
 create VIEW NroEncuestadosxDia
 as
 select count(*) as 'NroEncuestados', id_enc,cod_usu,fecha_res
-from tb_result_fin 
+from tb_result_fin
 group by fecha_res;
 
 
@@ -2581,7 +2583,7 @@ on e.id_enc=vw.id_enc;
 
 CREATE view NroEncuestadosAcumulado
 as
-select sum(NroEncuestados) as 'NroAcumulado',tit_enc 
+select sum(NroEncuestados) as 'NroAcumulado',tit_enc
 from vw_avancediario
 group by NroEncuestados;
 
@@ -2590,7 +2592,7 @@ group by NroEncuestados;
 #  SP1
 
 CREATE PROCEDURE `Sp_reporte1a`( in id integer)
-begin 
+begin
 select p.id_enc,tit_enc,pob_enc,
 "Encuestados" as nombre,
 NroUsuariosxEncuesta,
@@ -2628,11 +2630,11 @@ end;
 # DBTools DBMYSQL - MySQL Database Dump
 #  Tabla temporal
 
-CREATE TABLE temporal (   
-  nroencuestados int,    
+CREATE TABLE temporal (
+  nroencuestados int,
   fecha_res varchar(10),
   tit_enc varchar(100)
-) 
+)
 
 
 
