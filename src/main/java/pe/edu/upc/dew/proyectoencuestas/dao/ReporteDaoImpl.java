@@ -32,7 +32,7 @@ public class ReporteDaoImpl implements ReporteDao {
                 ReporteEncuesta reporteEncuesta =null;
 
 		// Preparar consulta
-		String sql = " select   e.id_enc,p.id_pre,e.tit_enc,p.des_pre  "+
+		String sql = " select   e.id_enc,p.id_pre,e.tit_enc,p.des_pre,p.tip_pre_gra   "+
                              " from  tb_pregunta p , tb_prexenc pe ,tb_encuesta e   "+
                              " where  p.id_pre=pe.id_pre  and   pe.id_enc=e.id_enc   and e.id_enc =" + idEncuesta;
 
@@ -51,6 +51,7 @@ public class ReporteDaoImpl implements ReporteDao {
                             reporteEncuesta.setIdPregunta(rs.getString(2));
                             reporteEncuesta.setDesEncuesta(rs.getString(3));
                             reporteEncuesta.setDesPregunta(rs.getString(4));
+                            reporteEncuesta.setTipoPreguntaGrafico(rs.getString(5));
                             reporteEncuesta.setResultado(getCantidadVotos(idEncuesta,reporteEncuesta.getIdPregunta()));
 
                               System.out.println("/n tamanio "+reporteEncuesta.getResultado().size());
