@@ -34,7 +34,7 @@ public class EncuestaDaoImpl implements EncuestaDao{
                 Encuesta encuesta =null;
 
 		// Preparar consulta
-		String sql = "select a.id_enc, a.tit_enc, a.fec_ini_enc, a.fec_fin_enc, a.pob_enc from tb_encuesta a";
+		String sql = "select a.id_enc,a.tit_enc,a.est_enc,a.fec_ini_enc,a.fec_fin_enc,a.pob_enc ,(select count(*) from  tb_result_fin where id_enc=a.id_enc) as encuestados from tb_encuesta   a";
 
 		// Ejecutar consulta
 		try {
@@ -48,9 +48,10 @@ public class EncuestaDaoImpl implements EncuestaDao{
                             encuesta = new Encuesta();
                             encuesta.setIdEncuesta(Integer.parseInt(rs.getString(1)));
                             encuesta.setNombre(rs.getString(2));
-                            encuesta.setFechaInicio(rs.getString(3));
-                            encuesta.setFechaFin(rs.getString(4));
-                            encuesta.setMuestra(Integer.parseInt(rs.getString(5)));
+                            encuesta.setEstado(rs.getString(3));
+                            encuesta.setFechaInicio(rs.getString(4));
+                            encuesta.setFechaFin(rs.getString(5));
+                            encuesta.setMuestra(Integer.parseInt(rs.getString(6)));
                             listaEncuestas.add(encuesta);
 
 			}
