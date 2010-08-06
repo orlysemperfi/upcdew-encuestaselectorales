@@ -2217,8 +2217,8 @@ INSERT INTO `tb_departamento` (CodigoDepartamento, NombreDepartamento) VALUES ('
 
 
 INSERT INTO `tb_encuesta` (id_enc, tit_enc,est_enc, fec_ini_enc, fec_fin_enc, pob_enc ) VALUES (1, 'Elecciones Municipales 2010 - Sector Alto',1,  '01/07/2010', '31/07/2010', 11 );
-INSERT INTO `tb_encuesta` (id_enc, tit_enc,est_enc, fec_ini_enc, fec_fin_enc, pob_enc ) VALUES (2, 'Elecciones Municipales 2010 - Sector Medio',1,  '01/08/2010', '31/08/2010', 8);
-INSERT INTO `tb_encuesta` (id_enc, tit_enc,est_enc, fec_ini_enc, fec_fin_enc, pob_enc ) VALUES (3, 'Elecciones Lima Sur 2010 - II', 1, '01/09/2010', '30/09/2010', 3);
+INSERT INTO `tb_encuesta` (id_enc, tit_enc,est_enc, fec_ini_enc, fec_fin_enc, pob_enc ) VALUES (2, 'Elecciones Municipales 2010 - Sector Medio',2,  '01/08/2010', '31/08/2010', 8);
+INSERT INTO `tb_encuesta` (id_enc, tit_enc,est_enc, fec_ini_enc, fec_fin_enc, pob_enc ) VALUES (3, 'Elecciones Lima Sur 2010 - II', 3, '01/09/2010', '30/09/2010', 3);
 INSERT INTO `tb_encuesta` (id_enc, tit_enc,est_enc, fec_ini_enc, fec_fin_enc, pob_enc) VALUES (4, 'Elecciones lima Norte 2010 -II ',1,  '01/06/2010', '31/10/2010', 2);
 
 
