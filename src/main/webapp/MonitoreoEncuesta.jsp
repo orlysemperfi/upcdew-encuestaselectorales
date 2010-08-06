@@ -56,12 +56,12 @@
                     <TD align="center">
                         <iframe width="400" height="300" name="report1" src='Reporte01Monitoreo.jsp?id=<%=id%>'></iframe>
                         <BR />
-                        <a href="#">Exportar a PDF <img src="images/pdfIcon.jpg" /></a>
+                        <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>
                     </TD>
                    <TD align="center">
                         <iframe width="400" height="300" name="report2" src='Reporte02Monitoreo.jsp?id=<%=id%>'></iframe>
                         <BR />
-                      <a href="#">Exportar a PDF <img src="images/pdfIcon.jpg" /></a>
+                      <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>
                     </TD>
                 </TR>
                  <TR>
@@ -69,12 +69,12 @@
                         <TD align="center">
                         <iframe width="400" height="300" name="report4" src='Reporte04Monitoreo.jsp?id=<%=id%>'></iframe>
                         <BR />
-                     <a href="#">Exportar a PDF <img src="images/pdfIcon.jpg" /></a>
+                     <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>
                     </TD>
                     <TD align="center">
                         <iframe width="400" height="300" name="report3" src='Reporte03Monitoreo.jsp?id=<%=id%>'></iframe>
                         <BR />
-                     <a href="#">Exportar a PDF <img src="images/pdfIcon.jpg" /></a>
+                     <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>
                     </TD>
                 
                 </TR>
