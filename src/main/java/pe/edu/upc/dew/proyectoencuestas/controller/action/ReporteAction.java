@@ -88,7 +88,7 @@ public class ReporteAction  extends DispatchAction{
 
              System.out.println("ruta de la pagia web"+reporteForm.getRuta());
 
-             List<ReporteEncuesta> reporteEncuesta = reporteEncuesta=reporteBO.getListarPreguntasEncuesta("1",ruta);
+             List<ReporteEncuesta> reporteEncuesta = reporteEncuesta=reporteBO.getListarPreguntasEncuesta(reporteForm.getIdEncuesta(),ruta);
              request.setAttribute("preguntas", reporteEncuesta);
 
            System.out.println("\n Iniciando Reportes");
