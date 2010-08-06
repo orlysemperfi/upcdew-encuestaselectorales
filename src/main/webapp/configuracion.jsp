@@ -20,6 +20,46 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
     <link rel="stylesheet" type="text/css" href="css/fuente.css">
+ <script type="text/javascript">
+
+
+    function jsValidar(id,estado,url) {
+
+    //0 iniciado
+    //1 terminado
+    //2 cancelado
+           if (parseInt(id)==1){
+                         document.forms[0].action=url;
+                         document.forms[0].submit();             
+           }
+
+          if (parseInt(id)==2){
+                    if (parseInt(estado)==0){
+                         document.forms[0].action=url;
+                         document.forms[0].submit();
+                    }else{
+
+                        alert('El monitoreo solo se puede visualizar en Encuestas iniciadas');
+
+                    }
+
+           }
+
+          if (parseInt(id)==3){
+                    if (parseInt(estado)==1){
+                         document.forms[0].action=url;
+                         document.forms[0].submit();
+                    }else{
+
+                        alert('No pueden mostrar los reportes hasta que la encuesta no haya sido terminada');
+
+                    }
+            }
+
+        }
+</script>
+
+
 </head>
 
 <body>
@@ -62,15 +102,18 @@
                           <tr class="subtitulosTabla">
 
                         <td style="height: 20px; width: 462px;">${encuesta.nombre}</td>
-                        <td style="height: 20px; width: 130px; text-align: center;">Activo </td>
+                        <td style="height: 20px; width: 130px; text-align: center;">
+                        <c:if test="${encuesta.estado == 0}"> Iniciado </c:if>
+                        <c:if test="${encuesta.estado == 1}"> Terminado </c:if>
+                        <c:if test="${encuesta.estado == 2}"> Cancelado </c:if>
+                        </td>
                         <td style="height: 20px; width: 130px; text-align: center;">${encuesta.fechaInicio}</td>
                         <td style="height: 20px; width: 130px; text-align: center;">${encuesta.fechaFin}</td>
                         <td style="height: 20px; width: 130px; text-align: center;">${encuesta.muestra}</td>
-                        <td style="height: 20px; text-align: center;"><a href="configuracion.do?methodToCall=configurar&idEncuesta=1"> <img src="images/iconos/settings.png"   style="text-decoration:none"> </a>  </td>
-                        <td style="height: 20px; text-align: center;"><a href="monitoreoEncuesta.do?methodToCall=iniciar&idEncuesta=1"> <img src="images/iconos/computer.png" style="text-decoration:none"> </a>  </td>
-                        <td style="height: 20px; text-align: center;"><a href="reporte.do?methodToCall=iniciar&idEncuesta=1&descripcion='Elecciones Municipales 2010 - Sector Alto'&ruta=<%=request.getContextPath()%>"> <img src="images/iconos/chart.png" style="text-decoration:none"> </a>  </td>
-
-                            
+                        <td style="height: 20px; text-align: center;"><a href="javascript:jsValidar('1','${encuesta.estado}','configuracion.do?methodToCall=configurar&idEncuesta=${encuesta.idEncuesta}')"> <img src="images/iconos/settings.png"   style="text-decoration:none"> </a>  </td>
+                        <td style="height: 20px; text-align: center;"><a href="javascript:jsValidar('2','${encuesta.estado}','monitoreoEncuesta.do?methodToCall=iniciar&idEncuesta=${encuesta.idEncuesta}')"> <img src="images/iconos/computer.png" style="text-decoration:none"> </a>  </td>
+                        <td style="height: 20px; text-align: center;"><a href="javascript:jsValidar('3','${encuesta.estado}','reporte.do?methodToCall=iniciar&idEncuesta=${encuesta.idEncuesta}&descripcion=${encuesta.nombre}&ruta=<%=request.getContextPath()%>')" style="text-decoration:none"> <img src="images/iconos/chart.png"  style="text-decoration:none"> </a>  </td>
+  
                           </tr>
                     </c:forEach>
 <!--
@@ -126,8 +169,7 @@
 
 
                </html:form>
-
-
+ 
 
             </td>
     </tr>
