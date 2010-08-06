@@ -15,12 +15,25 @@ public class Encuesta {
 
     private Integer idEncuesta;
     private String nombre;
+    private String estado;
     private String fechaInicio;
     private String fechaFin;
     private Integer muestra;
     private List<Ubigeo> ubigeos;
     private List<Pregunta> preguntas;
 
+
+    
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+
+    
     public List<Pregunta> getPreguntas() {
         return preguntas;
     }
