@@ -24,28 +24,7 @@ public class UsuarioDaoImpl implements UsuarioDao{
      public Usuario getUsuarioPorUsername(String username, String password) {
         
         Usuario usuario = null;
-
-//        if (username.equals("admin"))
-//        {
-//            usuario.setIdUsuario("1");
-//            usuario.setNombre("Carlos");
-//            usuario.setApellido("Torres");
-//            usuario.setDni("01234567");
-//            usuario.setRol(1);
-//            usuario.setUsername("admin");
-//            usuario.setPassword("admin");
-//        }
-//        else
-//        {
-//            usuario.setIdUsuario("2");
-//            usuario.setNombre("Ana");
-//            usuario.setApellido("Lopez");
-//            usuario.setDni("12098364");
-//            usuario.setRol(2);
-//            usuario.setUsername("ana");
-//            usuario.setPassword("ana");
-//
-//        }
+//    
         Connection connection = null;
         Statement st = null;
         ResultSet rs = null;
