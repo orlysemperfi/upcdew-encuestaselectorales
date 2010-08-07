@@ -7,6 +7,7 @@ package pe.edu.upc.dew.proyectoencuestas.dao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,8 +49,8 @@ public class MonitoreoEncuestaDaoImpl implements MonitoreoEncuestaDao{
                             listamonitoreoEncuestas.add(monitoreoEncuesta);
 
 			}
-		} catch (Exception e) {
-                        e.printStackTrace();
+		} catch (SQLException e) {
+                    throw new IllegalStateException("Error al obtener el monitoreo por encuesta", e);
                 }
                 finally {
 			MySqlDBConn.closeResultSet(rs);
@@ -90,8 +91,8 @@ public class MonitoreoEncuestaDaoImpl implements MonitoreoEncuestaDao{
                             listamonitoreoEncuestas.add(monitoreoEncuesta);
 
 			}
-		} catch (Exception e) {
-                        e.printStackTrace();
+		} catch (SQLException e) {
+                    throw new IllegalStateException("Error al obtener el monitoreo por mayor avance distrito", e);
                 }
                 finally {
 			MySqlDBConn.closeResultSet(rs);
@@ -133,8 +134,8 @@ public class MonitoreoEncuestaDaoImpl implements MonitoreoEncuestaDao{
                             listamonitoreoEncuestas.add(monitoreoEncuesta);
 
 			}
-		} catch (Exception e) {
-                        e.printStackTrace();
+		} catch (SQLException e) {
+                    throw new IllegalStateException("Error al obtener el monitoreo avance diario", e);
                 }
                 finally {
 			MySqlDBConn.closeResultSet(rs);
@@ -174,8 +175,8 @@ public class MonitoreoEncuestaDaoImpl implements MonitoreoEncuestaDao{
                             listamonitoreoEncuestas.add(monitoreoEncuesta);
 
 			}
-		} catch (Exception e) {
-                        e.printStackTrace();
+		} catch (SQLException e) {
+                    throw new IllegalStateException("Error al obtener el monitoreo avance acumulado", e);
                 }
                 finally {
 			MySqlDBConn.closeResultSet(rs);

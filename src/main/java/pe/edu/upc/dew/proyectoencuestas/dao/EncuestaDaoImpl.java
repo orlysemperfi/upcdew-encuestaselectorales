@@ -7,6 +7,7 @@ package pe.edu.upc.dew.proyectoencuestas.dao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,8 +56,8 @@ public class EncuestaDaoImpl implements EncuestaDao{
                             listaEncuestas.add(encuesta);
 
 			}
-		} catch (Exception e) {
-                        e.printStackTrace();
+		} catch (SQLException e) {
+                    throw new IllegalStateException("Error al obtener el listado de encuestas", e);
                 }
                 finally {
 			MySqlDBConn.closeResultSet(rs);
@@ -100,8 +101,8 @@ public class EncuestaDaoImpl implements EncuestaDao{
                             listaEncuestas.add(encuesta);
 
 			}
-		} catch (Exception e) {
-                        e.printStackTrace();
+		} catch (SQLException e) {
+                    throw new IllegalStateException("Error al obtener el listado de encuestas por distrito", e);
                 }
                 finally {
 			MySqlDBConn.closeResultSet(rs);
@@ -143,8 +144,8 @@ public class EncuestaDaoImpl implements EncuestaDao{
                             listaPreguntas.add(pregunta);
 
 			}
-		} catch (Exception e) {
-                        e.printStackTrace();
+		} catch (SQLException e) {
+                    throw new IllegalStateException("error al obtener las preguntas por encuesta", e);
                 }
                 finally {
 			MySqlDBConn.closeResultSet(rs);
@@ -167,9 +168,10 @@ public class EncuestaDaoImpl implements EncuestaDao{
             st.execute("INSERT INTO tb_result_fin"
 			+" VALUES("+idEncuesta+","+ idOpcion + "," + idPregunta + ",'"+ usuario.getIdUsuario() + "','" + fecha +"')");
             
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
+       }catch (SQLException e) {
+            throw new IllegalStateException("Error al insertar respuesta de encuesta", e);
+        }
+        finally {
             MySqlDBConn.closeStatement(st);
             MySqlDBConn.closeConnection(connection);
         }
@@ -204,9 +206,9 @@ public class EncuestaDaoImpl implements EncuestaDao{
                     encuesta.setMuestra(Integer.parseInt(rs.getString(5)));
                     encuesta.setUbigeos(getDistritosPorEncuesta(idEncuesta));
                 }
-        } catch (Exception e) {
-                e.printStackTrace();
-        }
+       } catch (SQLException e) {
+            throw new IllegalStateException("Error al obtener encuesta", e);
+       }
         finally {
                 MySqlDBConn.closeResultSet(rs);
                 MySqlDBConn.closeStatement(stm);
@@ -246,8 +248,8 @@ public class EncuestaDaoImpl implements EncuestaDao{
                         listaUbigeos.add(ubigeo);
 
                     }
-            } catch (Exception e) {
-                    e.printStackTrace();
+           } catch (SQLException e) {
+                    throw new IllegalStateException("Error al listar los distritos por encuesta", e);
             }
             finally {
                     MySqlDBConn.closeResultSet(rs);
