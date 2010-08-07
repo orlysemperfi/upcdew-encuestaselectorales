@@ -12,6 +12,7 @@ import pe.edu.upc.dew.proyectoencuestas.model.dto.Pregunta;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import pe.edu.upc.dew.proyectoencuestas.util.MySqlDBConn;
 /**
  *
@@ -45,9 +46,10 @@ public class PreguntaDaoImpl implements PreguntaDao{
                 preguntas.add(pregunta);
 
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
+       }catch (SQLException e) {
+              throw new IllegalStateException("Error al obtener preguntas por encuesta", e);
+       }
+        finally {
 
             MySqlDBConn.closeResultSet(rs);
             MySqlDBConn.closeStatement(st);
@@ -80,9 +82,10 @@ public class PreguntaDaoImpl implements PreguntaDao{
                 opciones.add(opcion);
 
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
+       }catch (SQLException e) {
+             throw new IllegalStateException("Error al obtener opciones por encuesta", e);
+        }
+        finally {
 
             MySqlDBConn.closeResultSet(rs);
             MySqlDBConn.closeStatement(st);

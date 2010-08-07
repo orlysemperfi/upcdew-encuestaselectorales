@@ -48,9 +48,10 @@ public class UsuarioDaoImpl implements UsuarioDao{
                 usuario.setPassword(rs.getString("pass_usu"));
 
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
+        } catch (SQLException e) {
+             throw new IllegalStateException("Error al obtener el usuario", e);
+        }
+        finally {
            
             MySqlDBConn.closeResultSet(rs);
             MySqlDBConn.closeStatement(st);
