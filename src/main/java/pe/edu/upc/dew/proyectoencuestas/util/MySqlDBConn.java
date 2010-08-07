@@ -8,53 +8,29 @@ import java.sql.*;
 
 public class MySqlDBConn {
 
-	static {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
+    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private static final String URL_CONNECTION = "jdbc:mysql://localhost:3306/dbencuesta";
 
-		} catch (Exception e) {
-			System.out.println(
-				"Proyecto: "
-					+ Parametros.S_APP_NOMBRE
-					+ "; Clase: "
-					+ "edu.plantilla.util.MySqlDBConn"
-					+ "; Mensaje:"
-					+ e);
+    public static Connection getConnection() {
 
-		}
-	}
+        Connection connection = null;
+        try {
+            Class.forName(DRIVER).newInstance();
+            connection = DriverManager.getConnection(URL_CONNECTION,"root","root");
+        } catch (Exception e) {
+            throw new IllegalStateException("Error al obtener Connection", e);
+        }
+        return connection;
+    }
 
-	/**
-	 * Obtiene una conexión a la Base de Datos.
-	 */
-	public static Connection getConnection() {
-
-		Connection connection = null;
-		try {
-
-			connection =
-			DriverManager.getConnection("jdbc:mysql://localhost:3306/dbencuesta","root","root");
-
-		} catch (Exception e) {
-			System.out.println(
-				"Proyecto: "
-					+ Parametros.S_APP_NOMBRE
-					+ "; Clase: "
-					//+ getClass().getName()
-					+ "; Mensaje:"
-					+ e);
-
-		}
-		return connection;
-	}
 
     public static void closeConnection(Connection connection) {
         try {
             if (connection != null) {
                 connection.close();
             }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        }catch (SQLException e) {
+            throw new IllegalStateException("Error al cerrar Connection", e);
         }
     }
 
@@ -63,8 +39,8 @@ public class MySqlDBConn {
             if (statement != null) {
                 statement.close();
             }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        }catch (SQLException e) {
+            throw new IllegalStateException("Error al cerrar Statement", e);
         }
     }
 
@@ -73,8 +49,8 @@ public class MySqlDBConn {
             if (resultSet != null) {
                 resultSet.close();
             }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        }catch (SQLException e) {
+            throw new IllegalStateException("Error al cerrar resultset", e);
         }
     }
 }
