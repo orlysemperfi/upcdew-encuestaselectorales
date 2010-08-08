@@ -46,6 +46,8 @@
 <body>
   <html:form action="configuracion.do">
 
+   <html:hidden  property="idEncuesta"  />
+
 <input name="methodToCall" type="hidden" value="" />
 
     <table border="0" width="100%" height="581" cellspacing="0" cellpadding="0">
@@ -56,12 +58,7 @@
     <tr>
             <td></td>
              <td></td>
-             <!--
-            <td width="22%"  style="vertical-align:text-top">
-	                <%-- Inicio del Menu del Web Site --%>
-	               <%--  <jsp:include page="/menuAdmin.jsp" /> --%>
-	                <%-- Fin Menu del Web Site --%>
-            </td>-->
+          
             <td  valign="top" align="left">   <p>&nbsp;</p>
 
 
@@ -74,8 +71,9 @@
                              <tr> <td> Descripción encuesta</td><td> <html:text property="nombre"></html:text>   </td></tr>
                              <tr> <td> Estado</td><td>
                                  <html:select property="estado" >
-                                  <html:option value="A">Activo</html:option>
-                                  <html:option value="I">Inactivo</html:option>
+                                  <html:option value="0">Iniciado</html:option>
+                                  <html:option value="1">Terminado</html:option>
+                                  <html:option value="2">Cancelado</html:option>
 					</html:select>
                                  </td></tr>
                              <tr> <td> Fecha Inicio</td><td>
@@ -117,13 +115,10 @@
 
 
                                  </td></tr>
-                             <tr> <td>Población</td> <td> <html:text property="muestra"></html:text> </td></tr>
-                             <tr> <td>Distritos</td><td></td></tr>
-
-
+                          
                              <tr> <td colspan="2">
                                      <center>
-                                        <html:button property="cmdActualizar" styleClass="botonAceptar" onclick="javascript:jsAceptar('iniciar');">
+                                        <html:button property="cmdActualizar" styleClass="botonAceptar" onclick="javascript:jsAceptar('actualizar');">
                                            Actualizar
                                          </html:button>
                                       </center>
