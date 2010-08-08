@@ -178,6 +178,28 @@ public class EncuestaDaoImpl implements EncuestaDao{
     
     }
 
+
+     public void actualizarEncuesta(Integer idEncuesta, String nombre,String estado,String fechaInicio, String fechaFinal)
+    {
+        Connection connection = null;
+        Statement st = null;
+        try {
+            connection = MySqlDBConn.getConnection();
+            st = connection.createStatement();
+             System.out.println("UPDATE  tb_encuesta set  est_enc='"+ estado + "', fec_ini_enc='"+ fechaInicio + "', fec_fin_enc='"+ fechaFinal + "' where  id_enc="+idEncuesta+" ");
+            st.execute("UPDATE  tb_encuesta set  est_enc='"+ estado + "', fec_ini_enc='"+ fechaInicio + "', fec_fin_enc='"+ fechaFinal + "' where  id_enc="+idEncuesta+" ")  ;
+
+       }catch (SQLException e) {
+            throw new IllegalStateException("Error al insertar respuesta de encuesta", e);
+        }
+        finally {
+            MySqlDBConn.closeStatement(st);
+            MySqlDBConn.closeConnection(connection);
+        }
+
+    }
+
+
     public Encuesta getEncuesta(Integer idEncuesta)
     {       
         Connection conn = null;
@@ -187,7 +209,7 @@ public class EncuestaDaoImpl implements EncuestaDao{
         Encuesta encuesta =null;
 
         // Preparar consulta
-        String sql = "select a.id_enc, a.tit_enc, a.fec_ini_enc, a.fec_fin_enc, a.pob_enc from tb_encuesta a";
+        String sql = "select a.id_enc, a.tit_enc,a.est_enc, a.fec_ini_enc, a.fec_fin_enc, a.pob_enc from tb_encuesta a where a.id_enc="+idEncuesta;
 
         // Ejecutar consulta
         try {
@@ -201,9 +223,10 @@ public class EncuestaDaoImpl implements EncuestaDao{
                     encuesta = new Encuesta();
                     encuesta.setIdEncuesta(Integer.parseInt(rs.getString(1)));
                     encuesta.setNombre(rs.getString(2));
-                    encuesta.setFechaInicio(rs.getString(3));
-                    encuesta.setFechaFin(rs.getString(4));
-                    encuesta.setMuestra(Integer.parseInt(rs.getString(5)));
+                    encuesta.setEstado(rs.getString(3));
+                    encuesta.setFechaInicio(rs.getString(4));
+                    encuesta.setFechaFin(rs.getString(5));
+                    encuesta.setMuestra(Integer.parseInt(rs.getString(6)));
                     encuesta.setUbigeos(getDistritosPorEncuesta(idEncuesta));
                 }
        } catch (SQLException e) {
@@ -229,8 +252,7 @@ public class EncuestaDaoImpl implements EncuestaDao{
             Ubigeo ubigeo =null;
 
             // Preparar consulta
-            String sql = "select a.CodigoDistrito, b.NombreDistrito from tb_encxdist a, tb_distrito b"+
-            "where a.CodigoDistrito = b.CodigoDistrito and a.id_enc =" + idEncuesta;
+            String sql = "select a.CodigoDistrito, b.NombreDistrito from tb_encxdist a, tb_distrito b where a.CodigoDistrito = b.CodigoDistrito and a.id_enc =" + idEncuesta;
 
             // Ejecutar consulta
             try {
