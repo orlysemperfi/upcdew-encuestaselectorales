@@ -81,7 +81,7 @@
 
                       <center>
 
-                                           <a href="configuracion.do?methodToCall=iniciar"> Ver Listado de Encuestas </a>
+                        <a href="configuracion.do?methodToCall=iniciar"> Ver Listado de Encuestas </a>
                        </center>
 
   </html:form>
