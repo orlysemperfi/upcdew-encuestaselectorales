@@ -1,8 +1,4 @@
-<%--
-    Document   : configuracion
-    Created on : 13/06/2010, 08:33:21 AM
-    Author     : cramirez
---%>
+
 
 <%@page contentType="text/html" pageEncoding="windows-1252"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -20,9 +16,130 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
     <link rel="stylesheet" type="text/css" href="css/fuente.css">
+
+  <link type="text/css" href="css/jquery-ui.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script src="js/Utiles.js?ver=1" type="text/javascript"></script>
+
+
+    <style type="text/css">
+
+			/* Custom dialog styles */
+			#popup_container.style_1 {
+				font-family: Georgia, serif;
+				color: #A4C6E2;
+				background: #005294;
+				border-color: #113F66;
+			}
+
+			#popup_container.style_1 #popup_title {
+				color: #FFF;
+				font-weight: normal;
+				text-align: left;
+				background: #76A5CC;
+				border: solid 1px #005294;
+				padding-left: 1em;
+			}
+
+			#popup_container.style_1 #popup_content {
+				background: none;
+			}
+
+			#popup_container.style_1 #popup_message {
+				padding-left: 0em;
+			}
+
+			#popup_container.style_1 INPUT[type='button'] {
+				border: outset 2px #76A5CC;
+				color: #A4C6E2;
+				background: #3778AE;
+			}
+
+		</style>
+
+    		<!-- Dependencies -->
+
+		<script type="text/javascript"	src="js/jquery.min.js"></script>
+		<script type="text/javascript"	src="js/jquery-ui.min.js"></script>
+
+		<!-- Core files -->
+		<script src="js/jquery.alerts.js" type="text/javascript"></script>
+		<link href="css/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen" />
+
+  <script type="text/javascript">
+
+    $(document).ready(function () {
+      var $dialog;
+      PageInit();
+
+         $("#alert_button").click( function() {
+
+
+       });
+
+    });
+
+
+
+               function jsValidar(id,estado,url) {
+
+                //0 iniciado
+                //1 terminado
+                //2 cancelado
+                       if (parseInt(id)==1){
+                                     document.forms[0].action=url;
+                                     document.forms[0].submit();
+                       }
+
+                      if (parseInt(id)==2){
+                                if (parseInt(estado)==0){
+                                     document.forms[0].action=url;
+                                     document.forms[0].submit();
+                                }else{
+
+                                 //   alert('El monitoreo solo se puede visualizar en Encuestas iniciadas');
+                                 // MostrarMensajeModal('El monitoreo solo se puede visualizar en Encuestas iniciadas');
+                                  jAlert("El monitoreo solo se puede visualizar en Encuestas iniciadas","Validación");
+                                }
+
+                       }
+
+                      if (parseInt(id)==3){
+                                if (parseInt(estado)==1){
+                                     document.forms[0].action=url;
+                                     document.forms[0].submit();
+                                }else{
+
+                                   // alert('No pueden mostrar los reportes hasta que la encuesta no haya sido terminada');
+                                 //MostrarMensajeModal('No pueden mostrar los reportes hasta que la encuesta no haya sido terminada');
+                                 jAlert("No pueden mostrar los reportes hasta que la encuesta no haya sido terminada","Validación");
+
+                                }
+                        }
+
+                    }
+
+    $(function() {
+        $('#dialog').dialog({
+            autoOpen: false,
+            width: 300
+        });
+    });
+
+    
+
+    function MostrarDialog() {
+      $('#dialog').dialog('option', 'modal', true).dialog('open');
+      return true;
+    }
+  </script>
+
+  <style type="text/css">
+	body{ font: 62.5% "Trebuchet MS", sans-serif; margin: 50px;}
+  </style>
+   <!--
  <script type="text/javascript">
-
-
     function jsValidar(id,estado,url) {
 
     //0 iniciado
@@ -39,8 +156,8 @@
                          document.forms[0].submit();
                     }else{
 
-                        alert('El monitoreo solo se puede visualizar en Encuestas iniciadas');
-
+                     //   alert('El monitoreo solo se puede visualizar en Encuestas iniciadas');
+                      MostrarMensajeModal('El monitoreo solo se puede visualizar en Encuestas iniciadas');
                     }
 
            }
@@ -51,7 +168,8 @@
                          document.forms[0].submit();
                     }else{
 
-                        alert('No pueden mostrar los reportes hasta que la encuesta no haya sido terminada');
+                       // alert('No pueden mostrar los reportes hasta que la encuesta no haya sido terminada');
+                     MostrarMensajeModal('No pueden mostrar los reportes hasta que la encuesta no haya sido terminada');
 
                     }
             }
@@ -59,7 +177,7 @@
         }
 </script>
 
-
+-->
 </head>
 
 <body>
@@ -73,12 +191,7 @@
     <tr>
             <td></td>
              <td></td>
-             <!--
-            <td width="22%"  style="vertical-align:text-top">
-	                <%-- Inicio del Menu del Web Site --%>
-	               <%--  <jsp:include page="/menuAdmin.jsp" /> --%>
-	                <%-- Fin Menu del Web Site --%>
-            </td>-->
+
             <td  valign="top" align="left">   <p>&nbsp;</p>
 
 
@@ -116,58 +229,10 @@
   
                           </tr>
                     </c:forEach>
-<!--
-                    <tr class="subtitulosTabla">
-                        <td style="height: 20px; width: 462px;">Elecciones Municipales 2010 - Sector Alto</td>
-                        <td style="height: 20px; width: 130px; text-align: center;">Inactivo </td>
-                        <td style="height: 20px; width: 130px; text-align: center;">01/06/2010 </td>
-                        <td style="height: 20px; width: 130px; text-align: center;">31/06/2010 </td>
-                        <td style="height: 20px; width: 130px; text-align: center;">11</td>
-                        <td style="height: 20px; text-align: center;"><a href="configuracion.do?methodToCall=configurar&idEncuesta=1"> <img src="images/iconos/settings.png"   style="text-decoration:none"> </a>  </td>
-                        <td style="height: 20px; text-align: center;"><a href="monitoreoEncuesta.do?methodToCall=iniciar&idEncuesta=1"> <img src="images/iconos/computer.png" style="text-decoration:none"> </a>  </td>
-                        <td style="height: 20px; text-align: center;"><a href="reporte.do?methodToCall=iniciar&idEncuesta=1&descripcion='Elecciones Municipales 2010 - Sector Alto'"> <img src="images/iconos/chart.png" style="text-decoration:none"> </a>  </td>
-                    </tr>
 
-                    <tr class="subtitulosTabla">
-                        <td style="width: 462px">Elecciones Municipales 2010 - Sector Medio</td>
-                        <td style="height: 20px; width: 130px; text-align: center">Inactivo </td>
-                        <td style="height: 20px; width: 130px; text-align: center;">01/06/2010 </td>
-                        <td style="height: 20px; width: 130px; text-align: center;">31/06/2010 </td>
-                        <td style="height: 20px; width: 130px; text-align: center;">8 </td>
-                        <td style="height: 20px; text-align: center;"><a href="configuracion.do?methodToCall=configurar&idEncuesta=2"> <img src="images/iconos/settings.png" style="text-decoration:none"> </a>  </td>
-                        <td style="height: 20px; text-align: center;"><a href="MonitoreoEncuesta.do?methodToCall=iniciar&idEncuesta=2"> <img src="images/iconos/computer.png" style="text-decoration:none"> </a>  </td>
-                        <td style="height: 20px; text-align: center;"><a href="reporte.do?methodToCall=iniciar&idEncuesta=2&descripcion='Elecciones Municipales 2010 - Sector Medio'"><img src="images/iconos/chart.png" style="text-decoration:none"></a>   </td>
-                   </tr>
-
-
-                    <tr class="subtitulosTabla">
-                        <td style="width: 462px">Elecciones Lima Sur 2010 - II  </td>
-                        <td style="width: 130px; height: 20px; text-align: center">Activo </td>
-                        <td style="height: 20px; width: 130px; text-align: center;">15/06/2010 </td>
-                        <td style="height: 20px; width: 130px; text-align: center;">15/07/2010 </td>
-                        <td style="height: 20px; width: 130px; text-align: center;">3 </td>
-                        <td style="height: 20px; text-align: center;"><a href="configuracion.do?methodToCall=configurar&idEncuesta=3"> <img src="images/iconos/settings.png" style="text-decoration:none"> </a>  </td>
-                        <td style="height: 20px; text-align: center;"><a href="MonitoreoEncuesta.do?methodToCall=iniciar&idEncuesta=3"> <img src="images/iconos/computer.png" style="text-decoration:none"> </a>  </td>
-                        <td style="height: 20px; text-align: center;"><a href="reporte.do?methodToCall=iniciar&idEncuesta=3&descripcion='Elecciones Lima Sur 2010 - II'"> <img src="images/iconos/chart.png" style="text-decoration:none"></a> </td>
-                    </tr>
-
-                   <tr class="subtitulosTabla">
-                        <td style="width: 462px">Elecciones lima Norte 2010 -II </td>
-                        <td style="width: 130px; height: 20px; text-align: center">Activo </td>
-                        <td style="height: 20px; width: 130px; text-align: center;">15/06/2010 </td>
-                        <td style="height: 20px; width: 130px; text-align: center;">15/07/2010 </td>
-                        <td style="height: 20px; width: 130px; text-align: center;">3 </td>
-                        <td style="height: 20px; text-align: center;"><a href="configuracion.do?methodToCall=configurar&idEncuesta=4"> <img src="images/iconos/settings.png" style="text-decoration:none"> </a>  </td>
-                        <td style="height: 20px; text-align: center;"><a href="MonitoreoEncuesta.do?methodToCall=iniciar&idEncuesta=4"> <img src="images/iconos/computer.png" style="text-decoration:none"> </a>  </td>
-                        <td style="height: 20px; text-align: center;"><a href="reporte.do?methodToCall=iniciar&idEncuesta=4&descripcion='Elecciones lima Norte 2010 -II'"> <img src="images/iconos/chart.png" style="text-decoration:none"></a> </td>
-                    </tr>
-
--->
 
         </table>
-
-
-
+ 
                </html:form>
  
 
