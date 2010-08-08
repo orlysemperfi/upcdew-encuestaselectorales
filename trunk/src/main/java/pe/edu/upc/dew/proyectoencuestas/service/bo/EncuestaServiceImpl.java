@@ -36,6 +36,13 @@ public class EncuestaServiceImpl implements EncuestaService{
        encuestaDao.registrarRespuesta(idEncuesta, idOpcion, idPregunta, usuario, fecha);
     }
 
+      public void actualizarEncuesta(Integer idEncuesta, String nombre,String estado,String fechaInicio, String fechaFinal)
+        {
+       encuestaDao.actualizarEncuesta(idEncuesta, nombre, estado, fechaInicio, fechaFinal);  
+    }
+
+
+
     public Encuesta getEncuesta(Integer idEncuesta)
     {
         return encuestaDao.getEncuesta(idEncuesta);
