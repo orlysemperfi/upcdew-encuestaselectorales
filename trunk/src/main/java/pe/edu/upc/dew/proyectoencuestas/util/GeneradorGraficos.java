@@ -20,123 +20,108 @@ import pe.edu.upc.dew.proyectoencuestas.model.dto.Reporte;
 
 public class GeneradorGraficos {
 
-
      public String factoryGrafico(List<Reporte> lista,String ruta,int idGrafico){
 
-      String rutaGrafico="";
-           switch (idGrafico) {
+          String rutaGrafico="";
+          switch (idGrafico) {
 
             case 1:
-
               rutaGrafico=  PieChart3D( lista, ruta);
-              break;
-
+                break;
             case 2:
                 rutaGrafico=  BarChartVertical( lista, ruta);
                 break;
-
             case 3:
                 rutaGrafico=  BarChartHorizontal( lista, ruta);
                 break;
-
             case 4:
                 rutaGrafico=  PieChart( lista, ruta);
-                  break;
-
+                break;
             case 5:
                 rutaGrafico=  BarChart3DVerticalA(lista,ruta);
-                  break;
+                break;
             case 6:
                 rutaGrafico=  BarChart3DVerticalB(lista,ruta);
-                  break;
+                break;
             case 7:
                 rutaGrafico=  BarChart3DHorizontalA(lista,ruta);
-                  break;
-
+                break;
              case 8:
                 rutaGrafico=  BarChart3DHorizontalB(lista,ruta);
                   break;
-
-                  
-
         }
         return rutaGrafico;
 
      }
 
 
-       public String PieChart(List<Reporte> lista,String ruta) {
+    public String PieChart(List<Reporte> lista,String ruta) {
 
-         // Create a simple pie chart
-        DefaultPieDataset pieDataset = new DefaultPieDataset();
-        String titulo="";
+             // Create a simple pie chart
+            DefaultPieDataset pieDataset = new DefaultPieDataset();
+            String titulo="";
 
-        for (int i=0; i<lista.size(); i++){
-               pieDataset.setValue(lista.get(i).getDescripcion(),new Integer(lista.get(i).getCantidad()));
-               titulo=lista.get(i).getTitulo();
+            for (int i=0; i<lista.size(); i++){
+                   pieDataset.setValue(lista.get(i).getDescripcion()+":  "+lista.get(i).getCantidad(),new Integer(lista.get(i).getCantidad()));
+                   titulo=lista.get(i).getTitulo();
+                 }
+
+             JFreeChart chart = ChartFactory.createPieChart("",pieDataset,true,true,true);
+
+             try {
+                 ChartUtilities.saveChartAsJPEG(new File(ruta+".jpg"), chart, 550, 300);
+
+             } catch (Exception e) {
+                 System.out.println("Problem occurred creating chart.");
+                 System.out.println(getClass().getResource("/tupath/path"));
              }
-
-         JFreeChart chart = ChartFactory.createPieChart( "",pieDataset,true,    true,    true);
-
-         try {
-             ChartUtilities.saveChartAsJPEG(new File(ruta+".jpg"), chart, 550, 300);
-
-         } catch (Exception e) {
-             System.out.println("Problem occurred creating chart.");
-             System.out.println(getClass().getResource("/tupath/path"));
-         }
-        return ruta+".jpg";
+            return ruta+".jpg";
      }
 
-     public String   PieChart3D(List<Reporte> lista,String ruta) {
+    public String   PieChart3D(List<Reporte> lista,String ruta) {
 
-         DefaultPieDataset pieDataset = new DefaultPieDataset();
-         String titulo="";
+             DefaultPieDataset pieDataset = new DefaultPieDataset();
+             String titulo="";
 
-         for (int i=0; i<lista.size(); i++){
-               pieDataset.setValue(lista.get(i).getDescripcion(),new Integer(lista.get(i).getCantidad()));
-               titulo=lista.get(i).getTitulo();
+             for (int i=0; i<lista.size(); i++){
+                   pieDataset.setValue(lista.get(i).getDescripcion()+":  "+lista.get(i).getCantidad(),new Integer(lista.get(i).getCantidad()));
+                   titulo=lista.get(i).getTitulo();
+                 }
+
+             JFreeChart chart = ChartFactory.createPieChart3D("", pieDataset , true,  true, true);
+             PiePlot3D p=(PiePlot3D)chart.getPlot();
+             p.setForegroundAlpha(0.5f);// opacidad de la gráfica
+
+             try {
+                 ChartUtilities.saveChartAsJPEG(new File(ruta+".jpg"), chart, 550, 300);
+
+             } catch (Exception e) {
+
+                 System.out.println("Problem occurred creating chart.");
              }
-
-  	 JFreeChart chart = ChartFactory.createPieChart3D("", pieDataset , true,  true, true);
-         PiePlot3D p=(PiePlot3D)chart.getPlot();
-         p.setForegroundAlpha(0.5f);// opacidad de la gráfica
-
-	 try {
-             System.out.println("rutaaaaaaaxxxxx  "+ruta+".jpg");
-             ChartUtilities.saveChartAsJPEG(new File(ruta+".jpg"), chart, 550, 300);
-
-         } catch (Exception e) {
-
-             System.out.println("Problem occurred creating chart.");
-         }
-	return ruta+".jpg";
+            return ruta+".jpg";
      }
 
 
-           public String BarChartVertical(List<Reporte> lista,String ruta) {
+    public String BarChartVertical(List<Reporte> lista,String ruta) {
 
            // Create a simple Bar chart
            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-            String titulo="";
+           String titulo="";
 
             for (int i=0; i<lista.size(); i++){
                dataset.setValue(new Integer(lista.get(i).getCantidad()),"",lista.get(i).getDescripcion());
                titulo=lista.get(i).getTitulo();
              }
 
-
-
            JFreeChart chart = ChartFactory.createBarChart("",  "", "", dataset, PlotOrientation.VERTICAL, false,  true, false);
-         //  JFreeChart chartH = ChartFactory.createBarChart("Comparison between Salesman",  "", "", dataset, PlotOrientation.HORIZONTAL, false,  true, false);
-
+ 
            // Background del dibujo
-	 chart.setBackgroundPaint(Color.white);
+           chart.setBackgroundPaint(Color.white);
 
            try {
 
                ChartUtilities.saveChartAsJPEG(new File(ruta+".jpg"), chart, 550, 300);
-             // ChartUtilities.saveChartAsJPEG(new File("D:/graficos/chartBCHorizontal.jpg"), chartH, 500, 300);
 
            } catch (IOException e) {
 
@@ -151,7 +136,7 @@ public class GeneradorGraficos {
 
            // Create a simple Bar chart
            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-            String titulo="";
+           String titulo="";
 
             for (int i=0; i<lista.size(); i++){
                dataset.setValue(  new Integer (lista.get(i).getCantidad()),"",lista.get(i).getDescripcion());
