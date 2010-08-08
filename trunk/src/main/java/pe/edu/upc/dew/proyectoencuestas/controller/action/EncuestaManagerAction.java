@@ -59,13 +59,46 @@ public class EncuestaManagerAction extends DispatchAction {
 
     }
       
+    public ActionForward actualizar(ActionMapping mapping, ActionForm  form,
+        HttpServletRequest request, HttpServletResponse response)
+        throws Exception
+    {
+
+           this.encuestaService = new EncuestaServiceImpl();
+           EncuestaForm encuestaForm = (EncuestaForm)form;
+
+           encuestaService.actualizarEncuesta(encuestaForm.getIdEncuesta(), encuestaForm.getNombre(), encuestaForm.getEstado(), encuestaForm.getFechaInicio(), encuestaForm.getFechaFin());
+           List<Encuesta> encuestas = encuestaService.getEncuestas();
+           request.setAttribute("encuestas", encuestas);
+
+           return mapping.findForward(SUCCESS);
+    }
+
+       public ActionForward iniciar(ActionMapping mapping, ActionForm  form,
+        HttpServletRequest request, HttpServletResponse response)
+        throws Exception
+    {
+
+           this.encuestaService = new EncuestaServiceImpl();
+           EncuestaForm encuestaForm = (EncuestaForm)form;
+           List<Encuesta> encuestas = encuestaService.getEncuestas();
+           request.setAttribute("encuestas", encuestas);
+
+           return mapping.findForward(SUCCESS);
+    }
 
     public ActionForward configurar(ActionMapping mapping, ActionForm  form,
         HttpServletRequest request, HttpServletResponse response)
         throws Exception
     {
+          this.encuestaService = new EncuestaServiceImpl();
            EncuestaForm encuestaForm = (EncuestaForm)form;
-
+           Encuesta encuesta=encuestaService.getEncuesta(encuestaForm.getIdEncuesta());
+           encuestaForm.setIdEncuesta(encuesta.getIdEncuesta());
+           encuestaForm.setEstado(encuesta.getEstado());
+           encuestaForm.setFechaInicio(encuesta.getFechaInicio());
+           encuestaForm.setFechaFin(encuesta.getFechaFin());
+            encuestaForm.setNombre(encuesta.getNombre());
            System.out.println("\n Iniciando la configuracion con el código ---->"+ encuestaForm.getIdEncuesta());
 
            return mapping.findForward("configurar");
