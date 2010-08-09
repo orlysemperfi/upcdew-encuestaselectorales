@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="reporteg2"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="535"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="30"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="id" isForPrompting="false" class="java.lang.String">
+		<defaultValueExpression ><![CDATA["1"]]></defaultValueExpression>
+	</parameter>
+	<queryString><![CDATA[call Sp_reporte2c($P{id})]]></queryString>
+
+	<field name="id_enc" class="java.lang.Integer"/>
+	<field name="codigodistrito" class="java.lang.String"/>
+	<field name="nrousuariosdistrito" class="java.lang.Long"/>
+	<field name="nrousuariosdistritoencuestados" class="java.lang.Long"/>
+	<field name="AvanceDistritoEncuesta" class="java.math.BigDecimal"/>
+	<field name="nrousuariosdistritonoencuestados" class="java.lang.Long"/>
+	<field name="nombredistrito" class="java.lang.String"/>
+	<field name="tit_enc" class="java.lang.String"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="2"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="1"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="2"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="260"  isSplitAllowed="true" >
+				<bar3DChart>
+					<chart  hyperlinkTarget="Self" >
+					<reportElement
+						x="45"
+						y="36"
+						width="409"
+						height="172"
+						key="element-1"
+						positionType="Float"/>
+					<box></box>
+						<chartTitle color="#6600FF" >
+					<font fontName="Arial Black" pdfFontName="Helvetica" size="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false" pdfEncoding="Cp1252"/>
+								<titleExpression><![CDATA[$F{tit_enc}]]></titleExpression>
+					</chartTitle>
+						<chartLegend textColor="#000000" backgroundColor="#FFFFFF" >
+					</chartLegend>
+					</chart>
+					<categoryDataset>
+						<dataset >
+						</dataset>
+						<categorySeries>
+							<seriesExpression><![CDATA["Encuestados"]]></seriesExpression>
+							<categoryExpression><![CDATA[$F{nombredistrito}]]></categoryExpression>
+							<valueExpression><![CDATA[$F{nrousuariosdistritoencuestados}]]></valueExpression>
+							<labelExpression><![CDATA["k"]]></labelExpression>
+				<itemHyperlink >
+				</itemHyperlink>
+						</categorySeries>
+						<categorySeries>
+							<seriesExpression><![CDATA["No Encuestados"]]></seriesExpression>
+							<categoryExpression><![CDATA[$F{nombredistrito}]]></categoryExpression>
+							<valueExpression><![CDATA[$F{nrousuariosdistritonoencuestados}]]></valueExpression>
+							<labelExpression><![CDATA["kk"]]></labelExpression>
+				<itemHyperlink >
+				</itemHyperlink>
+						</categorySeries>
+					</categoryDataset>
+					<bar3DPlot >
+						<plot orientation="Horizontal" >
+							<seriesColor seriesOrder="0" color="#3333FF"/>
+							<seriesColor seriesOrder="1" color="#FF0033"/>
+</plot>
+						<categoryAxisFormat>
+							<axisFormat >
+							</axisFormat>
+						</categoryAxisFormat>
+						<valueAxisFormat>
+							<axisFormat >
+							</axisFormat>
+						</valueAxisFormat>
+					</bar3DPlot>
+				</bar3DChart>
+			</band>
+		</summary>
+</jasperReport>
