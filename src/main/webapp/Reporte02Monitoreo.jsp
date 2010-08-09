@@ -25,7 +25,6 @@ String id=request.getParameter("idencuesta");
 //File reportFile=new File(application.getRealPath("reportes/reporteg1.jasper"));
 
 
-
 Map parameters=new  HashMap();
 parameters.put("id",id);
 
