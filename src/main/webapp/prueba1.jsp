@@ -14,7 +14,6 @@ function actualizar()
     {
 document.location.reload();
 
-
 }
 </script>
 
