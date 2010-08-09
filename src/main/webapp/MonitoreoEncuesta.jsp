@@ -61,14 +61,14 @@
                         <iframe width="600" height="400" frameborder="0" scrolling="no"
                        name="report1" src='prueba1.jsp?idencuesta=<%=idencuesta%>'></iframe>
 
-                        <BR />
-                        <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>
+                         <!-- <BR />
+                        <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>-->
                     </TD>
                    <TD align="center">
                             <iframe width="600" height="400" frameborder="0" scrolling="no"
                        name="report2" src='prueba2.jsp?idencuesta=<%=idencuesta%>' ></iframe>
-                        <BR />
-                      <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>
+                        <!-- <BR />
+                        <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>-->
                     </TD>
                 </TR>
                  <TR>
@@ -76,14 +76,14 @@
                         <TD align="center">
                         <iframe width="600" height="400" name="report4"
                               src='prueba4.jsp?idencuesta=<%=idencuesta%>'   frameborder="0" scrolling="no" ></iframe>
-                        <BR />
-                     <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>
+                        <!-- <BR />
+                        <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>-->
                     </TD>
                     <TD align="center">
                         <iframe width="600" height="400" name="report3"
                             src='prueba3.jsp?idencuesta=<%=idencuesta%>'     frameborder="0" scrolling="no" ></iframe>
-                        <BR />
-                     <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>
+                      <!-- <BR />
+                        <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>-->
                     </TD>
                 
                 </TR>
