@@ -18,10 +18,14 @@
 <title>Untitled Document</title>
 </head>
 
+
+
+
+
  <%
-    String id=request.getParameter("id");
-    if(id==null){
-        id="1";
+    String idencuesta=request.getParameter("idEncuesta");
+    if(idencuesta==null){
+        idencuesta="1";
         }
 
     %>
@@ -46,20 +50,23 @@
 
 
 
-<html:form >
+                <form>
 
     
 
-            <table  align="center" border="0" cellpadding="0" cellspacing="0" class="tabla1" width="100%">
+            <table  align="center" border="0" cellpadding="0" cellspacing="0" class="tabla1" width="80%">
 
                 <TR>
                     <TD align="center">
-                        <iframe width="400" height="300" name="report1" src='Reporte01Monitoreo.jsp?id=<%=id%>'></iframe>
+                        <iframe width="600" height="400" frameborder="0" scrolling="no"
+                       name="report1" src='prueba1.jsp?idencuesta=<%=idencuesta%>'></iframe>
+
                         <BR />
                         <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>
                     </TD>
                    <TD align="center">
-                        <iframe width="400" height="300" name="report2" src='Reporte02Monitoreo.jsp?id=<%=id%>'></iframe>
+                            <iframe width="600" height="400" frameborder="0" scrolling="no"
+                       name="report2" src='prueba2.jsp?idencuesta=<%=idencuesta%>' ></iframe>
                         <BR />
                       <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>
                     </TD>
@@ -67,12 +74,14 @@
                  <TR>
 
                         <TD align="center">
-                        <iframe width="400" height="300" name="report4" src='Reporte04Monitoreo.jsp?id=<%=id%>'></iframe>
+                        <iframe width="600" height="400" name="report4"
+                              src='prueba4.jsp?idencuesta=<%=idencuesta%>'   frameborder="0" scrolling="no" ></iframe>
                         <BR />
                      <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>
                     </TD>
                     <TD align="center">
-                        <iframe width="400" height="300" name="report3" src='Reporte03Monitoreo.jsp?id=<%=id%>'></iframe>
+                        <iframe width="600" height="400" name="report3"
+                            src='prueba3.jsp?idencuesta=<%=idencuesta%>'     frameborder="0" scrolling="no" ></iframe>
                         <BR />
                      <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>
                     </TD>
@@ -86,14 +95,58 @@
                                       </center>
                                  </td></tr>
             </table>
+                       
 
-   </html:form>
+
+                </form>
 
 
             </td>
     </tr>
 </table>
+                        <script>
+                        
+                           
+                            setTimeout('reporte1()',600);
 
+                                   function reporte1()
+                          {
+
+                          var hora=Date();
+         
+                  window.parent.frames[0].actualizar();
+  setTimeout('reporte2()',600);
+
+                          }
+
+                              function reporte2()
+                          {
+     
+                    window.parent.frames[1].actualizar();
+  setTimeout('reporte4()',600);
+
+                          }
+                    function reporte4()
+                          {
+
+                    window.parent.frames[3].actualizar();
+  setTimeout('reporte3()',600);
+
+                          }
+
+           function reporte3()
+                          {
+
+                    window.parent.frames[2].actualizar();
+
+
+                          }
+
+        
+
+               
+                         
+                          </script>
 
 </body>
 
