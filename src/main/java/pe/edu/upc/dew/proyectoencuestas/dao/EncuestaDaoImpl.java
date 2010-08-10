@@ -82,7 +82,7 @@ public class EncuestaDaoImpl implements EncuestaDao{
 		// Preparar consulta
 		String sql = "select a.id_enc, a.tit_enc, a.fec_ini_enc, a.fec_fin_enc from tb_encuesta a,"+
                         " tb_encxdist b" +
-                        " where a.id_enc = b.id_enc and b.CodigoDistrito='"+distrito+"'";
+                        " where a.id_enc = b.id_enc and est_enc = 0 and b.CodigoDistrito='"+distrito+"'";
 
 		// Ejecutar consulta
 		try {
