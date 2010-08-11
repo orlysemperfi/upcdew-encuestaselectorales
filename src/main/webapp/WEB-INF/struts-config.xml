@@ -225,6 +225,23 @@
 
     </action>
 
+
+      <action
+      path="/logoutAction"
+      type="pe.edu.upc.dew.proyectoencuestas.controller.action.LogoutAction"
+      name="UsuarioForm"
+      scope="request"
+      input="header.jsp"
+      unknown="false"
+      validate="false"
+    >
+      <forward
+        name="exito"
+        path="/login.jsp"
+        redirect="false"
+      />
+    </action>
+
    <!-- Action Servlet Mapping without xdoclet-->
 
   </action-mappings>
