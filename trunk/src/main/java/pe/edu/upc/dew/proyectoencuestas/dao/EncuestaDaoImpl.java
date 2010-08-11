@@ -35,7 +35,10 @@ public class EncuestaDaoImpl implements EncuestaDao{
                 Encuesta encuesta =null;
 
 		// Preparar consulta
-		String sql = "select a.id_enc,a.tit_enc,a.est_enc,a.fec_ini_enc,a.fec_fin_enc,a.pob_enc ,(select count(*) from  tb_result_fin where id_enc=a.id_enc) as encuestados from tb_encuesta   a";
+		String sql = "select a.id_enc,a.tit_enc,a.est_enc,a.fec_ini_enc,a.fec_fin_enc,a.pob_enc ," +
+                        " (select   count(u.cod_usu)   from tb_usuario u,tb_distrito d ,tb_encxdist ed, tb_encuesta e "+
+                        " where  u.CodigoDistrito=d.CodigoDistrito  and d.CodigoDistrito =ed.CodigoDistrito   and  e.id_enc=ed.id_enc and  d.CodigoProvincia='1401' and  e.id_enc=a.id_enc) as Muestra, "+
+                        "(select count(*) from  tb_result_fin where id_enc=a.id_enc) as encuestados from tb_encuesta   a";
 
 		// Ejecutar consulta
 		try {
