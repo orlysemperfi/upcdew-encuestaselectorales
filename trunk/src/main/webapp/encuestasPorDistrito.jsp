@@ -89,7 +89,7 @@ function checker()
                         <input name="number" type="radio" value="${encuesta.idEncuesta}" />
                        
 
-                    </div>
+        </div>
 
                      </td>
 
