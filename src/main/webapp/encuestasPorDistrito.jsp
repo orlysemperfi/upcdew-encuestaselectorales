@@ -55,7 +55,7 @@ function checker()
 <form action="Preguntas.do?methodToCall=iniciar" method="post">
 
 
-<table border="0" width="100%" height="581" cellspacing="0" cellpadding="0">
+<table border="0" width="100%" height="581" cellspacing="0" cellpadding="0"  class="tabla2">
 <tr>
         <td colspan="2"> <jsp:include page="/header.jsp" /> </td>
 </tr>
@@ -67,9 +67,9 @@ function checker()
 
   <table width="539" border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2">
   <tr>
-    <td width="10" scope="col">&nbsp;</td>
-    <td colspan="2" scope="col" class="letrast" >Encuestas por distrito </td>
-    <td width="16" scope="col">&nbsp;</td>
+  
+    <td colspan="4" scope="col" class="letrast" >Encuestas por distrito </td>
+  
   </tr>
 
     <tr>
@@ -77,6 +77,7 @@ function checker()
     <td colspan="2" class="subtitulosMayus">Elija la encuesta que desea empezar:</td>
     <td>&nbsp;</td>
   </tr>
+  <tr><td colspan="4" class="subtitulosOpc">&nbsp;</td></tr>
 
 
               <c:forEach var="encuesta" items="${encuestas}">
@@ -100,7 +101,7 @@ function checker()
             </c:forEach>
         <tr>
 
-        
+         <tr><td colspan="4">&nbsp;</td></tr>
     <tr>
     <td>&nbsp;</td>
     <td colspan="2" rowspan="3" align="center" valign="top">
