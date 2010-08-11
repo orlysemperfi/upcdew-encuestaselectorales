@@ -1,27 +1,23 @@
 
-
 <%@page contentType="text/html" pageEncoding="windows-1252"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
-
 <%@ taglib uri="/tags/struts-html" prefix="html" %>
 <%@ taglib uri="/tags/struts-logic" prefix="logic" %>
 <%@ taglib uri="/tags/struts-bean" prefix="bean" %>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
     <link rel="stylesheet" type="text/css" href="css/fuente.css">
+    <link type="text/css" href="css/jquery-ui.css" rel="stylesheet" />
 
-  <link type="text/css" href="css/jquery-ui.css" rel="stylesheet" />
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery-ui.min.js"></script>
     <script src="js/Utiles.js?ver=1" type="text/javascript"></script>
-
 
     <style type="text/css">
 
@@ -134,10 +130,7 @@
       return true;
     }
   </script>
-
-  <style type="text/css">
-	body{ font: 62.5% "Trebuchet MS", sans-serif; margin: 50px;}
-  </style>
+ 
    <!--
  <script type="text/javascript">
     function jsValidar(id,estado,url) {
@@ -182,15 +175,12 @@
 
 <body>
 
-
-    <table border="0" width="100%" height="581" cellspacing="0" cellpadding="0">
+    <table border="0" width="100%"  valign="top" cellspacing="0" cellpadding="0" >
 	<tr>
-		<td colspan="3"> <jsp:include page="/header.jsp" /> </td>
+            <td > <jsp:include page="/header.jsp" /> </td>
 	</tr>
 
-    <tr>
-            <td></td>
-             <td></td>
+        <tr>
 
             <td  valign="top" align="left">   <p>&nbsp;</p>
 
