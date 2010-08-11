@@ -29,11 +29,11 @@
     <td colspan="3"> <jsp:include page="/header.jsp" /> </td>
   </tr>
   <tr>
-    <td >&nbsp;</td>
+    <td colspan="3" >&nbsp;</td>
   </tr>
 
   <tr>
-    <td class="Titulo">
+    <td class="Titulo" colspan="3">
         <table width="459" align="center"   cellpadding="0" cellspacing="0" class="tabla2">
             <td  colspan="3">&nbsp;</td>
       <tr>
@@ -67,7 +67,7 @@
     </table>    </td>
   </tr>
   <tr>
-    <td>&nbsp;</td>
+    <td colspan="3">&nbsp;</td>
   </tr>
 </table>
 
