@@ -1,8 +1,4 @@
-<%-- 
-    Document   : reporte
-    Created on : 19/06/2010, 07:05:36 AM
-    Author     : Owner
---%>
+
 
 <%@page contentType="text/html" pageEncoding="windows-1252"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -18,10 +14,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
         <link rel="stylesheet" type="text/css" href="css/estilos.css">
-    <link rel="stylesheet" type="text/css" href="css/fuente.css">
+        <link rel="stylesheet" type="text/css" href="css/fuente.css">
         <title>JSP Page</title>
-
-
     </head>
 
 <body>
@@ -29,23 +23,16 @@
 
 <input name="methodToCall" type="hidden" value="" />
 
-    <table border="0" width="100%" height="581" cellspacing="0" cellpadding="0">
+    <table border="0" width="100%"  cellspacing="0" cellpadding="0">
 	<tr>
-		<td colspan="3"> <jsp:include page="/header.jsp" /> </td>
+            <td> <jsp:include page="/header.jsp" /> </td>
 	</tr>
 
     <tr>
-            <td></td>
-             <td></td>
-             <!--
-            <td width="22%"  style="vertical-align:text-top">
-	                <%-- Inicio del Menu del Web Site --%>
-	               <%--  <jsp:include page="/menuAdmin.jsp" /> --%>
-	                <%-- Fin Menu del Web Site --%>
-            </td>-->
+
             <td  valign="top" align="left">   
-                <center class="Titulo">  ENCUESTA<p></p> <%=request.getAttribute("encuestaDes")%> </center>
-<br><br>
+                      <center class="Titulo">  ENCUESTA<p></p> <%=request.getAttribute("encuestaDes")%> </center>
+                      <br><br>
                       <table width=800 border="1" align="center" cellpadding="0" cellspacing="0" class="tabla1">
 
                        <c:forEach items="${preguntas}" var="nivel1">
@@ -69,19 +56,14 @@
                         </c:forEach>
 
                           
-             </table>
-                    
-
+                      </table>
 
             </td>
     </tr>
 </table>
 
-                   
-
                       <center>
-
-                        <a href="configuracion.do?methodToCall=iniciar"> Ver Listado de Encuestas </a>
+                        <a href="<%=request.getContextPath()%>/configuracion.do?methodToCall=iniciar"> Ver Listado de Encuestas </a>
                        </center>
 
   </html:form>
