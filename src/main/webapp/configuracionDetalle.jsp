@@ -48,7 +48,7 @@
 
 <input name="methodToCall" type="hidden" value="" />
 
-    <table border="0" width="100%" height="581" cellspacing="0" cellpadding="0">
+<table border="0" width="100%" align="center" height="581" cellspacing="0" cellpadding="0">
 	<tr>
 		<td colspan="3"> <jsp:include page="/header.jsp" /> </td>
 	</tr>
@@ -59,7 +59,7 @@
           
             <td  valign="top" align="left"> 
 
-                     <table width=430 border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2" >
+                     <table width=450 border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2" >
                           
                          <tr> <td colspan="2" class="letrast">Configuración de Encuesta</td></tr>
                           <tr> <td colspan="2" >&nbsp;</td></tr>
