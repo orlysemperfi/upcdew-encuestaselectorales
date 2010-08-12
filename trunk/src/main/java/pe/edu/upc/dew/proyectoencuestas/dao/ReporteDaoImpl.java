@@ -84,12 +84,10 @@ public class ReporteDaoImpl implements ReporteDao {
                 Reporte reporteEncuesta =null;
 
 		// Preparar consulta
-		String sql =" select count(r.id_opc)as total,r.id_pre,des_pre,r.id_opc,des_opc "+  
-                            " from tb_pregunta p, tb_opcion o,tb_result_fin r "+ 
-                            " where r.id_enc="+ idEncuesta +"  and r.id_pre="+ idPregunta +" "+
-                            " and p.id_pre=r.id_pre and o.id_opc=r.id_opc "+ 
-                            " group by r.id_enc,r.id_opc,r.id_pre "+ 
-                            " order by id_pre,des_pre ";
+		String sql =  " select (select count(r.id_opc)as total   from  tb_result_fin r    where r.id_enc=pe.id_enc  and r.id_pre=p.id_pre  and r.id_opc =t.id_opc) as Total, p.id_pre,des_pre,t.id_opc,des_opc  "+
+                              " from tb_pregunta p, tb_opcion o, tb_opcxpre  t ,tb_prexenc pe "+
+                              " where p.id_pre=t.id_pre and o.id_opc=t.id_opc and  pe.id_pre=p.id_pre and pe.id_enc="+ idEncuesta +" and p.id_pre="+ idPregunta +" ";
+
 
 		// Ejecutar consulta
 		try {
