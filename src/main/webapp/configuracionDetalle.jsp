@@ -46,8 +46,6 @@
             <tr>
                     <td > <jsp:include page="/header.jsp" /> </td>
             </tr>
-
-
              <tr>
                 <td>
                     <br><br>
