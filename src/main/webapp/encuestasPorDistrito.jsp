@@ -54,8 +54,10 @@ function checker()
 <body>
 <form action="Preguntas.do?methodToCall=iniciar" method="post">
 
+  
 
-<table border="0" width="100%" height="581" cellspacing="0" cellpadding="0"  class="tabla2">
+<table border="0" width="100%" valign="top" cellspacing="0" cellpadding="0"  class="tabla2">
+
 <tr>
         <td colspan="2"> <jsp:include page="/header.jsp" /> </td>
 </tr>
