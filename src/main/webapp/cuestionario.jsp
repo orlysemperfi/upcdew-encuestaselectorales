@@ -233,21 +233,21 @@ function getValuesOptions()
      
 <table border="0" width="100%" valign="top"  cellspacing="0" cellpadding="0">
 <tr>
-        <td colspan="2"> <jsp:include page="/header.jsp" /> </td>
+        <td> <jsp:include page="/header.jsp" /> </td>
 </tr>
 
   <tr>
-    <td width="8%">&nbsp;</td>
 
-   <td width="92%" valign="top" align="left">
+   <td valign="top" align="left">
        
      <html:form action="/encuestas.do">
 
-
+     <br><br>
      <table width="539" border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2">
  
-   <input type="hidden" name="idEncuesta" value="${idEncuesta}">
-   <input type="hidden" name="rptas" id="rptas">
+       <input type="hidden" name="idEncuesta" value="${idEncuesta}">
+       <input type="hidden" name="rptas" id="rptas">
+
 
    <c:forEach items="${preguntas}" var="pregunta">
        <c:set var="counter" value="${counter + 1}"/>
