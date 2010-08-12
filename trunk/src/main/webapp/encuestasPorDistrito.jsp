@@ -56,18 +56,17 @@ function checker()
 
   
 
-<table border="0" width="100%" valign="top" cellspacing="0" cellpadding="0"  class="tabla2">
+<table border="0" width="100%" valign="top" cellspacing="0" cellpadding="0"   >
 
 <tr>
-        <td colspan="2"> <jsp:include page="/header.jsp" /> </td>
+        <td> <jsp:include page="/header.jsp" /> </td>
 </tr>
 
   <tr>
-    <td width="8%">&nbsp;</td>
-
-   <td width="92%" valign="top" align="left">
-
-  <table width="539" border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2">
+  
+   <td valign="top" align="left">
+       <br><br>
+  <table width="550" border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2">
   <tr>
   
     <td colspan="4" scope="col" class="letrast" >Encuestas por distrito </td>
@@ -88,11 +87,8 @@ function checker()
                      <td>&nbsp;</td>
 
                      <td class="subtitulosOpc"><div align="center">
-                        <input name="number" type="radio" value="${encuesta.idEncuesta}" />
-                       
-
-        </div>
-
+                        <input name="number" type="radio" value="${encuesta.idEncuesta}" />         
+                        </div>
                      </td>
 
 
@@ -101,9 +97,9 @@ function checker()
 
                   </tr>
             </c:forEach>
-        <tr>
 
-         <tr><td colspan="4">&nbsp;</td></tr>
+
+    <tr><td colspan="4">&nbsp;</td></tr>
     <tr>
     <td>&nbsp;</td>
     <td colspan="2" rowspan="3" align="center" valign="top">
