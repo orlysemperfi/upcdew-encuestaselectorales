@@ -24,105 +24,43 @@
     </head>
     <body>
 
-     <table width="491" border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2">
-  <tr>
-    <td colspan="3"> <jsp:include page="/header.jsp" /> </td>
-  </tr>
-  <tr>
-    <td colspan="3" >&nbsp;</td>
-  </tr>
-
-  <tr>
-    <td class="Titulo" colspan="3">
-        <table width="459" align="center"   cellpadding="0" cellspacing="0" class="tabla2">
-            <td  colspan="3">&nbsp;</td>
+     <table width="491" border="0" align="center" cellpadding="0" cellspacing="0">
       <tr>
-
-          <td width="422" colspan="3" class="Titulo">Su encuesta se registr&oacute; satisfactoriamente! </td>
+        <td> <jsp:include page="/header.jsp" /> </td>
       </tr>
 
-   <tr>
-    <td  colspan="3">&nbsp;</td>
-  </tr>
-
       <tr>
+        <td class="Titulo" >
+            <br><br>
+            <table width="459" align="center"   cellpadding="0" cellspacing="0" class="tabla2">
 
-        <td colspan="3" class="Titulo">Gracias por participar</td>
-      </tr>
+              <tr>
 
-    <tr>
-    <td  colspan="3">&nbsp;</td>
-  </tr>
+                  <td width="422" colspan="3" class="Titulo">Su encuesta se registr&oacute; satisfactoriamente! </td>
+              </tr>
 
-      <tr>
-        
-        <td colspan="3" align="center" height="20%">
-         <a href="respuesta.do?methodToCall=aceptar">Salir</a>
+       <tr>   <td>&nbsp;</td>  </tr>
 
-    </td>
-      </tr>
-
-      <td  colspan="3">&nbsp;</td>
-      
-    </table>    </td>
-  </tr>
-  <tr>
-    <td colspan="3">&nbsp;</td>
-  </tr>
-</table>
-
-
-         <!--
-<table border="0" width="100%" height="40%" cellspacing="0" cellpadding="0" >
        <tr>
-                    <td colspan="2"> </td>
+
+            <td class="Titulo">Gracias por participar</td>
        </tr>
 
         <tr>
-    <td width="8%">&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
 
-   <td width="92%" valign="top" align="center">
-   <td width="8%">&nbsp;</td>
-      </tr>
-  <table width="539" height="500" align="center" cellpadding="0" cellspacing="0" class="tabla2">
-  <tr>
-    <td width="10" scope="col" height="20%">&nbsp;</td>
-    <td colspan="5" scope="col" class="Titulo" >
-    Su encuesta se registró satisfactoriamente
-    </td>
-    <td width="16" scope="col">
-     &nbsp;
+        <tr>
+            <td align="center" height="20%">
+             <a href="respuesta.do?methodToCall=aceptar">Salir</a>  </td>
+        </tr>
+      
+    </table>
     </td>
   </tr>
-
   <tr>
-    <td width="10" scope="col" height="20%">&nbsp;</td>
-    <td colspan="5" scope="col" class="Titulo" >
-    Muchas gracias!
-    </td>
-    <td width="16" scope="col">
-    &nbsp;
-    </td>
+    <td>&nbsp;</td>
   </tr>
-
-  
-      <td align="center" colspan="5" height="20%">
-          <table  width="100%">
-           <tr>
-               <td width="10" scope="col" height="20%">&nbsp;</td>
-                <td colspan="5">
-                <a href="respuesta.do?methodToCall=aceptar">Salir</a>
-                </td>
-                <td width="10" scope="col" height="20%">&nbsp;</td>
-            </tr>
-          </table>
-
-     
-</table>
-
-
- 
-</table>
-         -->
+</table> 
     </body>
 </html>
