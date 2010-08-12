@@ -124,7 +124,13 @@
                                       </center>
                                  </td></tr>
 
+                             <tr> <td colspan="2">
+                                     <center>
 
+                                         <a style="cursor:hand" onclick="window.history.back();"> Ver Listado de Encuestas </a>
+                                      </center>
+                                 </td>
+                             </tr>
 
 
                        </table>
