@@ -37,8 +37,6 @@
 		}
 
 
-
-
 	</script>
 
 </head>
@@ -56,27 +54,25 @@
 	</tr>
 
     <tr>
-            <td></td>
-             <td></td>
+            <td>&nbsp;</td>
+             <td>&nbsp;</td>
           
-            <td  valign="top" align="left">   <p>&nbsp;</p>
+            <td  valign="top" align="left"> 
 
-
-             
-
-
-
-                     <table width=800 border="1" align="center" cellpadding="0" cellspacing="0" class="tabla1" >
-
-                             <tr> <td> Descripción encuesta</td><td> <html:text property="nombre"></html:text>   </td></tr>
-                             <tr> <td> Estado</td><td>
+                     <table width=430 border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2" >
+                          
+                         <tr> <td colspan="2" class="letrast">Configuración de Encuesta</td></tr>
+                          <tr> <td colspan="2" >&nbsp;</td></tr>
+                         <tr> <td class="subtitulosMayus" width="50%"> Descripción encuesta</td><td>
+                                 <html:text property="nombre"></html:text>   </td></tr>
+                             <tr> <td class="subtitulosMayus" width="50%"> Estado</td><td>
                                  <html:select property="estado" >
                                   <html:option value="0">Iniciado</html:option>
                                   <html:option value="1">Terminado</html:option>
                                   <html:option value="2">Cancelado</html:option>
 					</html:select>
                                  </td></tr>
-                             <tr> <td> Fecha Inicio</td><td>
+                             <tr> <td class="subtitulosMayus" width="50%"> Fecha Inicio</td><td>
 
                                      <html:text  property="fechaInicio" styleId="fechaInicio" ></html:text>
                                      
@@ -96,7 +92,7 @@
 
 
                                  </td></tr>
-                             <tr> <td> Fecha Final</td><td>
+                             <tr> <td class="subtitulosMayus" width="50%"> Fecha Final</td><td>
 
                                       <html:text property="fechaFin" styleId="fechaFin"></html:text>
 
@@ -115,7 +111,7 @@
 
 
                                  </td></tr>
-                          
+                           <tr> <td colspan="2">&nbsp;</td></tr>
                              <tr> <td colspan="2">
                                      <center>
                                         <html:button property="cmdActualizar" styleClass="botonAceptar" onclick="javascript:jsAceptar('actualizar');">
@@ -123,7 +119,7 @@
                                          </html:button>
                                       </center>
                                  </td></tr>
-
+                                  <tr> <td colspan="2">&nbsp;</td></tr>
                              <tr> <td colspan="2">
                                      <center>
 
