@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : MonitoreoEncuesta
     Created on : 17/06/2010, 09:13:07 PM
     Author     : Gaby
@@ -50,22 +50,22 @@
 
 
 
-                <form>
+                <form name="form1">
 
-    
+
 
             <table  align="center" border="0" cellpadding="0" cellspacing="0" class="tabla1" width="80%">
 
                 <TR>
                     <TD align="center">
-                        <iframe width="600" height="400" frameborder="0" scrolling="no"
+                        <iframe width="600" height="600" frameborder="0" scrolling="no"
                        name="report1" src='prueba1.jsp?idencuesta=<%=idencuesta%>'></iframe>
 
                          <!-- <BR />
                         <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>-->
                     </TD>
                    <TD align="center">
-                            <iframe width="600" height="400" frameborder="0" scrolling="no"
+                            <iframe width="600" height="600" frameborder="0" scrolling="no"
                        name="report2" src='prueba2.jsp?idencuesta=<%=idencuesta%>' ></iframe>
                         <!-- <BR />
                         <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>-->
@@ -74,18 +74,18 @@
                  <TR>
 
                         <TD align="center">
-                        <iframe width="600" height="400" name="report4"
+                        <iframe width="600" height="600" name="report4"
                               src='prueba4.jsp?idencuesta=<%=idencuesta%>'   frameborder="0" scrolling="no" ></iframe>
                         <!-- <BR />
                         <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>-->
                     </TD>
                     <TD align="center">
-                        <iframe width="600" height="400" name="report3"
+                        <iframe width="600" height="600" name="report3"
                             src='prueba3.jsp?idencuesta=<%=idencuesta%>'     frameborder="0" scrolling="no" ></iframe>
                       <!-- <BR />
                         <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>-->
                     </TD>
-                
+
                 </TR>
 
                 <tr> <td colspan="2">
@@ -95,7 +95,7 @@
                                       </center>
                                  </td></tr>
             </table>
-                       
+
 
 
                 </form>
@@ -105,15 +105,22 @@
     </tr>
 </table>
                         <script>
-                        
-                           
+
+
                             setTimeout('reporte1()',600);
 
                                    function reporte1()
-                          {
 
+{
+
+
+ //window.parent.frames[0].width= '400px';
+ //window.parent.frames[0].heigth= '400px';
+
+// window.parent.document.getElementById('report1').width= '400px';
+//parent.document.getElementById('report1').heigth= '400px';
                           var hora=Date();
-         
+
                   window.parent.frames[0].actualizar();
   setTimeout('reporte2()',600);
 
@@ -121,31 +128,34 @@
 
                               function reporte2()
                           {
-     
+    // parent.document.getElementById('report2').width= '400px';
+//parent.document.getElementById('report2').heigth= '400px';
                     window.parent.frames[1].actualizar();
   setTimeout('reporte4()',600);
 
                           }
                     function reporte4()
                           {
-
+//parent.document.getElementById('report4').width= '400px';
+//parent.document.getElementById('report4').heigth= '400px';
                     window.parent.frames[3].actualizar();
   setTimeout('reporte3()',600);
 
                           }
 
            function reporte3()
-                          {
-
+           {
+//parent.document.getElementById('report3').width= '400px';
+//parent.document.getElementById('report3').heigth= '400px';
                     window.parent.frames[2].actualizar();
 
 
                           }
 
-        
 
-               
-                         
+
+
+
                           </script>
 
 </body>
