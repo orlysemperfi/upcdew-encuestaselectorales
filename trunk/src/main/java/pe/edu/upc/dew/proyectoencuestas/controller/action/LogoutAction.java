@@ -12,7 +12,7 @@ import org.apache.struts.actions.DispatchAction;
  
 public class LogoutAction extends DispatchAction {
 	
-	public ActionForward execute(
+  public ActionForward execute(
 			ActionMapping mapping,
 			ActionForm form,
 			HttpServletRequest request,
@@ -24,9 +24,7 @@ public class LogoutAction extends DispatchAction {
 
 		try {
 			if (session != null) {
-				session.removeAttribute("usuario");
-                       
-
+                                session.removeAttribute("nombre");
 			}
 			request.getSession().invalidate();
 		} catch (Exception e) {
