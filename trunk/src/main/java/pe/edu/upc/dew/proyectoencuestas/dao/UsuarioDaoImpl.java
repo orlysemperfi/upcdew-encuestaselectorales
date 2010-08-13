@@ -60,4 +60,64 @@ public class UsuarioDaoImpl implements UsuarioDao{
         return usuario;
     }
 
+
+      public String obtenerLoginUsuario(String sLogin) {
+
+        String codigo="0";
+        Connection connection = null;
+        Statement st = null;
+        ResultSet rs = null;
+
+        try {
+            connection = MySqlDBConn.getConnection();
+            st = connection.createStatement();
+            rs = st.executeQuery("select  user_usu from tb_usuario where user_usu='" + sLogin + "'");
+            while (rs.next()) {
+              codigo = rs.getString("user_usu");
+              System.out.println("codigo "+codigo);
+
+            }
+        } catch (SQLException e) {
+             throw new IllegalStateException("Error al obtener el usuario", e);
+        }
+        finally {
+
+            MySqlDBConn.closeResultSet(rs);
+            MySqlDBConn.closeStatement(st);
+            MySqlDBConn.closeConnection(connection);
+        }
+        return codigo;
+    }
+
+
+      public String obtenerContrasenaUsuario(String sLogin) {
+
+        String contrasena="0";
+        Connection connection = null;
+        Statement st = null;
+        ResultSet rs = null;
+
+        try {
+            connection = MySqlDBConn.getConnection();
+            st = connection.createStatement();
+            rs = st.executeQuery("select  pass_usu from tb_usuario where user_usu='" + sLogin + "'");
+            while (rs.next()) {
+              contrasena = rs.getString("pass_usu");
+              System.out.println("contrasena "+contrasena);
+
+            }
+        } catch (SQLException e) {
+             throw new IllegalStateException("Error al obtener el usuario", e);
+        }
+        finally {
+
+            MySqlDBConn.closeResultSet(rs);
+            MySqlDBConn.closeStatement(st);
+            MySqlDBConn.closeConnection(connection);
+        }
+        return contrasena;
+    }
+
+
+
 }
