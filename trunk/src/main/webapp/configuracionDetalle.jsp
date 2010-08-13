@@ -49,11 +49,11 @@
              <tr>
                 <td>
                     <br><br>
-                         <table width=500 border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2" >
+                         <table width=550 border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2" >
 
                              <tr> <td colspan="2" class="letrast">Configuración de Encuesta</td></tr>
                              <tr> <td colspan="2" >&nbsp;</td></tr>
-                             <tr> <td class="subtitulosMayus" width="50%"> Descripción encuesta</td><td><html:text property="nombre"></html:text>   </td></tr>
+                             <tr> <td class="subtitulosMayus" width="50%"> Descripción encuesta</td><td><html:text property="nombre" size="50"></html:text>   </td></tr>
                              <tr> <td class="subtitulosMayus" width="50%"> Estado</td><td>
                                      <html:select property="estado" >
                                       <html:option value="0">Iniciado</html:option>
