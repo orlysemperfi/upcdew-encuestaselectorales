@@ -244,19 +244,20 @@ function getValuesOptions()
 
      <br><br>
      <table width="539" border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2">
- 
+
+
        <input type="hidden" name="idEncuesta" value="${idEncuesta}">
        <input type="hidden" name="rptas" id="rptas">
 
-
+     
    <c:forEach items="${preguntas}" var="pregunta">
        <c:set var="counter" value="${counter + 1}"/>
     <tr>
-    <td>&nbsp;</td>
+        
     <td colspan="2" class="subtitulosMayus">${counter}- ${pregunta.descripcion}
   
     </td>
-    <td>&nbsp;</td>
+    <td >&nbsp;</td>
   </tr>
 
            
@@ -267,6 +268,9 @@ function getValuesOptions()
                 <td>
                     <table>
 
+                     <tr>
+                        <td colspan="4">&nbsp;</td>
+                     </tr>
                     <c:forEach items="${pregunta.opciones}" var="opcion">
                         
                          <tr>
@@ -281,6 +285,10 @@ function getValuesOptions()
                    
                     </c:forEach>
 
+                        <tr>
+                        <td colspan="4">&nbsp;</td>
+                     </tr>
+                     
                    </table>
                 </td>
                 </c:if>
@@ -289,6 +297,10 @@ function getValuesOptions()
                 <c:if test="${pregunta.tipo == 2}">
                 <td>
                     <table>
+
+                         <tr>
+                             <td colspan="4">&nbsp;</td></tr>
+
 
                     <c:forEach items="${pregunta.opciones}" var="opcion">
 
@@ -304,6 +316,10 @@ function getValuesOptions()
                    
                     </c:forEach>
 
+                          <tr>
+                        <td colspan="4">&nbsp;</td>
+                     </tr>
+                     
                    </table>
                 </td>
                 </c:if>
@@ -314,18 +330,8 @@ function getValuesOptions()
 </c:forEach>
 
 
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>
-
-      
-
-    </td>
-    <td>&nbsp;</td>
-  </tr>
+  
+ 
 </table>
 
 
@@ -344,7 +350,7 @@ function getValuesOptions()
 	<table width="100%" height="33" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
 
-		<td align="center">
+		<td align="center" colspan="4">
                    <%-- <html:link forward="pregunta3" onclick="checker();">Terminar encuesta</html:link>
                      <html:submit onclick="javascript:document.forms[0].action='respuesta.do'">
 			Terminar encuesta
