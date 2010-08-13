@@ -11,28 +11,94 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script src="js/Utiles.js?ver=1" type="text/javascript"></script>
+
+    <style type="text/css">
+
+			/* Custom dialog styles */
+			#popup_container.style_1 {
+				font-family: Georgia, serif;
+				color: #A4C6E2;
+				background: #005294;
+				border-color: #113F66;
+			}
+
+			#popup_container.style_1 #popup_title {
+				color: #FFF;
+				font-weight: normal;
+				text-align: left;
+				background: #76A5CC;
+				border: solid 1px #005294;
+				padding-left: 1em;
+			}
+
+			#popup_container.style_1 #popup_content {
+				background: none;
+			}
+
+			#popup_container.style_1 #popup_message {
+				padding-left: 0em;
+			}
+
+			#popup_container.style_1 INPUT[type='button'] {
+				border: outset 2px #76A5CC;
+				color: #A4C6E2;
+				background: #3778AE;
+			}
+
+		</style>
+
+    		<!-- Dependencies -->
+
+		<script type="text/javascript"	src="js/jquery.min.js"></script>
+		<script type="text/javascript"	src="js/jquery-ui.min.js"></script>
+
+		<!-- Core files -->
+		<script src="js/jquery.alerts.js" type="text/javascript"></script>
+		<link href="css/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen" />
+
+
+
 <link rel="stylesheet" type="text/css" href="css/estilos.css">
+  <script type="text/javascript">
+
+    $(document).ready(function () {
+      var $dialog;
+      PageInit();
+         $("#alert_button").click( function() {
+       });
+    });
+
+    function jsValidar() {
+            if(document.forms[0].username.value=='' && document.forms[0].password.value==''){
+                 jAlert("Debe de ingresar su Usuario y Contraseña","Validación");
+            }else{
+                 if(document.forms[0].username.value!=''){
+                            if(document.forms[0].password.value!=''){
+                                            document.forms[0].action='Usuario.do';
+                                            document.forms[0].submit();
+                                    }else{
+                                          jAlert("Ingrese su Contraseña","Validación");
+                                         }
+                            }else{
+                                  jAlert("Ingrese su Usuario","Validación");
+                                 }
+                 }
+       }
+
+  </script>
+
 <title>Login Sistema de Encuestas</title>
 </head>
 
 <body>
-
-<script>
-$(document).ready(function() {
-$('.boton').mouseover(function() {
-var nombre=$(this).attr("name");
-$(this).attr("src", "images/roll/"+nombre+".jpg");
-});
-$('.boton').mouseout(function() {
-var nombre=$(this).attr("name");
-$(this).attr("src", "images/normal/"+nombre+".jpg");
-});
-});
-</script>
+ 
 
 
-<form action="Usuario.do" method="post">
+    <form   action="Usuario.do" method="post">
 
 <table width="825" border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2">
   <tr>
@@ -42,7 +108,8 @@ $(this).attr("src", "images/normal/"+nombre+".jpg");
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td><table width="200" border="0" align="center" cellpadding="0" cellspacing="0">
+    <td>
+        <table width="200" border="0" align="center" cellpadding="0" cellspacing="0">
       <tr>
         <th scope="col">&nbsp;</th>
         <th scope="col">&nbsp;</th>
@@ -65,13 +132,16 @@ $(this).attr("src", "images/normal/"+nombre+".jpg");
         <td>&nbsp;</td>
         </tr>
       <tr>
-        <td><table width="395" height="160" border="0" align="center">
+        <td>
+
+            <table width="395" height="160" border="0" align="center">
               <tr>
                 <th colspan="2" rowspan="4" align="center" valign="middle" scope="col"><table width="112" border="0">
                     <tr>
                       <th width="102" scope="col"><img src="images/icono_login.jpg" width="102" height="99" /></th>
                     </tr>
-                </table></th>
+                </table>
+                </th>
                 <td class="subtitulosMayus" scope="col">&nbsp;</td>
                 <th class="subtitulosMayus" scope="col">&nbsp;</th>
                 <th valign="middle" scope="col">&nbsp;</th>
@@ -84,7 +154,6 @@ $(this).attr("src", "images/normal/"+nombre+".jpg");
 				type="text"
 				style="width:110px"
 				maxlength="11"
-				onkeypress="return fs_SoloLetras(event)"
 				/>			  </th>
               <th valign="middle" scope="col">&nbsp;</th>
             </tr>
@@ -96,14 +165,15 @@ $(this).attr("src", "images/normal/"+nombre+".jpg");
 				type="password"
 				style="width:110px"
 				maxlength="11"
-				onkeypress="return fs_SoloLetras(event)"
 				/>			</th>
             <th width="30" valign="middle" scope="col">&nbsp;</th>
           </tr>
           <tr>
             <td height="20" class="subtitulosMayus">&nbsp;</td>
             <td align="center">
-                <input type="submit" name="Ingresar" value="Ingresar" />
+            
+                <input type="button" name="Ingresar" value="Ingresar" onclick="jsValidar()" />
+
             <!--
             <a href="Principal.html">
              <img class="boton" name="btnIngresar" src="images/normal/btnIngresar.jpg" width="90" height="28"  border="0"/ >
@@ -113,13 +183,14 @@ $(this).attr("src", "images/normal/"+nombre+".jpg");
             <td>&nbsp;</td>
           </tr>
           <tr>
-            <td width="70">&nbsp;</td>
-            <td width="57">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td align="center" height="28"></td>
-            <td>&nbsp;</td>
+              <td colspan="4"> <center>${mensaje}</center></td>
+
+           
+
           </tr>
-        </table></td>
+        </table>
+
+        </td>
         </tr>
       <tr>
         <td colspan="3"><img src="images/CuadroInf.png" width="505" height="28" /></td>
