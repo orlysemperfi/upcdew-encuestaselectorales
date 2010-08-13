@@ -53,14 +53,13 @@ public class ReporteDaoImpl implements ReporteDao {
                             reporteEncuesta.setDesPregunta(rs.getString(4));
                             reporteEncuesta.setTipoPreguntaGrafico(rs.getString(5));
                             reporteEncuesta.setResultado(getCantidadVotos(idEncuesta,reporteEncuesta.getIdPregunta()));
-
-                              System.out.println("/n tamanio "+reporteEncuesta.getResultado().size());
-             
+ 
                             listaVotos.add(reporteEncuesta);
 
 			}
 		} catch (Exception e) {
-                        e.printStackTrace();
+                         throw new IllegalStateException("Error al obtener las preguntas de una encuesta",e);
+
                 }
                 finally {
 			MySqlDBConn.closeResultSet(rs);
@@ -88,7 +87,6 @@ public class ReporteDaoImpl implements ReporteDao {
                               " from tb_pregunta p, tb_opcion o, tb_opcxpre  t ,tb_prexenc pe "+
                               " where p.id_pre=t.id_pre and o.id_opc=t.id_opc and  pe.id_pre=p.id_pre and pe.id_enc="+ idEncuesta +" and p.id_pre="+ idPregunta +" ";
 
-
 		// Ejecutar consulta
 		try {
 			conn = MySqlDBConn.getConnection();
@@ -106,7 +104,8 @@ public class ReporteDaoImpl implements ReporteDao {
 
 			}
 		} catch (Exception e) {
-                        e.printStackTrace();
+                      throw new IllegalStateException("Error al obtener el conteo de votos",e);
+
                 }
                 finally {
 			MySqlDBConn.closeResultSet(rs);
