@@ -17,14 +17,11 @@ import pe.edu.upc.dew.proyectoencuestas.model.dto.Usuario;
 public interface EncuestaDao {
 
     public List<Encuesta> getEncuestas();
-    
     public List<Encuesta> getEncuestasPorDistritos(String distrito);
-
     public void registrarRespuesta(Integer idEncuesta, Integer idOpcion, Integer idPregunta, Usuario usuario, String fecha);
     public void actualizarEncuesta(Integer idEncuesta, String nombre,String estado,String fechaInicio, String fechaFinal);
-
     public Encuesta getEncuesta(Integer idEncuesta);
-
     List<Ubigeo> getDistritosPorEncuesta(Integer idEncuesta);
+    
 }
 
