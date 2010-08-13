@@ -48,22 +48,23 @@ public class UsuarioAction extends org.apache.struts.action.Action {
 
         System.out.println("loginn "+login);
 
+
+     try {
+
         if(!login.equals("0")){
            String contrasena=usuarioService.obtenerContrasenaUsuario(login);
 
            System.out.println("contrasena "+contrasena);
 
            if(contrasena.equals(password)){
-
                Usuario usuario = usuarioService.getUsuarioPorUsername(username, password);
 
                    System.out.println("usuario "+usuario.getNombre());
 
-                    HttpSession session = request.getSession();
-                    session.setAttribute("usuario", usuario);
+                   HttpSession session = request.getSession();
+                   session.setAttribute("usuario", usuario);
 
-                    if(usuario.getRol() == 1)
-                    {
+                    if(usuario.getRol() == 1) {
                         this.encuestaService = new EncuestaServiceImpl();
                         List<Encuesta> encuestas = encuestaService.getEncuestas();
 
@@ -75,20 +76,14 @@ public class UsuarioAction extends org.apache.struts.action.Action {
                             return mapping.findForward(ERROR);
                         }
 
-                    }
-                    else
-                    {
+                 }else{
                         List<Encuesta> encuestas = encuestaService.getEncuestasPorDistritos(usuario.getUbigeo().getCodDistrito());
-                        if (encuestas == null)
-                        {
+                        if (encuestas == null)  {
                             return mapping.findForward(ERROR);
-                        }
-                        else
-                        {
+                        }else{
                             if (encuestas.size() > 0){
                                 request.setAttribute("encuestas", encuestas);
                                 return mapping.findForward(USERSUCCESS);
-
                             } else {
                                 return mapping.findForward(ERROR);
                             }
@@ -101,10 +96,16 @@ public class UsuarioAction extends org.apache.struts.action.Action {
             }
 
            }else{
-
                  request.setAttribute("mensaje","Usuario incorrecto");
            }
 
+
+          } catch (Exception e) {
+
+                System.out.println("mesnajeeee "+e.getMessage());
+
+               
+        }
 
         return mapping.findForward(ERROR);
 
