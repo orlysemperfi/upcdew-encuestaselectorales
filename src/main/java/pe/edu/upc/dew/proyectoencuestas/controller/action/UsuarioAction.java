@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package pe.edu.upc.dew.proyectoencuestas.controller.action;
 
 import java.util.List;
@@ -20,21 +19,20 @@ import pe.edu.upc.dew.proyectoencuestas.service.bo.EncuestaServiceImpl;
 import pe.edu.upc.dew.proyectoencuestas.service.bo.UsuarioService;
 import pe.edu.upc.dew.proyectoencuestas.service.bo.UsuarioServiceImpl;
 
-/**
- *
- * @author cramirez
- */
+
+
 public class UsuarioAction extends org.apache.struts.action.Action {
 
      private UsuarioService usuarioService;
      private EncuestaService encuestaService;
-     
+
     /* forward name="success" path="" */
     private static final String SUCCESS = "exito";
     private static final String ERROR = "error";
     private static final String USERSUCCESS = "userexito";
-    
- 
+
+
+
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
@@ -52,7 +50,7 @@ public class UsuarioAction extends org.apache.struts.action.Action {
 
         if(!login.equals("0")){
            String contrasena=usuarioService.obtenerContrasenaUsuario(login);
-           
+
            System.out.println("contrasena "+contrasena);
 
            if(contrasena.equals(password)){
@@ -109,6 +107,6 @@ public class UsuarioAction extends org.apache.struts.action.Action {
 
 
         return mapping.findForward(ERROR);
-       
+
     }
 }
