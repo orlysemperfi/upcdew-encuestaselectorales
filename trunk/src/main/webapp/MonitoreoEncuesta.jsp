@@ -1,4 +1,4 @@
-<%--
+<%-- 
     Document   : MonitoreoEncuesta
     Created on : 17/06/2010, 09:13:07 PM
     Author     : Gaby
@@ -52,7 +52,7 @@
 
                 <form>
 
-
+    
 
             <table  align="center" border="0" cellpadding="0" cellspacing="0" class="tabla1" width="80%">
 
@@ -85,7 +85,7 @@
                         <BR />
                      <a href="#">Exportar a PDF <img src="images/pdfIcon2.jpg" /></a>
                     </TD>
-
+                
                 </TR>
 
                 <tr> <td colspan="2">
@@ -95,7 +95,7 @@
                                       </center>
                                  </td></tr>
             </table>
-
+                       
 
 
                 </form>
@@ -105,15 +105,15 @@
     </tr>
 </table>
                         <script>
-
-
+                        
+                           
                             setTimeout('reporte1()',600);
 
                                    function reporte1()
                           {
 
                           var hora=Date();
-
+         
                   window.parent.frames[0].actualizar();
   setTimeout('reporte2()',600);
 
@@ -121,7 +121,7 @@
 
                               function reporte2()
                           {
-
+     
                     window.parent.frames[1].actualizar();
   setTimeout('reporte4()',600);
 
@@ -142,10 +142,10 @@
 
                           }
 
+        
 
-
-
-
+               
+                         
                           </script>
 
 </body>
