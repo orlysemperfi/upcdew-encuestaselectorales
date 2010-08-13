@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package pe.edu.upc.dew.proyectoencuestas.util;
 
@@ -20,7 +16,7 @@ import pe.edu.upc.dew.proyectoencuestas.model.dto.Reporte;
 
 public class GeneradorGraficos {
 
-     public String factoryGrafico(List<Reporte> lista,String ruta,int idGrafico){
+    public String factoryGrafico(List<Reporte> lista,String ruta,int idGrafico){
 
           String rutaGrafico="";
           switch (idGrafico) {
@@ -54,10 +50,9 @@ public class GeneradorGraficos {
 
      }
 
-
+    
     public String PieChart(List<Reporte> lista,String ruta) {
 
-             // Create a simple pie chart
             DefaultPieDataset pieDataset = new DefaultPieDataset();
             String titulo="";
 
@@ -72,13 +67,13 @@ public class GeneradorGraficos {
                  ChartUtilities.saveChartAsJPEG(new File(ruta+".jpg"), chart, 550, 300);
 
              } catch (Exception e) {
-                 System.out.println("Problem occurred creating chart.");
-                 System.out.println(getClass().getResource("/tupath/path"));
+                 throw new IllegalStateException("Error al generar el reporte grafico Pie",e);
              }
             return ruta+".jpg";
      }
 
-    public String   PieChart3D(List<Reporte> lista,String ruta) {
+
+    public String PieChart3D(List<Reporte> lista,String ruta) {
 
              DefaultPieDataset pieDataset = new DefaultPieDataset();
              String titulo="";
@@ -96,8 +91,7 @@ public class GeneradorGraficos {
                  ChartUtilities.saveChartAsJPEG(new File(ruta+".jpg"), chart, 550, 300);
 
              } catch (Exception e) {
-
-                 System.out.println("Problem occurred creating chart.");
+                    throw new IllegalStateException("Error al generar el reporte grafico Pie3D",e);
              }
             return ruta+".jpg";
      }
@@ -105,7 +99,6 @@ public class GeneradorGraficos {
 
     public String BarChartVertical(List<Reporte> lista,String ruta) {
 
-           // Create a simple Bar chart
            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
            String titulo="";
 
@@ -115,26 +108,19 @@ public class GeneradorGraficos {
              }
 
            JFreeChart chart = ChartFactory.createBarChart("",  "", "", dataset, PlotOrientation.VERTICAL, false,  true, false);
- 
-           // Background del dibujo
            chart.setBackgroundPaint(Color.white);
 
            try {
-
                ChartUtilities.saveChartAsJPEG(new File(ruta+".jpg"), chart, 550, 300);
-
            } catch (IOException e) {
-
-               System.err.println("Problem occurred creating chart.");
-
+               throw new IllegalStateException("Error al generar el reporte grafico BarChartVertical",e);
            }
         return ruta+".jpg";
        }
 
 
-       public String BarChartHorizontal(List<Reporte> lista,String ruta) {
+    public String BarChartHorizontal(List<Reporte> lista,String ruta) {
 
-           // Create a simple Bar chart
            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
            String titulo="";
 
@@ -144,28 +130,19 @@ public class GeneradorGraficos {
              }
 
             JFreeChart chart = ChartFactory.createBarChart("",  "", "", dataset, PlotOrientation.HORIZONTAL, false,  true, false);
-
-           // Background del dibujo
-	 chart.setBackgroundPaint(Color.white);
+            chart.setBackgroundPaint(Color.white);
 
            try {
-
                ChartUtilities.saveChartAsJPEG(new File(ruta+".jpg"), chart, 550, 300);
-             // ChartUtilities.saveChartAsJPEG(new File("D:/graficos/chartBCHorizontal.jpg"), chartH, 500, 300);
-
            } catch (IOException e) {
-
-               System.err.println("Problem occurred creating chart.");
-
+               throw new IllegalStateException("Error al generar el reporte grafico BarChartHorizontal",e);
            }
         return ruta+".jpg";
        }
 
 
 
-      public String BarChart3DVerticalA(List<Reporte> lista,String ruta) {
-
-           // Create a simple Bar chart
+    public String BarChart3DVerticalA(List<Reporte> lista,String ruta) {
 
            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
            String titulo="";
@@ -173,29 +150,19 @@ public class GeneradorGraficos {
                dataset.setValue(  new Integer (lista.get(i).getCantidad()),"",lista.get(i).getDescripcion());
                titulo=lista.get(i).getTitulo();
              }
+          JFreeChart chart = ChartFactory.createBarChart3D( "", "", "", dataset, PlotOrientation.VERTICAL, true, true, false );
 
-
-	   // Profit1, Profit2 represent the row keys
-           // Jane, Tom, Jill, etc. represent the column keys
-           JFreeChart chart = ChartFactory.createBarChart3D( "", "", "", dataset, PlotOrientation.VERTICAL, true, true, false );
-
-         //  JFreeChart chartH = ChartFactory.createBarChart3D( "Comparison between Salesman", "Salesman", "Value ($)", dataset, PlotOrientation.HORIZONTAL, true, true, false );
-           try {
-
+          try {
                ChartUtilities.saveChartAsJPEG(new File(ruta+".jpg"), chart, 550,   300);
-          //     ChartUtilities.saveChartAsJPEG(new File("D:/graficos/chart3dHorizontal.jpg"), chartH, 500,   300);
 
            } catch (IOException e) {
-
-               System.err.println("Problem occurred creating chart.");
-
+               throw new IllegalStateException("Error al generar el reporte grafico BarChart3DVerticalA",e);
            }
             return ruta+".jpg";
        }
 
-       public String BarChart3DVerticalB(List<Reporte> lista,String ruta) {
 
-           // Create a simple Bar chart
+    public String BarChart3DVerticalB(List<Reporte> lista,String ruta) {
 
            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
            String titulo="";
@@ -203,60 +170,42 @@ public class GeneradorGraficos {
                dataset.setValue(  new Integer (lista.get(i).getCantidad()),lista.get(i).getDescripcion(),lista.get(i).getDescripcion());
                titulo=lista.get(i).getTitulo();
              }
-
-
-	   // Profit1, Profit2 represent the row keys
-           // Jane, Tom, Jill, etc. represent the column keys
            JFreeChart chart = ChartFactory.createBarChart3D( "", "", "", dataset, PlotOrientation.VERTICAL, true, true, false );
 
-         //  JFreeChart chartH = ChartFactory.createBarChart3D( "Comparison between Salesman", "Salesman", "Value ($)", dataset, PlotOrientation.HORIZONTAL, true, true, false );
            try {
-
                ChartUtilities.saveChartAsJPEG(new File(ruta+".jpg"), chart, 550,   300);
-          //     ChartUtilities.saveChartAsJPEG(new File("D:/graficos/chart3dHorizontal.jpg"), chartH, 500,   300);
-
+ 
            } catch (IOException e) {
-
-               System.err.println("Problem occurred creating chart.");
-
+             throw new IllegalStateException("Error al generar el reporte grafico BarChart3DVerticalB",e);
            }
             return ruta+".jpg";
        }
 
 
-           public String BarChart3DHorizontalA(List<Reporte> lista,String ruta) {
 
+    public String BarChart3DHorizontalA(List<Reporte> lista,String ruta) {
            // Create a simple Bar chart
-
            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
            String titulo="";
+
            for (int i=0; i<lista.size(); i++){
                dataset.setValue(  new Integer (lista.get(i).getCantidad()),"",lista.get(i).getDescripcion());
                titulo=lista.get(i).getTitulo();
              }
-
-
-	   // Profit1, Profit2 represent the row keys
-           // Jane, Tom, Jill, etc. represent the column keys
-           JFreeChart chart = ChartFactory.createBarChart3D( "", "", "", dataset, PlotOrientation.HORIZONTAL, true, true, false );
-
-         //  JFreeChart chartH = ChartFactory.createBarChart3D( "Comparison between Salesman", "Salesman", "Value ($)", dataset, PlotOrientation.HORIZONTAL, true, true, false );
-           try {
+            JFreeChart chart = ChartFactory.createBarChart3D( "", "", "", dataset, PlotOrientation.HORIZONTAL, true, true, false );
+            try {
 
                ChartUtilities.saveChartAsJPEG(new File(ruta+".jpg"), chart, 550,   300);
-          //     ChartUtilities.saveChartAsJPEG(new File("D:/graficos/chart3dHorizontal.jpg"), chartH, 500,   300);
 
            } catch (IOException e) {
-
-               System.err.println("Problem occurred creating chart.");
-
+               throw new IllegalStateException("Error al generar el reporte grafico BarChart3DHorizontalA",e);
            }
             return ruta+".jpg";
        }
 
-       public String BarChart3DHorizontalB(List<Reporte> lista,String ruta) {
 
-           // Create a simple Bar chart
+
+    public String BarChart3DHorizontalB(List<Reporte> lista,String ruta) {
 
            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
            String titulo="";
@@ -264,22 +213,11 @@ public class GeneradorGraficos {
                dataset.setValue(  new Integer (lista.get(i).getCantidad()),lista.get(i).getDescripcion(),lista.get(i).getDescripcion());
                titulo=lista.get(i).getTitulo();
              }
-
-
-	   // Profit1, Profit2 represent the row keys
-           // Jane, Tom, Jill, etc. represent the column keys
            JFreeChart chart = ChartFactory.createBarChart3D( "", "", "", dataset, PlotOrientation.HORIZONTAL, true, true, false );
-
-         //  JFreeChart chartH = ChartFactory.createBarChart3D( "Comparison between Salesman", "Salesman", "Value ($)", dataset, PlotOrientation.HORIZONTAL, true, true, false );
            try {
-
                ChartUtilities.saveChartAsJPEG(new File(ruta+".jpg"), chart, 550,   300);
-          //     ChartUtilities.saveChartAsJPEG(new File("D:/graficos/chart3dHorizontal.jpg"), chartH, 500,   300);
-
            } catch (IOException e) {
-
-               System.err.println("Problem occurred creating chart.");
-
+               throw new IllegalStateException("Error al generar el reporte grafico BarChart3DHorizontalB",e);
            }
             return ruta+".jpg";
        }
