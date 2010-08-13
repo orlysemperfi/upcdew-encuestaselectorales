@@ -49,7 +49,9 @@ public class UsuarioDaoImpl implements UsuarioDao{
 
             }
         } catch (SQLException e) {
-             throw new IllegalStateException("Error al obtener el usuario", e);
+
+                 throw new IllegalStateException("Error al obtener el usuario", e);
+          		
         }
         finally {
            
@@ -74,11 +76,9 @@ public class UsuarioDaoImpl implements UsuarioDao{
             rs = st.executeQuery("select  user_usu from tb_usuario where user_usu='" + sLogin + "'");
             while (rs.next()) {
               codigo = rs.getString("user_usu");
-              System.out.println("codigo "+codigo);
-
             }
         } catch (SQLException e) {
-             throw new IllegalStateException("Error al obtener el usuario", e);
+             throw new IllegalStateException("Error al obtener el usuario",e);
         }
         finally {
 
@@ -103,11 +103,9 @@ public class UsuarioDaoImpl implements UsuarioDao{
             rs = st.executeQuery("select  pass_usu from tb_usuario where user_usu='" + sLogin + "'");
             while (rs.next()) {
               contrasena = rs.getString("pass_usu");
-              System.out.println("contrasena "+contrasena);
-
             }
         } catch (SQLException e) {
-             throw new IllegalStateException("Error al obtener el usuario", e);
+             throw new IllegalStateException("Error al obtener el usuario",e);
         }
         finally {
 
