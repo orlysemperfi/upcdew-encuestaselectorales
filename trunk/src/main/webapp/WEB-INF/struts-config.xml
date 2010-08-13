@@ -127,8 +127,7 @@
         path="/encuestasPorDistrito.jsp"
         redirect="false"/>
       
-      <forward
-      name="error" path="/index.jsp" redirect="false"/>
+      <forward  name="error" path="/login.jsp" redirect="false"/>
 
     </action>
        <action
