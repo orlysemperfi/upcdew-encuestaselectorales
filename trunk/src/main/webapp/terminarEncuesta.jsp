@@ -39,19 +39,19 @@
                   <td width="422" colspan="3" class="Titulo">Su encuesta se registr&oacute; satisfactoriamente! </td>
               </tr>
 
-       <tr>   <td>&nbsp;</td>  </tr>
+       <tr>   <td  colspan="3">&nbsp;</td>  </tr>
 
        <tr>
 
-            <td class="Titulo">Gracias por participar</td>
+            <td  colspan="3" class="Titulo">Gracias por participar</td>
        </tr>
 
         <tr>
-            <td>&nbsp;</td>
+            <td  colspan="3">&nbsp;</td>
         </tr>
 
         <tr>
-            <td align="center" height="20%">
+            <td align="center" height="20%"  colspan="3">
              <a href="respuesta.do?methodToCall=aceptar">Salir</a>  </td>
         </tr>
       
