@@ -26,4 +26,12 @@ public class UsuarioServiceImpl implements UsuarioService{
         return usuarioDao.getUsuarioPorUsername(username, password);
     }
 
+    public String obtenerLoginUsuario(String sLogin) {
+        return usuarioDao.obtenerLoginUsuario(sLogin);
+
+    }
+     public String obtenerContrasenaUsuario(String sLogin) {
+        return usuarioDao.obtenerContrasenaUsuario(sLogin);
+
+     }
 }
