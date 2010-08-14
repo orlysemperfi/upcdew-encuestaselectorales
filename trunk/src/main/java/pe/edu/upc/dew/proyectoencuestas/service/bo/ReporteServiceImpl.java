@@ -31,18 +31,13 @@ public class ReporteServiceImpl implements ReporteService {
 
      public List<ReporteEncuesta> getListarPreguntasEncuesta(String encuesta,String ruta)
   {
-
+          
       List<ReporteEncuesta> reporte = reporteDao.getListarPreguntasEncuesta(encuesta);
-
       GeneradorGraficos genera= new GeneradorGraficos();
       for(int x =0 ; x<reporte.size();x++){
 
-        //reporte.get(x).setRutaReporte(genera.PieChart3D( reporte.get(x).getResultado(), ruta+ reporte.get(x).getIdEncuesta()+reporte.get(x).getIdPregunta()));
         reporte.get(x).setRutaReporte(genera.factoryGrafico( reporte.get(x).getResultado(), ruta+ reporte.get(x).getIdEncuesta()+reporte.get(x).getIdPregunta(),Integer.parseInt( reporte.get(x).getTipoPreguntaGrafico())));
-
-
-        System.out.println("miraaaaaaaaaa"+reporte.get(x).getRutaReporte() +" tipo de graficoooooo"+Integer.parseInt( reporte.get(x).getTipoPreguntaGrafico()));
-      }
+         }
 
      return  reporte;
    }
