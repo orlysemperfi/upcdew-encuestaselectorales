@@ -29,7 +29,8 @@ public class ReporteAction  extends DispatchAction{
       public ActionForward iniciar(ActionMapping mapping, ActionForm  form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-          
+
+        try {
              this.reporteBO =  new ReporteServiceImpl();
 
              String ruta =getServlet().getServletContext().getRealPath("/")+"images/";
@@ -38,8 +39,12 @@ public class ReporteAction  extends DispatchAction{
              List<ReporteEncuesta> reporteEncuesta = reporteEncuesta=reporteBO.getListarPreguntasEncuesta(reporteForm.getIdEncuesta(),ruta);
              request.setAttribute("encuestaDes", reporteForm.getDescripcion());
              request.setAttribute("preguntas", reporteEncuesta);
+ 
+        } catch (Exception e) {
+            request.setAttribute("mensaje", e.getMessage());
 
-           return mapping.findForward("exito");
+        }
+          return mapping.findForward("exito");
     }
 
  
