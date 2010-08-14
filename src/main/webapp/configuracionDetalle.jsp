@@ -50,7 +50,7 @@
              <tr>
                 <td>
                     <br><br>
-                         <table width=550 border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2" >
+                         <table width=600 border="0" align="center" cellpadding="0" cellspacing="0" class="tabla2" >
 
                              <tr> <td colspan="2" class="letrast">Configuración de Encuesta</td></tr>
                              <tr> <td colspan="2" >&nbsp;</td></tr>
