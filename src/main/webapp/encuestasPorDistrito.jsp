@@ -34,7 +34,7 @@ function checker()
 
     if (!radio_choice1)
     {
-         document.getElementById("msg").innerHTML="Debe seleccionar una encuesta.";
+        <!-- document.getElementById("msg").innerHTML="Debe seleccionar una encuesta."; -->
         
     }
     else

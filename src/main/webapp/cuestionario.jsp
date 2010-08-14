@@ -83,7 +83,9 @@
 
                  var totalpreg = "${counterp}";
                  var faltan = "";
+                 var faltan2 = "";
                  var termino = false;
+                 var numrptas = 0;
 
                     for (num=0; num < totalpreg; num++)
                     {
@@ -104,8 +106,10 @@
                                     faltan += numpregunta;
                                 else
                                     faltan += numpregunta + ',';
-                            }
 
+                                numrptas ++;
+                            }
+                           
                             if (myOption == -1 && num == totalpreg -1) {
                                 jAlert("Faltan responder las preguntas: " + faltan,"Validación");
                                 return false;
@@ -113,10 +117,17 @@
 
                             if (myOption != -1 && num == totalpreg -1)
                             {
-                                termino = true;
-                                break;
+                                if (numrptas == 0)
+                                {
+                                   termino = true;
+                                   break;
+                                }
+                                else
+                                {
+                                     jAlert("Faltan responder las preguntas: " + faltan,"Validación");
+                                     return false;
+                                }
                             }
-
                     }
 
                   for (num=0; num < document.forms[0].length; num++)
