@@ -24,7 +24,7 @@ public class UsuarioAction extends org.apache.struts.action.Action {
     private UsuarioService usuarioService;
     private EncuestaService encuestaService;
 
-    /* forward name="success" path="" */
+    
     private static final String SUCCESS = "exito";
     private static final String ERROR = "error";
     private static final String USERSUCCESS = "userexito";
@@ -40,17 +40,12 @@ public class UsuarioAction extends org.apache.struts.action.Action {
             String username = ((UsuarioForm) form).getUsername().trim();
             String password = ((UsuarioForm) form).getPassword().trim();
             String login = usuarioService.obtenerLoginUsuario(username);
-            System.out.println("loginn " + login);
 
             if (!login.equals("0")) {
                 String contrasena = usuarioService.obtenerContrasenaUsuario(login);
 
-                System.out.println("contrasena " + contrasena);
-
                 if (contrasena.equals(password)) {
                     Usuario usuario = usuarioService.getUsuarioPorUsername(username, password);
-
-                    System.out.println("usuario " + usuario.getNombre());
 
                     HttpSession session = request.getSession();
                     session.setAttribute("usuario", usuario);
@@ -80,10 +75,8 @@ public class UsuarioAction extends org.apache.struts.action.Action {
                             }
                         }
                     }
-
                 } else {
                     request.setAttribute("mensaje", "Password incorrecto");
-
                 }
 
             } else {
@@ -94,6 +87,5 @@ public class UsuarioAction extends org.apache.struts.action.Action {
 
         }
         return mapping.findForward(ERROR);
-
     }
 }
