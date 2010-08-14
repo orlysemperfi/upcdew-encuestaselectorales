@@ -3504,6 +3504,11 @@ END;
 
 
 
+CREATE PROCEDURE `Sp_reporte4`(in ide integer)
+begin
+SELECT  nroencuestados as id_d,fecha_res as nom_d,tit_enc as loc_d FROM vw_AvanceDiario where id_enc=ide;
+end;
+
 # DBTools DBMYSQL - MySQL Database Dump
 #  Tabla temporal
 
@@ -3512,7 +3517,3 @@ CREATE TABLE temporal (
   fecha_res varchar(10),
   tit_enc varchar(100)
 )
-
-
-
-
