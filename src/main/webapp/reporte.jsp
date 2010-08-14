@@ -33,6 +33,7 @@
             <td  valign="top" align="left">   
                       <center class="Titulo">  ENCUESTA<p></p> <%=request.getAttribute("encuestaDes")%> </center>
                       <br><br>
+                       <center>${mensaje}</center>
                       <table width=800 border="1" align="center" cellpadding="0" cellspacing="0" class="tabla1">
 
                        <c:forEach items="${preguntas}" var="nivel1">
