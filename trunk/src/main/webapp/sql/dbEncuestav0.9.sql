@@ -2880,23 +2880,126 @@ INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES 
 
 
 
-INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,23,6, 'U012','01/08/2010');
-INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,25,7, 'U012','01/08/2010');
-INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,32,8, 'U012','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,28,6, 'U001','26/07/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,27,7, 'U001','26/07/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,32,8, 'U001','26/07/2010');
 
-INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,27,6, 'U006','01/08/2010');
-INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,25,7, 'U006','01/08/2010');
-INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,28,7, 'U006','01/08/2010');
-INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,30,8, 'U006','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,23,6, 'U006','27/07/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,27,7, 'U006','27/07/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,31,8, 'U006','27/07/2010');
 
-INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,26,6, 'U007','01/08/2010');
-INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,27,7, 'U007','01/08/2010');
-INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,31,8, 'U007','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,26,6, 'U067','27/07/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,28,7, 'U067','27/07/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,32,8, 'U067','27/07/2010');
 
-INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,28,6, 'U008','01/08/2010');
-INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,29,7, 'U008','01/08/2010');
-INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,32,8, 'U008','01/08/2010');
+ INSERT INTO `tb_result_fin` (id_enc, id_opc, id_pre, cod_usu,fecha_res) VALUES (2,28,6, 'U069','28/07/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,25,7, 'U069','28/07/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,30,8, 'U069','28/07/2010');
 
+ INSERT INTO `tb_result_fin` (id_enc, id_opc, id_pre, cod_usu,fecha_res) VALUES (2,25,6, 'U070','26/07/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,26,7, 'U070','26/07/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,31,8, 'U070','26/07/2010');
+
+ INSERT INTO `tb_result_fin` (id_enc, id_opc, id_pre, cod_usu,fecha_res) VALUES (2,28,6, 'U073','30/07/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,24,7, 'U073','30/07/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,32,8, 'U073','30/07/2010');
+
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,23,6, 'U082','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,25,7, 'U082','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,32,8, 'U082','01/08/2010');
+
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,27,6, 'U084','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,25,7, 'U084','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,28,7, 'U084','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,30,8, 'U084','01/08/2010');
+
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,26,6, 'U085','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,27,7, 'U085','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,31,8, 'U085','01/08/2010');
+
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,28,6, 'U087','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,29,7, 'U087','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (2,32,8, 'U087','01/08/2010');
+
+
+
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,23,9,  'U062','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,26,10, 'U062','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,27,11, 'U062','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,28,12, 'U062','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,28,13, 'U062','01/08/2010');
+
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,23,9,  'U067','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,25,10, 'U067','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,27,11, 'U067','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,28,12, 'U067','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,28,13, 'U067','01/08/2010');
+
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,23,9,  'U068','02/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,25,10, 'U068','02/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,26,11, 'U068','02/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,28,12, 'U068','02/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,28,13, 'U068','02/08/2010');
+
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,23,9,  'U073','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,25,10, 'U073','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,26,11, 'U073','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,28,12, 'U073','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,28,13, 'U073','01/08/2010');
+
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,26,9,  'U074','04/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,25,10, 'U074','04/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,27,11, 'U074','04/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,28,12, 'U074','04/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,28,13, 'U074','04/08/2010');
+
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,23,9,  'U079','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,25,10, 'U079','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,27,11, 'U079','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,28,12, 'U079','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,26,13, 'U079','01/08/2010');
+
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,23,9,  'U080','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,25,10, 'U080','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,27,11, 'U080','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,28,12, 'U080','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,26,13, 'U080','01/08/2010');
+
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,26,9,  'U085','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,25,10, 'U085','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,27,11, 'U085','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,26,12, 'U085','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,28,13, 'U085','01/08/2010');
+
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,23,9,  'U086','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,25,10, 'U086','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,26,11, 'U086','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,28,12, 'U086','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,28,13, 'U086','01/08/2010');
+
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,27,9,  'U091','04/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,25,10, 'U091','04/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,27,11, 'U091','04/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,25,12, 'U091','04/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,28,13, 'U091','04/08/2010');
+
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,23,9,  'U092','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,25,10, 'U092','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,27,11, 'U092','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,28,12, 'U092','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,26,13, 'U092','01/08/2010');
+
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,27,9,  'U096','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,26,10, 'U096','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,27,11, 'U096','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,26,12, 'U096','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,25,13, 'U096','01/08/2010');
+
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,26,9,  'U097','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,25,10, 'U097','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,27,11, 'U097','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,25,12, 'U097','01/08/2010');
+INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (3,28,13, 'U097','01/08/2010');
 
 
 INSERT INTO `tb_result_fin` (id_enc,  id_opc, id_pre, cod_usu,fecha_res) VALUES (4,23,14, 'U001','01/07/2010');
@@ -3382,7 +3485,6 @@ as
 select count(*) as 'NroEncuestados', id_enc,cod_usu,fecha_res
 from tb_result_fin
 group by fecha_res;
-
 
 
 create view vw_reconteo_avance
