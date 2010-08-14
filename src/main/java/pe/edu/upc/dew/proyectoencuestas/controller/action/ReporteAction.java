@@ -36,7 +36,7 @@ public class ReporteAction  extends DispatchAction{
              String ruta =getServlet().getServletContext().getRealPath("/")+"images/";
              ReporteForm reporteForm = (ReporteForm)form;
 
-             List<ReporteEncuesta> reporteEncuesta = reporteEncuesta=reporteBO.getListarPreguntasEncuesta(reporteForm.getIdEncuesta(),ruta);
+             List<ReporteEncuesta> reporteEncuesta = reporteBO.getListarPreguntasEncuesta(reporteForm.getIdEncuesta(),ruta);
              request.setAttribute("encuestaDes", reporteForm.getDescripcion());
              request.setAttribute("preguntas", reporteEncuesta);
  
