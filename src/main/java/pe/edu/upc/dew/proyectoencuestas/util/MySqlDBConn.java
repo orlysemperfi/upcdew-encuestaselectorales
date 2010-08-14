@@ -16,9 +16,9 @@ public class MySqlDBConn {
         Connection connection = null;
         try {
             Class.forName(DRIVER).newInstance();
-            connection = DriverManager.getConnection(URL_CONNECTION,"root","root");
+            connection = DriverManager.getConnection(URL_CONNECTION,"root","admin");
         } catch (Exception e) {
-            throw new IllegalStateException("Error al obtener Connection", e);
+            throw new IllegalStateException("Error al obtener la conexión a la BD", e);
         }
         return connection;
     }
