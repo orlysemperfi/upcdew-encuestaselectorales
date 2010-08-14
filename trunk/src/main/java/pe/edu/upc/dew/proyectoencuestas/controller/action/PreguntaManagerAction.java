@@ -32,7 +32,7 @@ public class PreguntaManagerAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-
+    try {
         this.preguntaService = new PreguntaServiceImpl();
 
         int idEncuesta = ((PreguntaManagerForm)form).getNumber();
@@ -50,6 +50,13 @@ public class PreguntaManagerAction extends org.apache.struts.action.Action {
                 return mapping.findForward(ERROR);
             }
 
+
+        } catch (Exception e) {
+            request.setAttribute("mensaje", e.getMessage());
+
+        }
+
+        return mapping.findForward(SUCCESS);
     }
 
 
